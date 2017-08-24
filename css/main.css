@@ -1,0 +1,198 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/* 头部 */
+
+header{
+	padding: 0px 50px 0px 120px;	
+	height: 100px;
+	background-color: #fff;
+}
+
+header ul{
+	position: relative;
+	float: right;
+	margin: auto 0;
+	z-index: 99;
+}
+
+header ul li{
+	float: left;
+	width: 80px;
+	height: 100px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 100px;
+	list-style: none;
+	color: black;
+}
+
+/* 主体 */
+.banner{
+	position: relative;
+	height: 600px;
+	background: url('../img/1.jpeg') center top;
+	background-size: cover;
+}
+
+.banner .banner-box{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 500px;
+	height: 300px;
+}
+
+.banner-box h1{
+	padding-top: 100px;
+	font: bold 2.5em 微软雅黑;
+	color: #fff;
+	text-align: center;
+}
+
+.banner-box a{
+	display: inline-block;
+	margin-top: 50px;
+	margin-left: calc(50% - 97px);
+	padding: 10px 20px;
+	background-color: #F5704F;
+	font: 1.5em 微软雅黑;
+	color: #fff;
+	text-decoration: none;
+	border: 2px solid #fff;
+	border-radius: 5px;
+	transition: .6s;
+	-webkit-transition: .6s;
+	-moz-transition: .6s;
+}
+
+.banner-box a:hover{
+	background-color: #fff;
+	color: black;
+}
+
+/* 联系方式 */
+.contact{
+	padding-left: calc(50% - 300px);
+}
+
+.contact:before,
+.contact:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.contact figure{
+	float: left;
+	padding: 50px 20px;
+	width: 160px;
+	height: 130px;
+	text-align: center;
+}
+
+.contact figure img{
+	transition: .2s;
+	-webkit-transition: .2s;
+	-moz-transition: .2s;
+}
+
+.contact figure img:hover{
+	margin-top: -5px;
+	/* transform: rotateX(360deg); */
+}
+
+.contact figure figcaption{
+	font: bold .9em 微软雅黑;
+	line-height: 70px;
+	color: #999;
+}
+
+/* 第一部分内容 */
+.first-content{
+	padding: 20px 0;
+	background-color: #fff;
+	text-align: center;
+}
+
+.first-content:before,
+.first-content:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.first-content p{
+	font: italic 1.2em 微软雅黑;
+	word-spacing: 8px;
+	color: #777;
+}
+
+.first-content p:before,
+.first-content p:after{
+	content: "‘’";
+	font-size: 2.2em;
+}
+
+.first-content figure{
+	display: inline-block;
+	margin: 50px 0px 0px 20px;
+	overflow: hidden;
+	transition: .2s;
+	-webkit-transition: .2s;
+	-moz-transition: .2s;
+}
+
+.first-content figure:hover{
+	cursor: pointer;
+	box-shadow: 2px 1px 50px 2px red;
+}
+
+.first-content figcaption h3{
+	padding-top: 15px;
+	color: gray;
+}
+
+.first-content figcaption span{
+	display: block;
+	font: bold 1.2em 微软雅黑;
+	margin-top: 10px;
+	color: #666;
+}
+
+/* 第二部分内容 */
+.second-contend{
+	padding-bottom: 70px;
+	background-color: #eee;
+	text-align: center;
+	color: #888;
+}
+
+.second-contend h2{
+	padding: 50px 0px;
+	font-size: 1.8em;
+}
+
+.second-contend figure{
+	display: inline-block;
+	margin-left: 10px;
+	width: 470px;
+}
+
+.second-contend figure figcaption{
+	padding-top: 10px;
+	text-align: left;
+	font: bold 1.1em 微软雅黑;
+}
+
+/* 页尾 */
+footer{
+	padding: 40px 0px;
+	font: 1em 微软雅黑;
+	text-align: center;
+	color: #fff;
+	background-color: #292C35;
+}
