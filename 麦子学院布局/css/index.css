@@ -1,0 +1,192 @@
+/* header部分 */
+
+header .title {
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    background-color: #333;
+}
+
+.title ul li a,
+header .title p,
+header .title p time {
+    color: #fff;
+}
+
+header .title p time {
+    padding-right: 20px;
+}
+
+.logo-serch {
+    padding: 20px;
+    height: 59px;
+    text-align: center;
+    line-height: 59px;
+}
+
+.logo-serch img {
+    display: block;
+}
+
+.logo-serch .container h1 {
+    font-family: 微软雅黑;
+    color: #000;
+}
+
+.serch {
+    position: relative;
+    left: 50px;
+    width: 300px;
+    height: 59px;
+}
+
+.serch input {
+    margin-top: 8.5px;
+    padding-left: 20px;
+    width: 290px;
+    height: 36px;
+    border: 2px solid red;
+    border-radius: 5px;
+}
+
+.serch img {
+    position: absolute;
+    right: -20px;
+    top: 15px;
+    height: 40px;
+}
+
+.navbox {
+    height: 50px;
+    background-color: #A30100;
+}
+
+.container ul li {
+    float: left;
+    width: 120px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.navul li:hover {
+    background-color: darkred;
+}
+
+.container .navul li a {
+    font: 1.3em 微软雅黑;
+    color: #fff;
+}
+
+/* main部分 */
+
+.banner {
+    padding: 5px;
+}
+
+.profiles {
+    width: 52%;
+}
+
+.profiles p {
+    text-indent: 2em;
+    font: 1.1em/24px 微软雅黑;
+}
+
+.profiles .jianjie img {
+    float: left;
+    margin: 10px 10px 10px 0;
+}
+
+.title-box {
+    position: relative;
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
+}
+
+.title-box .more {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.news {
+    width: 42%;
+}
+
+.news-box ol li span {
+    float: right;
+}
+
+.news-box ol li a,
+.news-box ol li p {
+    font: 1.2em/25px 微软雅黑;
+}
+
+.news-box ol li img {
+    float: left;
+    margin: 10px 10px 10px 0;
+}
+
+.product-title {
+    position: relative;
+    border-bottom: 1px solid #333;
+}
+
+.product-title img {
+    margin: 10px 0;
+}
+
+.product-title span {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.pic-box {
+    position: relative;
+    float: left;
+    margin: 7px;
+    width: 145px;
+    height: 96px;
+    cursor: pointer;
+    -o-transition: .4s;
+    -moz-transition: .4s;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.pic-box span {
+    position: absolute;
+    bottom: 0;
+    width: 151px;
+    height: 0px;
+    text-align: center;
+    line-height: 48px;
+    font-size: 0;
+    background-color: #eee;
+    -o-transition: height .6s;
+    -moz-transition: height .6s;
+    -webkit-transition: height .6s;
+    transition: height .6s;
+}
+
+.pic-box:hover {
+    transform: translateY(-5%);
+    box-shadow: 4px 8px 15px 3px #999;
+}
+
+.pic-box:hover span {
+    height: 48px;
+    font-size: .8em;
+}
+
+/*footer部分*/
+footer {
+    margin-top: 20px;
+    padding: 20px 0;
+    background-color: #000;
+    font: 1.5em 微软雅黑;
+    color: #fff;
+    text-align: center;
+}
