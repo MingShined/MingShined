@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>个人主页</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.username {
+			padding: 20px 10px;
+			height: 85px;
+			text-align: center;
+			box-sizing: border-box;
+			background-color: #eee;
+			line-height: 45px;
+		}
+		.clearfix:before,.clearfix:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		.username span {
+			width: 46px;
+			height: 46px;
+			background-color: yellowgreen;
+		}
+		.username span:first-child {
+			float: left;
+		}
+		.username span:last-child {
+			float: right;
+		}
+		.userinfo {
+			display: flex;
+			padding: 20px 10px;
+			box-sizing: border-box;
+		}
+		.userinfo .img-box {
+			margin-right: 10px;
+		}
+		.userinfo .img-box img {
+			border-radius: 5px;
+		}
+		.userinfo .info {
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+		}
+		.info ul {
+			display: flex;
+			flex: 1;
+			align-items: center;
+		}
+		.info ul li {
+			display: flex;
+			height: 63px;
+			flex: 1;
+			flex-direction: column;
+			list-style: none;
+			align-items: center;
+			justify-content: center;
+			border-right: 1px solid #333;
+			color: #222;
+		}
+		.info ul li:last-child {
+			border-right: none;
+		}
+		.info ul li > h1 {
+			margin-bottom: 20px;
+			color: blue;
+		}
+		.info .bianji {
+			display: block;
+			height: 63px;
+			line-height: 63px;
+			background-color: #ddd;
+			text-align: center;
+			border-radius: 5px;
+		}
+		.info .bianji a {
+			text-decoration: none;
+		}
+
+		.main p {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		.img-list li {
+			float: left;
+			padding: 5px;
+			border: 1px solid #ddd;
+			box-sizing: border-box;
+			border-radius: 5px;
+			box-shadow: 0 0 3px #ddd;
+			background-color: #eee;
+			width: 33%;
+			/* height: 200px; */
+			overflow: hidden;
+		}
+
+		.img-list li img {
+			width: 100%;
+		}
+		
+		.img-list li:nth-child(3n- 1) {
+			margin: 0 0.5%;
+		}
+	</style>
+</head>
+<body>
+<!-- 网页头部star -->
+	<header>
+		<div class="username">
+			<span></span>
+			<span></span>
+			穿鞋子的猪
+		</div>
+		<div class="userinfo clearfix">
+			<div class="img-box">
+				<img src="img/rabbit.jpg" alt="rabbit" width="185" height="185">
+			</div>
+			<div class="info">
+				<ul>
+					<li><h1>354</h1><p>照片</p></li>
+					<li><h1>354</h1><p>关注</p></li>
+					<li><h1>354</h1><p>粉丝</p></li>
+				</ul>
+				<div class="bianji">
+					<a href="#">编辑个人资料</a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- 网页主体star -->
+	<div class="main">
+		<p>
+			我于杀戮之中绽放，亦如黎明中的花朵。我于杀戮之中绽放，亦如黎明中的花朵。我于杀戮之中绽放，亦如黎明中的花朵。我于杀戮之中绽放，亦如黎明中的花朵。
+		</p>
+		<ul class="img-list">
+			<li><img src="img/rabbit.jpg" alt=""></li>
+			<li><img src="img/rabbit.jpg" alt=""></li>
+			<li><img src="img/rabbit.jpg" alt=""></li>
+			<li><img src="img/rabbit.jpg" alt=""></li>
+			<li><img src="img/rabbit.jpg" alt=""></li>
+			<li><img src="img/rabbit.jpg" alt=""></li>
+			<li><img src="img/rabbit.jpg" alt=""></li>
+			<li><img src="img/rabbit.jpg" alt=""></li>
+			<li><img src="img/rabbit.jpg" alt=""></li>
+		</ul>
+</body>
+</html>
