@@ -1,0 +1,456 @@
+/* 公共部分 */
+body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-family: 微软雅黑;
+}
+
+.sec {
+    position: relative;
+    height: 30%;
+}
+
+.list {
+    position: absolute;
+    width: 100%;
+    top: calc(50% - 10px);
+}
+
+.list li {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+.list li a {
+    position: relative;
+    color: #fff;
+    font: bold 1.7em 微软雅黑;
+}
+
+/* 头部 */
+header {
+    position: relative;
+    height: 20%;
+}
+
+header h1 {
+    position: absolute;
+    width: 60%;
+    left: 20%;
+    top: 10%;
+    text-align: center;
+    color: #333;
+    -webkit-transition: .6s;
+    transition: .6s;
+}
+
+header h1:hover {
+    cursor: pointer;
+    -webkit-transform: rotateX(360deg);
+    transform: rotateX(360deg);
+}
+
+header p {
+    position: absolute;
+    width: 60%;
+    left: 20%;
+    top: 50%;
+    text-align: center;
+}
+
+header > p > a {
+    -webkit-transition: .6s;
+    transition: .6s;
+}
+
+header p:hover a {
+    -webkit-transform: rotate(360deg) scale(1.1);
+    transform: rotate(360deg) scale(1.1);
+}
+
+/* 特效一 */
+
+.list-one li a:before {
+    position: absolute;
+    content: "[";
+    top: 0;
+    left: 0;
+    opacity: 0;
+    -webkit-transition: .3s linear;
+    transition: .3s linear;
+}
+
+.list-one li a:after {
+    position: absolute;
+    content: "]";
+    top: 0;
+    right: 0;
+    opacity: 0;
+    -webkit-transition: .3s linear;
+    transition: .3s linear;
+}
+
+.list-one li a:hover:before {
+    opacity: 1;
+    -webkit-transform: translateX(-15px);
+    transform: translateX(-15px);
+}
+
+.list-one li a:hover:after {
+    opacity: 1;
+    -webkit-transform: translateX(15px);
+    transform: translateX(15px);
+}
+
+/* 特效二 */
+
+.list-two li a:after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #eee;
+    border-radius: 2px;
+    -webkit-transform: translateY(15px);
+    transform: translateY(15px);
+    opacity: 0;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+.list-two li a:hover:after {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+
+/* 特效三 */
+
+.list-three li a:after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #eee;
+    border-radius: 2px;
+    opacity: 0;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+.list-three li a:hover:after {
+    opacity: 1;
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+}
+
+/* 特效四 */
+/* .list-four li a {
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+ */
+.list-four li a:after {
+    position: absolute;
+    content: attr(data-hover);
+    top: 100%;
+    left: 0;
+    font-weight: 800;
+    opacity: 0;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+/* .list-four li:hover a {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+    opacity: 0;
+}
+ */
+.list-four li a:hover:after {
+    opacity: 1;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    color: #333;
+}
+
+/* 特效五 */
+.list-five li a {
+    padding: 5px 8px;
+}
+
+.list-five li a:before {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.list-five li a:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.list-five li a:hover:before {
+    height: 100%;
+    width: 2px;
+}
+
+.list-five li a:hover:after {
+    top: 100%;
+}
+
+/* 特效六 */
+.list-six li a {
+    padding: 5px 8px;
+}
+
+.list-six li a:before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    opacity: 0;
+    background-color: #fff;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+.list-six li a:after {
+    content: "";
+    position: absolute;
+    width: 10%;
+    height: 2px;
+    bottom: 0;
+    left: 45%;
+    opacity: 0;
+    background-color: #fff;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.list-six li a:hover:before {
+    left: 0;
+    bottom: 100%;
+    width: 100%;
+    opacity: 1;
+    -webkit-transform: rotate(-720deg);
+    transform: rotate(-720deg);
+}
+
+.list-six li a:hover:after {
+    width: 100%;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(720deg);
+    transform: rotate(720deg);
+}
+
+/* 特效七 */
+.list-seven li a {
+    padding: 5px 8px;
+}
+
+.list-seven li a:before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    opacity: 0;
+    background-color: #fff;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+.list-seven li a:after {
+    content: "";
+    position: absolute;
+    width: 10%;
+    height: 2px;
+    bottom: 0;
+    left: 45%;
+    opacity: 0;
+    background-color: #fff;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.list-seven li a:hover:before {
+    left: 0;
+    bottom: 100%;
+    width: 100%;
+    opacity: 1;
+}
+
+.list-seven li a:hover:after {
+    width: 100%;
+    opacity: 1;
+    left: 0;
+}
+
+/* 特效八 */
+.list-eight li a {
+    padding: 5px 8px;
+    border: 2px solid #354856;
+}
+
+.list-eight li a:after {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 100%;
+    height: 100%;
+    content: "";
+    border: 3.5px solid #fff;
+    -webkit-transform: translate(8px, -8px);
+    transform: translate(8px, -8px);
+    opacity: 0;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.list-eight li a:hover:after {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+/* 特效九 */
+.list-nine li a {
+    padding: 5px 8px;
+}
+
+.list-nine li a:before {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    content: "";
+    background-color: #ddd;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.list-nine li a:after {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    content: attr(data-hover);
+    font: 0.75em Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    color: rgba(0,0,0,0.4);
+    border-bottom: 2px solid #ccc;
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.list-nine li a:hover:before {
+    height: 4px;
+    background-color: #fff;
+}
+
+.list-nine li a:hover:after {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* 特效十 */
+.list-ten li a {
+    padding: 5px 8px;
+    color: rgba(255, 255, 255, 0);
+}
+
+.list-ten li a:before,
+.list-ten li a:after {
+    position: absolute;
+    padding: 9px 10px;
+    line-height: 100%;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    content: attr(data-hover);
+    font: 1.2em Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+}
+
+.list-ten li a:before {
+    background-color: #fff;
+    color: #333;
+    opacity: 0;
+    -webkit-transform: translateX(-170px);
+    transform: translateX(-170px);
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.list-ten li a:after {
+    background-color: #666;
+    color: #fff;
+    -webkit-transition: .2s .1s;
+    transition: .3s .1s;
+}
+
+.list-ten li a:hover:before {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.list-ten li a:hover:after {
+    opacity: 0;
+    -webkit-transform: translateX(170px);
+    transform: translateX(170px);
+}
+
+/* 特效十一 */
+.list-eleven li a {
+    padding: 5px 8px;
+    border-top: 2px solid #ccc;
+}
+
+.list-eleven li a:after {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width:0;
+    height: 100%;
+    content: attr(data-hover);
+    color: #333;
+    border-bottom: 4px solid #333;
+    opacity: 0;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+.list-eleven li a:hover:after {
+    opacity: 1;
+    width: 100%;
+}
+
+
