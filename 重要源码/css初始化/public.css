@@ -7,11 +7,11 @@
 
 /* 全局样式 */
 * { 
+    margin: 0;
+    padding: 0;
     -moz-box-sizing: border-box; 
     -webkit-box-sizing: border-box; 
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
     list-style: none;
 }
 
@@ -22,7 +22,7 @@ html {
 }
 
 body {
-    min-width: 960px;
+    /* min-width: 960px; */
     font: 12px "Microsoft Yahei";
     font-weight: lighter;
     color: #333;
@@ -40,7 +40,7 @@ a {
 
 a:hover {
     text-decoration: none;
-    color: #ff4f20;
+    color: #fff;
 }
 
 a:focus {
@@ -356,6 +356,7 @@ sub {
 .bg000{background: #000;}/* 深黑色 */
 .bgEEE{background: #eee;}/* 浅灰色 */
 .bgDDD{background: #ddd;}/* 深灰色 */
+.bg435{background: #435A6B;}/* 应该是绿色 */
 
 /* margin */
 .m-auto{margin:auto;}
