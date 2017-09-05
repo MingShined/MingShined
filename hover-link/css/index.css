@@ -149,11 +149,7 @@ header p:hover a {
 }
 
 /* 特效四 */
-/* .list-four li a {
-    -webkit-transition: .3s;
-    transition: .3s;
-}
- */
+
 .list-four li a:after {
     position: absolute;
     content: attr(data-hover);
@@ -165,12 +161,6 @@ header p:hover a {
     transition: .3s;
 }
 
-/* .list-four li:hover a {
-    -webkit-transform: translateY(-50px);
-    transform: translateY(-50px);
-    opacity: 0;
-}
- */
 .list-four li a:hover:after {
     opacity: 1;
     -webkit-transform: translateY(-100%);
@@ -179,6 +169,7 @@ header p:hover a {
 }
 
 /* 特效五 */
+
 .list-five li a {
     padding: 5px 8px;
 }
@@ -217,6 +208,7 @@ header p:hover a {
 }
 
 /* 特效六 */
+
 .list-six li a {
     padding: 5px 8px;
 }
@@ -265,6 +257,7 @@ header p:hover a {
 }
 
 /* 特效七 */
+
 .list-seven li a {
     padding: 5px 8px;
 }
@@ -309,6 +302,7 @@ header p:hover a {
 }
 
 /* 特效八 */
+
 .list-eight li a {
     padding: 5px 8px;
     border: 2px solid #354856;
@@ -336,6 +330,7 @@ header p:hover a {
 }
 
 /* 特效九 */
+
 .list-nine li a {
     padding: 5px 8px;
 }
@@ -381,6 +376,7 @@ header p:hover a {
 }
 
 /* 特效十 */
+
 .list-ten li a {
     padding: 5px 8px;
     color: rgba(255, 255, 255, 0);
@@ -429,6 +425,7 @@ header p:hover a {
 }
 
 /* 特效十一 */
+
 .list-eleven li a {
     padding: 5px 8px;
     border-top: 2px solid #ccc;
@@ -453,4 +450,185 @@ header p:hover a {
     width: 100%;
 }
 
+/* 特效十二 */
 
+.list-twelve li a:before,
+.list-twelve li a:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    content: "";
+    border-radius: 100%;
+    box-sizing: border-box;
+    /* background-color: #000; */
+    border: 6px solid rgba(0, 0, 0, 0.1);
+    -webkit-transition: .3s;
+    transition: .3s;
+    opacity: 0;
+    z-index: 999;
+    -webkit-transform: translate(-50%, -50%) scale(.8);
+    transform: translate(-50%, -50%) scale(.8);
+}
+
+.list-twelve li a:before {
+    width: 90px;
+    height: 90px;
+    border-width: 2px;
+    -webkit-transform: translate(-50%, -50%) scale(.2);
+    transform: translate(-50%, -50%) scale(.2);
+}
+
+.list-twelve li a:hover:before,
+.list-twelve li a:hover:after {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* 特效十三 */
+
+.list-thirteen li a {
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.list-thirteen li a:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: ". . .";
+    font-size: 1.2em;
+    color: #fff;
+    opacity: 0;
+    -webkit-transition: .3s;
+    transition: .3s;
+    -webkit-transform: translateY(15px) scale(0);
+    transform: translateY(15px) scale(0);
+}
+
+.list-thirteen li a:hover:after {
+    opacity: 1;
+    -webkit-transform: translateY(15px) scale(1);
+    transform: translateY(15px) scale(1);
+}
+
+.list-thirteen li a:hover {
+    color: #777;
+}
+
+/* 特效十四 */
+
+.list-fourteen li a {
+    padding: 8px 11px;
+}
+
+.list-fourteen li a:before,
+.list-fourteen li a:after {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background-color: #fff;
+    content: "";
+}
+
+.list-fourteen li a:before {
+    left: 0;
+    top: 0;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.list-fourteen li a:after {
+    right: 0;
+    top: 0;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.list-fourteen li a:hover:before {
+    left: calc(50% - 1.5px);
+    width: 3px;
+    -webkit-transform: translateY(-20px) rotate(-90deg);
+    transform: translateY(-20px) rotate(-90deg);
+}
+
+.list-fourteen li a:hover:after {
+    right: calc(50% - 1.5px);
+    width: 3px;
+    -webkit-transform: translateY(20px) rotate(90deg);
+    transform: translateY(20px) rotate(90deg);
+}
+
+/* 特效十五 */
+
+.list-fifteen li a {
+    color: #ccc;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.list-fifteen li a:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: attr(data-hover);
+    color: #fff;
+    opacity: 0;
+    -webkit-transition: .3s;
+    transition: .3s;
+    transform-origin: right bottom;
+    transform: translate(10px,-10px) rotate(15deg);
+}
+
+.list-fifteen li a:hover {
+    color: rgba(255, 255, 255, 0);
+}
+
+.list-fifteen li a:hover:after {
+    opacity: 1;
+    -webkit-transform: translate(0,0) rotate(0);
+    transform: rotate(0);
+}
+
+/* 特效十六 */
+
+.list-sixteen li a {
+    padding: 5px 8px;
+}
+
+.list-sixteen li a:before,
+.list-sixteen li a:after{
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    content: "";
+    background-color: #fff;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.list-sixteen li a:before {
+    left: 0;
+    top: 0;
+}
+
+.list-sixteen li a:after {
+    left: 0;
+    bottom: 0;
+}
+
+.list-sixteen li a:hover:before {
+    opacity: .6;
+    transform: translateY(18.5px) rotate(45deg);
+}
+
+.list-sixteen li a:hover:after {
+    opacity: .6;
+    transform: translateY(-18.5px) rotate(-45deg);
+}
