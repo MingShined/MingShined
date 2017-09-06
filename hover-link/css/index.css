@@ -632,3 +632,86 @@ header p:hover a {
     opacity: .6;
     transform: translateY(-18.5px) rotate(-45deg);
 }
+
+/* 特效十七 */
+.sec-ghost {
+    overflow: hidden;
+}
+
+
+.list-seventeen li a {
+    position: relative;
+    padding: 8px 12px 8px 12px;
+    font: 1.3em 微软雅黑;
+    border: 1px solid #fff;
+    box-shadow: 0 0 2px 2px rgba(255, 255, 255, .6);
+    color: #eee;
+    text-shadow: 0 0 1px #ddd;
+    /* background: url(../img/arrow.png) 20px center no-repeat; */
+    -moz-transition: .6s;
+    -o-transition: .6s;
+    -webkit-transition: .6s;
+    transition: .6s;
+}
+
+.list-seventeen li a:hover {
+    /* background-position: 30px center; */
+}
+
+.list-seventeen li a span {
+    position: absolute;
+    background-color: #fff;
+    -webkit-transition: .3s;
+    transition: .3s;
+    opacity: 0;
+}
+
+.list-seventeen li a span:first-child {
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    -webkit-transform: translateX(-110%) ;
+    transform: translateX(-110%);
+}
+
+.list-seventeen li a span:nth-child(2) {
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    -webkit-transform: translateX(110%);
+    transform: translateX(110%);
+}
+
+.list-seventeen li a span:nth-child(3) {
+    top: 0;
+    left: -2px;
+    width: 2px;
+    height: 100%;
+    -webkit-transform: translateY(110%);
+    transform: translateY(110%);
+}
+
+.list-seventeen li a span:last-child {
+    bottom: 0;
+    right: -2px;
+    width: 2px;
+    height: 100%;
+    -webkit-transform: translateY(-110%);
+    transform: translateY(-110%);
+}
+
+.list-seventeen li a:hover span:first-child,
+.list-seventeen li a:hover span:nth-child(2) {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.list-seventeen li a:hover span:nth-child(3),
+.list-seventeen li a:hover span:nth-child(4) {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
