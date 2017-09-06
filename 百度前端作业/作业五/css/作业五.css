@@ -1,0 +1,161 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+header{
+	position: relative;
+	width: 100%;
+	height: 100px;
+	background-color:black;
+}
+
+header nav{
+	position: absolute;
+	right: 30px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+header nav ul li{
+	/* display: inline-block; */
+	/* float: left; */
+	float: right;
+	/* margin: 0 500px 0 0; */
+	margin-left: 1000px;
+	color: white;
+	/* line-height: 100px; */
+	/* text-align: center; */
+}
+
+main{
+	width: 100%;
+	background-color: #eee;
+}
+
+.mid{
+	padding: 10px;
+	width: 100%;
+	/* background-color: green; */
+}
+
+.article{
+	margin: 20px 550px 20px 50px; 
+	padding: 20px;
+	background-color: white;
+	box-shadow:2px 2px 3px 1px #666;
+	line-height: 30px;
+	min-width: 445px;
+}
+
+.article-pic{
+	margin: 20px 550px 20px 50px; 
+	padding: 20px;
+	background-color: white;
+	box-shadow:2px 2px 3px 1px #666;
+	line-height: 30px;
+	min-width: 445px;
+	overflow: hidden;
+}
+
+.article-pic p{
+	text-align: center;
+}
+
+.article-pic img{
+	width: 150px;
+	height: 100px;
+	margin: 10px;
+	display: block;
+}
+
+.article ul{
+	list-style: none;
+}
+
+.article ol{
+	margin-left: 80px;
+}
+
+.pic{
+	float: left;
+	margin: 15px 10px 10px 10px;
+	border: 1px solid black;
+}
+
+table{
+     width: 99%;
+     text-align: left;
+     border-collapse:collapse;/*消除列间空白*/
+ }
+ 
+table th{
+     background: black;
+     color: white;
+     padding: 5px;
+     border: 1px lightgrey solid;
+ }
+ 
+ table td{
+     background: white;
+     padding: 5px;
+     border: 1px lightgrey solid;
+ }
+ 
+ table td.total{
+     background: lightgrey;
+     font-weight: bold;
+ }
+
+.right{
+	float: right;
+	/* width: 500px; */
+	/* background-color: yellow; */
+}
+
+.form{
+	box-shadow:2px 2px 3px 1px #666;
+	margin: 30px auto;
+	/* width: 450px; */
+	max-width: 450px;
+	background-color: white;
+	line-height: 30px;
+	padding: 20px;
+}
+
+.form h2{
+	border-left: 3px solid gray;
+	padding: 5px 10px;
+}
+
+.p{
+	margin-left: 125px;
+}
+
+
+#btn{
+	width: 400px;
+	height: 40px;
+	background-color: blue;
+	margin-right: -100px;
+	border-radius: 5px;
+}
+
+.form form{
+	margin-left: 25px;
+}
+
+footer{
+	width: 100%;
+	background-color: black;
+}
+
+.bottom{
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	background-color: black;
+	color: white;
+	line-height: 50px;
+	font-size: 30px;
+}
