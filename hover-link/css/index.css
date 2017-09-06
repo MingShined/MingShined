@@ -653,10 +653,10 @@ header p:hover a {
     transition: .6s;
 }
 
-.list-seventeen li a:hover {
-    /* background-position: 30px center; */
+/* .list-seventeen li a:hover {
+    background-position: 30px center;
 }
-
+ */
 .list-seventeen li a span {
     position: absolute;
     background-color: #fff;
