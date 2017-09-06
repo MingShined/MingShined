@@ -399,8 +399,8 @@ header p:hover a {
     background-color: #fff;
     color: #333;
     opacity: 0;
-    -webkit-transform: translateX(-170px);
-    transform: translateX(-170px);
+    -webkit-transform: translateX(-50px);
+    transform: translateX(-50px);
     -webkit-transition: .3s;
     transition: .3s;
 }
@@ -420,8 +420,8 @@ header p:hover a {
 
 .list-ten li a:hover:after {
     opacity: 0;
-    -webkit-transform: translateX(170px);
-    transform: translateX(170px);
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
 }
 
 /* 特效十一 */
@@ -637,7 +637,6 @@ header p:hover a {
 .sec-ghost {
     overflow: hidden;
 }
-
 
 .list-seventeen li a {
     position: relative;
