@@ -251,7 +251,7 @@
 	margin-left: 18.25px;
 	width: 25px;
 	height: 25px;
-	background: url('../img/icon_lifeserv.png') top left; 
+	background: url('../img/icon_lifeserv.png') top left;
 	text-align: center;
 }
 
@@ -287,12 +287,102 @@
 	background-color: #ccc;
 	border-radius: 100%;
 	cursor: pointer;
-	text-align: center;
-	line-height: 15px;
-	font: 1.2em serif;
 	color: #333;
 }
 
 .banner .tab ul li:first-child {
 	background-color: #fff;
+}
+
+/* JDnight部分 */
+
+.JD-night {
+	margin-top: 10px;
+}
+
+.JD-night img {
+	float: left;
+	margin-left: 1px;
+}
+
+/* slogen部分 */
+
+.slogen-wrap {
+	padding: 25px 0;
+	background: #F5F5F5;
+}
+
+.slogen-box {
+	/* margin: 25px 0; */
+	width: 302px;
+	height: 54px;
+}
+
+/* guidness部分 */
+
+.guidness {
+	padding: 20px 0;
+	border-bottom: 1px solid #ddd;
+}
+
+.guid-box {
+	width: 198px;
+	height: 158px;
+}
+
+.guid-box dt {
+	font-size: 1.3em;
+	margin-bottom: 6px;
+}
+
+.guid-box dd {
+	padding-top: 2px;
+}
+
+.map {
+	background: url('../img/china.png') 10px bottom no-repeat;
+}
+
+.map .details {
+	padding-top: 10px;
+}
+
+/* about部分 */
+
+.about {
+	width: 960px;
+	margin: 0 auto;
+	padding: 20px 0 0 0;
+}
+
+.links {
+	width: 760px;
+	height: 15px;
+	margin: 0 100px;
+}
+
+.links ul li {
+	width: 69px;
+	height: 15px;
+	float: left;
+	border-right: 1px solid #333;
+	text-align: center;
+}
+
+.links ul li:last-child {
+	border-right: none;
+}
+
+.copyright {
+	margin-top: 5px;
+	text-align: center;
+}
+
+.copyright p {
+	margin-top: 2px;
+}
+
+.messages {
+	width: 620px;
+	margin: 5px auto;
 }
