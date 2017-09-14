@@ -1,117 +1,121 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta id="viewport" name="viewport" content="width=640">
-	<title>我的个人主页</title>
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="font/iconfont.css">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
-	<script type="text/javascript"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta id="viewport" name="viewport" content="width=640">
+    <title>我的个人主页</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script type="text/javascript"></script>
 </head>
 <body>
 <!-- 外套 -->
-	<div class="wrap">
-		<!-- 内容区域 -->
-		<div class="content">
-			<!-- 头部 -->
-			<header class="clearfix">
-				<span class="fl sub-menu iconfont icon-caidan"></span>
-				<span class="fr add iconfont icon-tianjia"></span>
-				<div class="main-menu">
-					<a href="#" class="open">Open</a>
-					<a href="#">Close</a>
-				</div>
-			</header>
-			<div class="main">
-				<div class="items clearfix">
-					<div class="items-title clearfix">
-						<div class="photo fl">
-							<img src="img/busy.jpg" alt="touxiang" width="60" height="60"> 
-						</div>
-						<h1 class="fl">MARTIN GROOVE</h1>
-						<div class="collect fr">
-							<i class="iconfont icon-xing1"></i>
-							<span>175</span>
-						</div>
-					</div>
-					<figure class="fig-box">
-						<figcaption><h1>I can basejump from the shard! Can you?</h1></figcaption>
-						<div class="items-content">
-							<div class="pic">
-								<span>01:11:03</span>
-							</div>
-							<div class="items-menus clearfix">
-								<span class="fl user"><i class="iconfont icon-yonghuicon"></i>people</span>
-								<span class="fr share"><i class="iconfont icon-fenxiang"></i><a href="#">share</a></span>
-								<div class="accept fl">
-									<a href="#"><i class="iconfont icon-maoji"></i>ACCEPT</a>
-								</div>
-							</div>
-						</div>
-					</figure>
-				</div>
-				<div class="items clearfix">
-					<div class="items-title clearfix">
-						<div class="photo fl">
-							<img src="img/busy.jpg" alt="touxiang" width="60" height="60"> 
-						</div>
-						<h1 class="fl">MARTIN GROOVE</h1>
-						<div class="collect fr">
-							<i class="iconfont icon-xing1"></i>
-							<span>175</span>
-						</div>
-					</div>
-					<figure class="fig-box">
-						<figcaption><h1>I can basejump from the shard! Can you?</h1></figcaption>
-						<div class="items-content">
-							<div class="pic pic-two">
-								<span>01:11:03</span>
-							</div>
-							<div class="items-menus clearfix">
-								<span class="fl user"><i class="iconfont icon-yonghuicon"></i>people</span>
-								<span class="fr share"><i class="iconfont icon-fenxiang"></i><a href="#">share</a></span>
-								<div class="accept fl">
-									<a href="#"><i class="iconfont icon-maoji"></i>ACCEPT</a>
-								</div>
-							</div>
-						</div>
-					</figure>
-				</div>
-				<div class="items clearfix">
-					<div class="items-title clearfix">
-						<div class="photo fl">
-							<img src="img/busy.jpg" alt="touxiang" width="60" height="60"> 
-						</div>
-						<h1 class="fl">MARTIN GROOVE</h1>
-						<div class="collect fr">
-							<i class="iconfont icon-xing1"></i>
-							<span>175</span>
-						</div>
-					</div>
-					<figure class="fig-box">
-						<figcaption><h1>I can basejump from the shard! Can you?</h1></figcaption>
-						<div class="items-content">
-							<div class="pic pic-three">
-								<span>01:11:03</span>
-							</div>
-							<div class="items-menus clearfix">
-								<span class="fl user"><i class="iconfont icon-yonghuicon"></i>people</span>
-								<span class="fr share"><i class="iconfont icon-fenxiang"></i><a href="#">share</a></span>
-								<div class="accept fl">
-									<a href="#"><i class="iconfont icon-maoji"></i>ACCEPT</a>
-								</div>
-							</div>
-						</div>
-					</figure>
-				</div>
-			</div>
-		</div>
-		<!-- 遮罩层 -->
-		<div class="mask"></div>
-		<!-- 做导航部分 -->
-		<div class="sidebar"></div>
-	</div>
+<div class="wrap">
+    <!-- 内容区域 -->
+    <div class="content" id="content">
+        <!-- 头部 -->
+        <header class="clearfix">
+            <span class="fl sub-menu iconfont icon-caidan" id="show"></span>
+            <span class="fr add iconfont icon-tianjia"></span>
+            <div class="main-menu">
+                <a href="#" class="open">Open</a>
+                <a href="#">Close</a>
+            </div>
+        </header>
+        <!-- 内容主体 -->
+        <div class="main">
+            <div class="items clearfix">
+                <div class="items-title clearfix">
+                    <div class="photo fl">
+                        <img src="img/busy.jpg" alt="touxiang" width="60" height="60">
+                    </div>
+                    <h1 class="fl">MARTIN GROOVE</h1>
+                    <div class="collect fr">
+                        <i class="iconfont icon-xing1"></i>
+                        <span>175</span>
+                    </div>
+                </div>
+                <figure class="fig-box">
+                    <figcaption><h1>I can basejump from the shard! Can you?</h1></figcaption>
+                    <div class="items-content">
+                        <div class="pic">
+                            <span>01:11:03</span>
+                        </div>
+                        <div class="items-menus clearfix">
+                            <span class="fl user"><i class="iconfont icon-yonghuicon"></i>people</span>
+                            <span class="fr share"><i class="iconfont icon-fenxiang"></i><a href="#">share</a></span>
+                            <div class="accept fl">
+                                <a href="#"><i class="iconfont icon-maoji"></i>ACCEPT</a>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+            <div class="items clearfix">
+                <div class="items-title clearfix">
+                    <div class="photo fl">
+                        <img src="img/busy.jpg" alt="touxiang" width="60" height="60">
+                    </div>
+                    <h1 class="fl">MARTIN GROOVE</h1>
+                    <div class="collect fr">
+                        <i class="iconfont icon-xing1"></i>
+                        <span>175</span>
+                    </div>
+                </div>
+                <figure class="fig-box">
+                    <figcaption><h1>I can basejump from the shard! Can you?</h1></figcaption>
+                    <div class="items-content">
+                        <div class="pic pic-two">
+                            <span>01:11:03</span>
+                        </div>
+                        <div class="items-menus clearfix">
+                            <span class="fl user"><i class="iconfont icon-yonghuicon"></i>people</span>
+                            <span class="fr share"><i class="iconfont icon-fenxiang"></i><a href="#">share</a></span>
+                            <div class="accept fl">
+                                <a href="#"><i class="iconfont icon-maoji"></i>ACCEPT</a>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+            <div class="items clearfix">
+                <div class="items-title clearfix">
+                    <div class="photo fl">
+                        <img src="img/busy.jpg" alt="touxiang" width="60" height="60">
+                    </div>
+                    <h1 class="fl">MARTIN GROOVE</h1>
+                    <div class="collect fr">
+                        <i class="iconfont icon-xing1"></i>
+                        <span>175</span>
+                    </div>
+                </div>
+                <figure class="fig-box">
+                    <figcaption><h1>I can basejump from the shard! Can you?</h1></figcaption>
+                    <div class="items-content">
+                        <div class="pic pic-three">
+                            <span>01:11:03</span>
+                        </div>
+                        <div class="items-menus clearfix">
+                            <span class="fl user"><i class="iconfont icon-yonghuicon"></i>people</span>
+                            <span class="fr share"><i class="iconfont icon-fenxiang"></i><a href="#">share</a></span>
+                            <div class="accept fl">
+                                <a href="#"><i class="iconfont icon-maoji"></i>ACCEPT</a>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+        </div>
+    </div>
+    <!-- 遮罩层 -->
+    <div class="mask" id="mask"></div>
+    <!-- 左导航部分 -->
+    <div class="sidebar" id="sidebar">
+    	<span class="leave iconfont icon-caidan" id="quit"></span>
+    </div>
+</div>
+<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
