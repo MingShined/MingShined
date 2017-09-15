@@ -63,10 +63,14 @@ header .main-menu .open {
     line-height: 76px;
 }
 
+.items .items-title h1 {
+    font-family: 华文行楷;
+}
+
 .items .items-title .photo {
     width: 60px;
     height: 60px;
-    border: 5px solid red;
+    border: 5px solid #ddd;
     border-radius: 50%;
 }
 
@@ -104,16 +108,16 @@ header .main-menu .open {
 .items .items-content .pic {
     position: relative;
     height: 360px;
-    background: url('../img/1.jpg') top left no-repeat;
+    background: url('../img/img01.jpg') top left no-repeat;
     background-size: cover;
 }
 
 .items .items-content .pic-two {
-    background: url('../img/2.jpg') top left no-repeat;
+    background: url('../img/img02.jpg') center center no-repeat;
 }
 
 .items .items-content .pic-three {
-    background: url('../img/3.jpg') top left no-repeat;
+    background: url('../img/img03.jpg') top left no-repeat;
 }
 
 .items .items-content .pic > span {
@@ -131,24 +135,24 @@ header .main-menu .open {
 .items .items-content .items-menus {
     padding: 0 25px;
     height: 80px;
-    background-color: #2F3D4C;
     color: #Fff;
     text-align: center;
     line-height: 80px;
+    background-color: #2F3D4C;
 }
 
-.items .items-content .items-menus .user,
+.items .items-content .items-menus .like,
 .items .items-content .items-menus .share {
-    font-size: 25px;
+    font-size: 17px;
 }
 
 .items .items-content .items-menus i {
     margin-right: 10px;
-    font-size: 30px;
+    font-size: 20px;
 }
 
-.items .items-content .items-menus .accept {
-    margin: 10px 0 0 66px;
+.items .items-content .items-menus .comment {
+    margin: 10px 0 0 124px;
     width: 214px;
     height: 60px;
     background-color: #FF7F66;
@@ -157,6 +161,10 @@ header .main-menu .open {
     border: 1px solid rgba(255, 255, 255, .2);
     border-radius: 5px;
     font-size: 20px;
+}
+
+.items .items-content .items-menus .comment > a > i {
+    /* margin-top: 5px; */
 }
 
 /* 遮罩层 */
@@ -216,7 +224,7 @@ header .main-menu .open {
 	position: absolute;
 	left: calc(50% - 60px);
 	top: calc(40% - 40px);
-	border: 3px solid #F15453;
+	border: 3px solid #ddd;
 	padding: 3px;
 	border-radius: 50%;
 }
