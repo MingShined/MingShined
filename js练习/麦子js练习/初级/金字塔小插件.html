@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			width: 60%;
+			margin: 100px auto 0;
+			text-align: center;
+			font: 1.2em 微软雅黑;
+			color: #333;
+		}
+		.container form {
+			margin-top: 50px;
+		}
+		.container form label {
+			display: inline-block;
+			width: 180px;
+			margin-top: 10px;
+			font: .9em 微软雅黑;
+			text-align: left;
+			color: #92c197;
+		}
+		.container form input {
+			padding-left: 10px;
+			margin-top: 10px;
+			width: 250px;
+			height: 30px;
+			vertical-align: top;
+			border: 1px solid #333;
+			border-radius: 5px;
+		}
+		.container form input:last-child {
+			width: 80px;
+			height: 30px;
+			padding: 5px 10px;
+			font: .8em 微软雅黑;
+			border-radius: 5px;
+			color: #fff;
+			border: 1px solid #eee;
+			background-color: rgb(231, 79, 77);
+			-o-transition: .6s;
+			-moz-transition: .6s;
+			-webkit-transition: .6s;
+			transition: .6s;
+		}
+		.container form input:last-child:hover {
+			background-color: #fff;
+			color: #000;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h1>金字塔样式小插件</h1>
+		<h3>一共有六种样式</h3>
+		<form method="get" action="javascript:void(null)">
+			<label for="style">你想要那种样式:</label>
+			<input type="text" name="style" id="text" placeholder="输入数字1-6任一个"><br/>
+			<label for="row">你想搭建多少层:(第5.6种样式层数大于100会变形!)</label>
+			<input type="text" name="row" id="text1" placeholder="50-100层较为美观"><br/>
+			<input type="button" name="look" value="看一下">
+		</form>
+	</div>
+
+
+	<script type="text/javascript">
+	// var styleNum = 1*prompt("请输入你要搭建的金字塔样式(6种样式供亲选择，输入数字1-6任一个)：");
+	
+	// var styleNum = 1;
+	// var styleNum = 0,num = 0;
+	var text = document.getElementById('text');
+	var text1 = document.getElementById('text1');
+	// var num = 1*prompt("请输入你要搭建的金字塔层数：(第5、6种样式 层数超过100会变形！)");
+	text.onchange = function () {
+		styleNum = text.value;
+		console.log(styleNum);//检测styleNum的值是否被正确传递
+	}
+	text1.onchange = function () {
+		num = text1.value;
+		console.log(num);//检测num的值是否被正确传递
+		stylePyramid(styleNum,num);
+	}
+
+	// stylePyramid(oneInput(),twoInput());
+		stylePyramid(styleNum,num);
+	// 判断哪种样式的金字塔
+		function stylePyramid(styleNum,num) {
+			switch (styleNum) {
+				case '1':
+					upPyramid(num);
+					break;
+				case '2':
+					downPyramid(num);
+					break;
+				case '3':
+					leftPyramid(num);
+					break;
+				case '4':
+					rightPyramid(num);
+					break;
+				case '5':
+					upHrPyramid(num);
+					break;
+				case '6':
+					downHrPyramid(num);
+					break;							
+				default:
+					alert("没有亲输入的金字塔样式哦！");
+					break;
+			}
+		}
+
+	// 正金字塔
+		function upPyramid (num) {
+			for (var i = 0; i < num; i++) {
+				for (var j = 0; j < num-i-1; j++) {
+					document.write("&nbsp;");
+				}
+				for (var k = 0; k <= 2*i; k++) {
+					document.write("*");
+				}
+				document.write("<br/>");
+			}
+		}
+
+	// 倒金字塔
+		function downPyramid (num) {
+		   document.getElementsByTagName("body")[0].style.textAlign = 'center';
+           for (var i = num - 2; i >= 0; i--) {
+                for (var j = 0; j <= i; j++) {
+                    document.write("*");
+                }
+                document.write("<br/>");
+            }
+		}
+
+	// 左金字塔
+		function leftPyramid (num) {
+	        for (var i = 0; i < num; i++) {
+            	for (var j = 0; j <= 2 * i; j++) {
+                	document.write("*");
+            	}
+            	document.write("<br/>");
+        	}
+		}
+
+	// 右金字塔(还不会写)
+
+		function rightPyramid (num) {
+	        for (var i = 0; i < num; i++) {
+            	for (var j = 0; j <= 2 * num - 2 * i; j++) {
+                	document.write("&nbsp;");
+            	}
+				for (var j = 0; j <= 2 * i; j++) {
+                	document.write("*");
+            	}            	
+            	document.write("<br/>");
+        	}
+		}
+
+	// hr正金字塔
+		function upHrPyramid (num) {
+	        for (var i = 0; i <= num; i++) {
+	        	if (num > 100) {
+	        		alert("说了会变形!听不懂？");
+	        		break;
+	        	}else {
+	           		document.write("<hr width = "+i+"% />");
+	        	}
+        	}
+		}
+
+	// hr倒金字塔
+		function downHrPyramid (num) {
+	        for (var i = num; i > 0; i--) {
+	        	if (num > 100) {
+	        		alert("说了会变形!听不懂？");
+	        		break;
+	        	}else {
+	           		document.write("<hr width = "+i+"% />");
+	        	}
+        	}
+		}
+	</script>
+</body>
+</html>
