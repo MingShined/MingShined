@@ -10,6 +10,7 @@ body {
     overflow: hidden;
 }
 
+/* 内容区 */
 .content {
     -o-transition: .6s;
     -moz-transition: .6s;
@@ -133,12 +134,17 @@ header .main-menu .open {
 }
 
 .items .items-content .items-menus {
+    position: relative;
     padding: 0 25px;
     height: 80px;
     color: #Fff;
     text-align: center;
     line-height: 80px;
     background-color: #2F3D4C;
+}
+
+.items .items-content .items-menus .like a {
+    color: #fff;
 }
 
 .items .items-content .items-menus .like,
@@ -152,7 +158,9 @@ header .main-menu .open {
 }
 
 .items .items-content .items-menus .comment {
-    margin: 10px 0 0 124px;
+    position: absolute;
+    left: calc(50% - 107px);
+    top: 10px;
     width: 214px;
     height: 60px;
     background-color: #FF7F66;
@@ -163,9 +171,6 @@ header .main-menu .open {
     font-size: 20px;
 }
 
-.items .items-content .items-menus .comment > a > i {
-    /* margin-top: 5px; */
-}
 
 /* 遮罩层 */
 .mask {
