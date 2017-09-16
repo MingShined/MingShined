@@ -32,7 +32,7 @@ window.onload = function() {
 
 	//评论
 	oComment.onclick = function() {
-		alert('不好意思，只有陈先生有权评论');
+		alert('暂时无法评论');
 	}	
 
 	// 分享share
