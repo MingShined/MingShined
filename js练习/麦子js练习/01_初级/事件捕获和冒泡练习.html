@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>事件捕获和冒泡练习</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<input type="button" value="test" id="btn">
+	<script type="text/javascript">
+		var oBtn = document.getElementById('btn');
+		var handler = function (even) {
+			switch (even.type) {
+				case 'click':
+					alert('hello');
+					break;				
+				case 'mouseover':
+					event.target.style.background = '#eee';
+					break;				
+				case 'mouseout':
+					event.target.style.background = '';
+					break;
+			}
+		}
+		oBtn.onclick = handler;
+		oBtn.onmouseover = handler;
+		oBtn.onmouseout = handler;
+	</script>
+</body>
+</html>
