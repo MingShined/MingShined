@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>百度换肤</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			background: url('img/1.jpg') no-repeat;
+			background-size: cover;
+		}
+		.clearfix:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		.box {
+			width: 615px;
+			margin: 50px auto;
+		}
+		.box img {
+			float: left;
+			margin-left: 5px;
+			border-radius: 15px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="box clearfix">
+		<img src="img/2.jpg" alt="" width="200" height="150" id="img01">
+		<img src="img/3.jpg" alt="" width="200" height="150" id="img02">
+		<img src="img/4.jpg" alt="" width="200" height="150" id="img03">
+	</div>
+	<script type="text/javascript">
+		var img01 = document.getElementById('img01');
+		var img02 = document.getElementById('img02');
+		var img03 = document.getElementById('img03');
+
+		img01.onclick = function () {
+			document.body.style.backgroundImage = 'url(img/2.jpg)';
+		}		
+		img02.onclick = function () {
+			document.body.style.backgroundImage = 'url(img/3.jpg)';
+		}		
+		img03.onclick = function () {
+			document.body.style.backgroundImage = 'url(img/4.jpg)';
+		}
+	</script>
+</body>
+</html>

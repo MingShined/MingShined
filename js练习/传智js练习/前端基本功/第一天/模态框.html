@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>模态框</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.mask {
+			position: fixed;
+			display: none;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+		.box h1 {
+			display: block;
+			text-align: center;
+		}
+		.box input {
+			position: absolute;
+			left: calc(50% - 25px);
+			top: calc(20% - 15px);
+			width: 50px;
+			height: 30px;
+			cursor: pointer;
+		}
+		.hide {
+			display: none;
+		}
+		.login {
+			position: absolute;
+			padding: 50px;
+			width: 400px;
+			height: 300px;
+			left: calc(50% - 200px);
+			top: calc(50% - 150px);
+			background-color: #333;
+			border-radius: 10px;
+			box-sizing: border-box;
+			-webkit-transition: .3s;
+			transition: .3s;
+		}
+		.login-form {
+			display: block;
+			margin-top: 20px;
+			font-size: .6em 微软雅黑;
+			color: #fff;
+		}
+		.login-form > input {
+			border: 1px solid #D5D5D5;
+			border-radius: 5px;
+			padding-left: 2px;
+			margin-top: 2px;
+			float: right;
+		}
+		#submit {
+			display: block;
+			width: 50px;
+			height: 30px;
+			margin-left: calc(50% - 25px);
+			margin-top: 20px;
+			cursor: pointer;
+		}
+		.login > span {
+			display: block;
+			position: absolute;
+			right: 5px;
+			top: 5px;
+			width: 15px;
+			height: 15px;
+			text-align: center;
+			cursor: pointer;
+			color: #fff;
+			-webkit-transition: .3s;
+			transition: .3s;
+		}
+
+		.login > span:hover {
+			-o-transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);
+			-webkit-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="mask" id="mask"></div>
+	<div class="hide" id="login"">
+		<span id="shutdown" class="iconfont icon-guuanbi">X</span>
+		<form action="doSomething" method="post" accept-charset="utf-8" onsubmit="return check()" class="login-form">
+			<label for="username">用户名:</label>
+			<input type="text" name="username" id="username" value="">
+			<p>(只能包含数字字母下划线)</p>
+			<label for="password">密码:</label>
+			<input type="password" id="password" name="email">
+			<p>(请输入合法密码)</p>
+			<label for="email">邮箱:</label>
+			<input type="email" id="email" name="email">
+			<p>(请输入合法邮箱)</p>
+			<input type="submit" name="" id="submit">
+		</form>
+	</div>
+	<div class="box">
+		<h1>模拟淘宝的登录模态框</h1>
+		<input type="button" id="btn" value="登录">
+	</div>
+	<script type="text/javascript">
+		var oBtn = document.getElementById('btn');
+		var oMask = document.getElementById('mask');
+		var oLogin = document.getElementById('login');
+		var oShutDown = document.getElementById('shutdown');
+		var handler = function () {
+			oMask.style.display = 'block';
+			oLogin.className = 'login';
+			oShutDown.display = 'block';
+		}
+		var handler1 = function () {
+			oMask.style.display = 'none';
+			oLogin.className = 'hide';
+			oShutDown.display = 'none';
+		}		
+		oBtn.addEventListener('click',handler , false);
+		oShutDown.addEventListener('click',handler1 , false);
+	</script>
+</body>
+</html>

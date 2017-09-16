@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>表单验证</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			margin: 50px auto;
+			width: 500px;
+			height: 500px;
+		}
+		.container h1 {
+			text-align: center;
+		}
+		form {
+			display: block;
+			margin-top: 20px;
+		}
+		form > label {
+			display: block;
+			float: left;
+		}		
+		form > input {
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+		<div class="container">
+				<h1>表单验证练习</h1>
+			<form action="doSomething" method="post" accept-charset="utf-8" onsubmit="return check()">
+				<label for="username">用户名:</label>
+				<input type="text" name="username" id="username" value="">只能包含数字字母下划线<br/>
+				<label for="password">密码:</label>
+				<input type="password" id="password" name="email">请输入合法密码<br/>
+				<label for="email">邮箱:</label>
+				<input type="email" id="email" name="email">请输入合法邮箱<br/>
+				<input type="submit" name="">
+			</form>
+		</div>
+
+		<script type="text/javascript">
+			function check () {
+				var username = document.getElementById('username').value;
+				var password = document.getElementById('password').value;
+				var email = document.getElementById('email').value;
+
+				if(!/^[a-zA-Z0-9_]+$/.test(username)){
+					alert('用户名不合法');
+					return false;
+				}
+				if(/^[\n\t\r\s]*$/.test(password)){
+					alert('密码不合法');
+					return false;
+				}
+				if(!/^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/.test(email)){
+					alert('邮箱不合法');
+					return false;
+				}
+				return true;
+			}
+		</script>
+</body>
+</html>
