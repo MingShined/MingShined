@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>淘宝商品图</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.banner {
+			position: relative;
+			margin: 50px auto;
+			width: 360px;
+			height: 360px;
+		}
+		.banner .pic {
+			position: relative;
+			width: 360px;
+			height: 360px;
+			background: url('img/01big.jpg');
+		}
+		.banner .tab {
+			position: absolute;
+			left: 0;
+			bottom: -70px;
+			width: 360px;
+			height: 70px;
+		}
+		.banner .tab img {
+			float: left;
+			margin-right: 2px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="banner">
+		<div class="pic" id="pic">
+			<!-- <img src="img/01big.jpg" alt="big1" width="360" height="360"> -->
+<!-- 			<img src="img/02big.jpg" alt="big2" width="360" height="360">
+			<img src="img/03big.jpg" alt="big3" width="360" height="360">
+			<img src="img/04big.jpg" alt="big4" width="360" height="360">
+			<img src="img/05big.jpg" alt="big5" width="360" height="360"> -->
+		</div>
+		<div class="tab">
+			<img src="img/01.jpg" alt="small1" width="70" height="70" id="tab01">
+			<img src="img/02.jpg" alt="small2" width="70" height="70" id="tab02">
+			<img src="img/03.jpg" alt="small3" width="70" height="70" id="tab03">
+			<img src="img/04.jpg" alt="small4" width="70" height="70" id="tab04">
+			<img src="img/05.jpg" alt="small5" width="70" height="70" id="tab05">
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var pic = document.getElementById('pic');
+		function change (id,bg) {
+			var index = document.getElementById(id);
+			index.onmouseover = function () {
+				pic.style.backgroundImage = bg;
+			}
+		}
+		change('tab01', "url('img/01big.jpg')");
+		change('tab02', "url('img/02big.jpg')");
+		change('tab03', "url('img/03big.jpg')");
+		change('tab04', "url('img/04big.jpg')");
+		change('tab05', "url('img/05big.jpg')");
+	</script>
+</body>
+</html>
