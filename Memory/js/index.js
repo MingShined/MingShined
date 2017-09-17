@@ -4,9 +4,6 @@ window.onload = function() {
 	var mask = document.getElementById('mask');
 	var sidebar = document.getElementById('sidebar');
 	var content = document.getElementById('content');
-	var oLike = document.getElementById('like01');
-	var oThumb = document.getElementById('thumb');
-	var oComment = document.getElementById('comment');
 
 	// 侧边内容滑入
 	show.onclick = function() {
@@ -25,19 +22,45 @@ window.onload = function() {
 	}
 
 	//点赞like
-	oLike.onclick = function() {
-		like01.innerHTML = '1';
-		oThumb.style.color = '#FF7F66';
+	function likeFunc(like, thumb) {
+		var oLike = document.getElementById(like);
+		var oThumb = document.getElementById(thumb);
+		oLike.onclick = function() {
+			var count = Math.ceil(Math.random()*20);
+			// alert(count);
+			oLike.innerText = ++count;
+			oThumb.style.color = '#FF7F66';
+		}
 	}
 
+	likeFunc('like1','thumb1');
+	likeFunc('like2','thumb2');
+	likeFunc('like3','thumb3');
+
 	//评论
-	oComment.onclick = function() {
-		alert('暂时无法评论');
-	}	
+	function commentFunc (com) {
+		var oComment = document.getElementById(com);
+			oComment.onclick = function() {
+			alert('暂时无法评论');
+		}
+	}
+	commentFunc("comment1");
+	commentFunc("comment2");
+	commentFunc("comment3");
 
 	// 分享share
-	$('#btn').click(function() {
-		window.sharetitle = $('#tit').html();
+	$('#share1').click(function() {
+		window.sharetitle = $('#tit1').html();
+		// window.shareUrl = $('#img').attr('src');
+		share();
+	});
+	$('#share2').click(function() {
+		window.sharetitle = $('#tit2').html();
+		// window.shareUrl = $('#img').attr('src');
+		share();
+	});
+	$('#share3').click(function() {
+		window.sharetitle = $('#tit3').html();
 		// window.shareUrl = $('#img').attr('src');
 		share();
 	});
