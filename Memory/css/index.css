@@ -211,7 +211,7 @@ header .main-menu .open {
     top: 0;
     width: 80%;
     height: 100%;
-    background-color: #2F3D4C;
+    background-color: #222D2D;
     -o-transform: translateX(-100%);
     -moz-transform: translateX(-100%);
     -webkit-transform: translateX(-100%);
@@ -264,6 +264,25 @@ header .main-menu .open {
     color: #fff;
 }
 
+.sidebar .user-info h1 {
+    /* display: block */
+    border-top: 1px solid #33313D;
+    border-bottom: 1px solid #33313D;
+    font-size: 25px;
+}
+
+.sidebar .user-info h2,
+.sidebar .user-info p {
+    font-size: 20px;
+}
+
+.sidebar .user-info p {
+    /* display: block; */
+    border-bottom: 1px solid #33313D;
+    border-top: 1px solid #33313D;
+}
+
 .sidebar .user-info>h2>i {
     color: yellow;
+    font-size: 30px;
 }
