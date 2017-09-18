@@ -1,12 +1,5 @@
 @charset "UTF-8";
-/*
-copyright：Busy
-QQ:1060755575
-微信:zengdao
-微信公众号:smallbusy
-微博:@依然我很忙
-网站:moyu-edu.com
-*/
+
 html { font-family: sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; }
 body { margin: 0; font-size: 14px; line-height: 1.5; color: #333; background-color: #fff; }
 a { background: transparent; text-decoration: none; color: #08c; }
