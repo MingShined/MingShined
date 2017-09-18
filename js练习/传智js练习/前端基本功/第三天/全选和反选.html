@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>全选和反选</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .btn {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    button {
+        padding: 5px 10px;
+    }
+
+    .list {
+        margin: 20px auto;
+        width: 100px;
+        list-style: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="btn">
+        <button id="all">全选</button>
+        <button id="cancle">取消</button>
+        <button id="reverse">反选</button>
+    </div>
+    <nav>
+        <ul class="list">
+            <li>
+                <label>选项
+                    <input type="checkbox" name="" value="">
+                </label>
+            </li>
+            <li>
+                <label>选项
+                    <input type="checkbox" name="" value="">
+                </label>
+            </li>
+            <li>
+                <label>选项
+                    <input type="checkbox" name="" value="">
+                </label>
+            </li>
+            <li>
+                <label>选项
+                    <input type="checkbox" name="" value="">
+                </label>
+            </li>
+            <li>
+                <label>选项
+                    <input type="checkbox" name="" value="">
+                </label>
+            </li>
+            <li>
+                <label>选项
+                    <input type="checkbox" name="" value="">
+                </label>
+            </li>
+            <li>
+                <label>选项
+                    <input type="checkbox" name="" value="">
+                </label>
+            </li>
+            <li>
+                <label>选项
+                    <input type="checkbox" name="" value="">
+                </label>
+            </li>
+            <li>
+                <label>选项
+                    <input type="checkbox" name="" value="">
+                </label>
+            </li>
+            <li>
+                <label>选项
+                    <input type="checkbox" name="" value="">
+                </label>
+            </li>
+            <li>
+                <label>选项
+                    <input type="checkbox" name="" value="">
+                </label>
+            </li>
+            <li>
+                <label>选项
+                    <input type="checkbox" name="" value="">
+                </label>
+            </li>
+            <li>
+                <label>选项
+                    <input type="checkbox" name="" value="">
+                </label>
+            </li>
+        </ul>
+    </nav>
+    <script type="text/javascript">
+    function $(id) { return document.getElementById(id); }
+    var oAll = $('all');
+    var oCancle = $('cancle');
+    var oReverse = $('reverse');
+    var options = document.getElementsByTagName('input');
+    // alert(oBtn.length)
+    // alert(options.length)
+
+    //全选取消函数
+    function selectFunc(val) {
+        for (var i = 0; i < options.length; i++) {
+            options[i].checked = val;
+        }
+    }
+
+    // 全选传参true
+    oAll.onclick = function all() {
+        selectFunc(true);
+    };
+
+    //取消传参false
+    oCancle.onclick = function all() {
+        selectFunc(false);
+    };
+
+    // 反选作判断三目运算修改
+    oReverse.onclick = function() {
+        for (var i = 0; i < options.length; i++) {
+            options[i].checked == true ? options[i].checked = false : options[i].checked = true;
+        }
+    };
+    </script>
+</body>
+
+</html>

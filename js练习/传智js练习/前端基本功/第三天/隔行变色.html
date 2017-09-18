@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>隔行变色</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    table {
+        margin: 50px auto;
+        width: 50%;
+    }
+
+    table th,
+    table td {
+        border: 1px solid #eee;
+        height: 50px;
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+    <table cellspacing="0" cellpadding="0" id="tab">
+        <thead>
+            <tr>
+                <th>FIGHTING!!!</th>
+            </tr>
+            <tr>
+                <th>FIGHTING!!!</th>
+            </tr>
+            <tr>
+                <th>FIGHTING!!!</th>
+            </tr>
+            <tr>
+                <th>FIGHTING!!!</th>
+            </tr>
+            <tr>
+                <th>FIGHTING!!!</th>
+            </tr>
+            <tr>
+                <th>FIGHTING!!!</th>
+            </tr>
+            <tr>
+                <th>FIGHTING!!!</th>
+            </tr>
+            <tr>
+                <th>FIGHTING!!!</th>
+            </tr>
+            <tr>
+                <th>FIGHTING!!!</th>
+            </tr>
+            <tr>
+                <th>FIGHTING!!!</th>
+            </tr>
+            <tr>
+                <th>FIGHTING!!!</th>
+            </tr>
+        </thead>
+    </table>
+    <script type="text/javascript">
+    var oTr = document.getElementById('tab').getElementsByTagName('tr');
+    // alert(oTr.length)
+    color();
+
+    function color() {
+        for (var i = 0; i < oTr.length; i += 2) {
+            oTr[i].style.background = '#ddd';
+        }
+    }
+
+    for (var j = 0, length2 = oTr.length; j < length2; j++) {
+        oTr[j].index = j;
+        oTr[j].onmouseover = function() {
+            oTr[this.index].style.background = '#77CCFF';
+        }
+        oTr[j].onmouseout = function() {
+            oTr[this.index].style.background = '#fff';
+            color();
+        }
+    }
+    </script>
+</body>
+
+</html>
