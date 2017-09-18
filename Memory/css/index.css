@@ -56,7 +56,7 @@ header .main-menu .open {
     color: #fff;
 }
 
-/* main部分 */
+/* friend朋友圈部分 */
 .items .items-title {
     padding: 46px 20px;
     height: 60px;
@@ -149,12 +149,12 @@ header .main-menu .open {
 
 .items .items-content .items-menus .like,
 .items .items-content .items-menus .share {
-    font-size: 17px;
+    font-size: 19px;
 }
 
 .items .items-content .items-menus i {
     margin-right: 10px;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .items .items-content .items-menus .comment {
@@ -171,6 +171,12 @@ header .main-menu .open {
     font-size: 20px;
 }
 
+
+/* 附近 */
+
+.around {
+    display: none;
+}
 
 /* 遮罩层 */
 .mask {
