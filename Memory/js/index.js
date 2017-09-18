@@ -21,19 +21,42 @@ window.onload = function() {
         quit.style.left = '0';
     }
 
+    //朋友圈/附近tab切换
+    var friend = document.getElementById('friend');
+    var around = document.getElementById('around');
+    var f_tab = document.getElementById('f-tab');
+    var a_tab = document.getElementById('a-tab');
+    
+    tabCard();
+
+    function tabCard(argument) {
+        f_tab.onclick = function() {
+            around.style.display = 'none';
+            friend.style.display = 'block';
+            f_tab.className = 'open';
+            a_tab.className = 'none';
+        }
+        a_tab.onclick = function() {
+            around.style.display = 'block';
+            friend.style.display = 'none';
+            a_tab.className = 'open';
+            f_tab.className = 'none';
+        }
+    }
+
     //点赞like(形参和实参分布执行)
     function likeFunc(like, thumb) {
         var oLike = document.getElementById(like);
         var oThumb = document.getElementById(thumb);
         var off = true;
         oLike.onclick = function() {
-        	//加开关，点赞只能点击一次
+            //加开关，点赞只能点击一次
             if (off) {
-                var count = Math.ceil(Math.random() * 20);//生成1-20随机数
+                var count = Math.ceil(Math.random() * 20); //生成1-20随机数
                 // alert(count);
                 oLike.innerText = ++count;
                 oThumb.style.color = '#FF7F66';
-                off = false;//关闭开关，禁止下次点击
+                off = false; //关闭开关，禁止下次点击
             }
         }
     }
