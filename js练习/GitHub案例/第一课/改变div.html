@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    .input-box {
+        margin: 0 auto;
+        width: 500px;
+        text-align: center;
+        padding: 0;
+    }
+
+    .box {
+        margin: 50px auto;
+        width: 200px;
+        height: 200px;
+        background-color: #eee;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="input-box">
+        <input type="button" name="" value="变宽">
+        <input type="button" name="" value="变高">
+        <input type="button" name="" value="变色">
+        <input type="button" name="" value="隐藏">
+        <input type="button" name="" value="重置">
+    </div>
+    <div class="box" id="box"></div>
+    <script type="text/javascript">
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+    var changeStyle = function (elem,attr,value) {
+        elem.style[attr] = value;
+    };
+
+    var oBtn = document.getElementsByTagName('input');
+    var oBox = $('box');
+    var oAttr = ['width','height','background','display','display'];
+    var oVal = ['300px','300px','#ddd','none','block'];
+
+    for (var i = 0; i < oBtn.length; i++) {
+        oBtn[i].index = i;
+        oBtn[i].onclick = function () {
+            this.index == oBtn.length - 1 && (oBox.style.cssText = ""); 
+            changeStyle(oBox,oAttr[this.index],oVal[this.index]);
+        }
+    }
+    </script>
+</body>
+
+</html>

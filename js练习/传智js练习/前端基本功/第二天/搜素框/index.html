@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>搜素框</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		 * {
+		 	margin: 0;
+		 	padding: 0;
+		 	outline-style: none;
+		 	border: 0;
+		 }
+		 .box {
+		 	margin: 100px auto;
+		 	width: 280px;
+		 	height: 40px;
+		 }
+		 .box > input {
+		 	float: left;
+		 	padding-left: 20px;
+		 	width: 200px;
+		 	height: 40px;
+		 	background: url('img/left.jpg') left top no-repeat;
+		 	background-size: cover;
+		 	outline-style: none;
+		 	border: 0;
+		 	color: #ccc;
+		 }
+		 .box > button {
+		 	float: left;
+		 	width: 50px;
+		 	height: 40px;
+		 	background: url('img/right.jpg') left top no-repeat;
+		 	background-size: cover;
+		 	cursor: pointer;
+		 }
+	</style>
+</head>
+<body>
+	<div class="box">
+		<input type="text" name="text" id="text" value="请输入...">
+		<button type=""></button>
+	</div>
+
+	<script type="text/javascript">
+		window.onload = function () {
+			var text = document.getElementById('text');
+		text.onfocus = function () {
+			if (text.value == "请输入...") {
+				text.value = "";
+				text.style.color = "#333"
+			}
+		}
+		text.onblur = function () {
+			// alert('离开了');
+			if (text.value == "") {
+				text.value = "请输入...";
+				text.style.color = "#ccc"
+			}
+		}
+		}
+	</script>
+</body>
+</html>
