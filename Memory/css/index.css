@@ -33,10 +33,11 @@ header .add {
 }
 
 header .main-menu {
-    width: 180px;
+    width: 220px;
     height: 50px;
     padding: 5px;
-    margin-left: calc(50% - 90.5px);
+    margin-top: -5px;
+    margin-left: calc(50% - 110px);
     background-color: #EFE1D3;
     box-sizing: border-box;
     border-radius: 5px;
@@ -44,7 +45,7 @@ header .main-menu {
 
 header .main-menu a {
     display: inline-block;
-    width: 80px;
+    width: 100px;
     height: 40px;
     border-radius: 5px;
     /* font: 1em 微软雅黑; */
