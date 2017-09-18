@@ -3,6 +3,8 @@ body {
 }
 
 
+
+
 /* 外套wrap */
 
 .wrap {
@@ -13,14 +15,18 @@ body {
 }
 
 
+
+
 /* 内容区 */
 
 .content {
-    -o-transition: .6s;
-    -moz-transition: .6s;
-    -webkit-transition: .6s;
-    transition: .6s;
+    -o-transition: .4s;
+    -moz-transition: .4s;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
+
+
 
 
 /* 头部header */
@@ -65,6 +71,8 @@ header .main-menu .open {
 }
 
 
+
+
 /* friend朋友圈部分 */
 
 .items .items-title {
@@ -107,9 +115,9 @@ header .main-menu .open {
     font-size: 26px;
 }
 
-.items .fig-box {
+/* .items .fig-box {
     display: block;
-}
+} */
 
 .items .fig-box figcaption h1 {
     font-size: 30px;
@@ -119,16 +127,21 @@ header .main-menu .open {
 .items .items-content .pic {
     position: relative;
     height: 360px;
-    background: url('../img/img01.jpg') top left no-repeat;
+}
+
+.items .items-content .pic-one {
+    background: url('../img/img03.jpg') top left no-repeat;
     background-size: cover;
 }
 
 .items .items-content .pic-two {
     background: url('../img/img02.jpg') center center no-repeat;
+    background-size: cover;
 }
 
 .items .items-content .pic-three {
-    background: url('../img/img03.jpg') top left no-repeat;
+    background: url('../img/img01.jpg') center center no-repeat;
+    background-size: cover;
 }
 
 .items .items-content .pic>span {
@@ -183,11 +196,15 @@ header .main-menu .open {
 
 
 
-/* 附近 */
 
-.around {
+
+/* 趣闻news部分 */
+
+.news {
     display: none;
 }
+
+
 
 
 /* 遮罩层 */
@@ -203,6 +220,8 @@ header .main-menu .open {
 }
 
 
+
+
 /* sidebar左导航 */
 
 .sidebar {
@@ -210,16 +229,16 @@ header .main-menu .open {
     left: 0;
     top: 0;
     width: 80%;
-    height: 100%;
-    background-color: #222D2D;
+    /* height: 100%; */
+    background-color: #22202D;
     -o-transform: translateX(-100%);
     -moz-transform: translateX(-100%);
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
-    -o-transition: .6s;
-    -moz-transition: .6s;
-    -webkit-transition: .6s;
-    transition: .6s;
+    -o-transition: .4s;
+    -moz-transition: .4s;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
 
 .sidebar .leave {
@@ -231,10 +250,10 @@ header .main-menu .open {
     color: #333;
     cursor: pointer;
     opacity: 0;
-    -o-transition: .6s;
-    -moz-transition: .6s;
-    -webkit-transition: .6s;
-    transition: .6s;
+    -o-transition: .4s;
+    -moz-transition: .4s;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
 
 .sidebar .user-photo {
@@ -265,7 +284,6 @@ header .main-menu .open {
 }
 
 .sidebar .user-info h1 {
-    /* display: block */
     border-top: 1px solid #33313D;
     border-bottom: 1px solid #33313D;
     font-size: 25px;
@@ -277,7 +295,6 @@ header .main-menu .open {
 }
 
 .sidebar .user-info p {
-    /* display: block; */
     border-bottom: 1px solid #33313D;
     border-top: 1px solid #33313D;
 }
@@ -285,4 +302,26 @@ header .main-menu .open {
 .sidebar .user-info>h2>i {
     color: yellow;
     font-size: 30px;
+}
+
+.sidebar .gap {
+    position: relative;
+    height: 50px;
+    background-color: #2B2938;
+}
+
+.sidebar .func ul li {
+    float: left;
+    width: 50%;
+    height: 60px;
+    border: 1px solid #33313D;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 60px;
+    font-size: 20px;
+}
+
+.sidebar .func ul li a,
+.sidebar .func ul li i {
+    color: #fff;
 }

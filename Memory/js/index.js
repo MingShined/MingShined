@@ -22,24 +22,24 @@ window.onload = function() {
     }
 
     //朋友圈/附近tab切换
-    var friend = document.getElementById('friend');
     var around = document.getElementById('around');
+    var news = document.getElementById('news');
     var f_tab = document.getElementById('f-tab');
-    var a_tab = document.getElementById('a-tab');
+    var n_tab = document.getElementById('n-tab');
     
     tabCard();
 
     function tabCard(argument) {
         f_tab.onclick = function() {
-            around.style.display = 'none';
-            friend.style.display = 'block';
-            f_tab.className = 'open';
-            a_tab.className = 'none';
-        }
-        a_tab.onclick = function() {
+            news.style.display = 'none';
             around.style.display = 'block';
-            friend.style.display = 'none';
-            a_tab.className = 'open';
+            f_tab.className = 'open';
+            n_tab.className = 'none';
+        }
+        n_tab.onclick = function() {
+            news.style.display = 'block';
+            around.style.display = 'none';
+            n_tab.className = 'open';
             f_tab.className = 'none';
         }
     }
