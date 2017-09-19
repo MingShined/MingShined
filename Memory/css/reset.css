@@ -45,3 +45,19 @@ em,i { font-style: normal; }
 .clearfix { *zoom: 1; }
 .fl { float: left; }
 .fr { float: right; }
+.block{display: block;}
+
+
+
+.bgF7A{background:#F7A945;}/* 暗橙色 */
+.bgF15{background:#F15453;}/* 红色 */
+.bg19C{background:#19C8A9;}/* 海绿色 */
+.bg64C{background:#64C333;}/* 草绿色 */
+.bg0AA{background:#0AA6E8;}/* 天蓝色 */
+.bgEA5{background:#EA5F8D;}/* 粉红色 */
+.bg333{background: #333;}/* 浅黑色 */
+.bg000{background: #000;}/* 深黑色 */
+.bgEEE{background: #eee;}/* 浅灰色 */
+.bgDDD{background: #ddd;}/* 深灰色 */
+.bg435{background: #435A6B;}/* 应该是绿色 */
+.bgFEF{background: #FEF4E4;}/* 土黄色 */

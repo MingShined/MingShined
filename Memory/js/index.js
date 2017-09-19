@@ -26,7 +26,7 @@ window.onload = function() {
     var news = document.getElementById('news');
     var f_tab = document.getElementById('f-tab');
     var n_tab = document.getElementById('n-tab');
-    
+
     tabCard();
 
     function tabCard(argument) {
@@ -110,6 +110,45 @@ window.onload = function() {
                 a()
             }
         })(screen, document, encodeURIComponent);
+    }
+
+    //下拉功能
+
+    var skinBtn = document.getElementById('skinbtn');
+    var skinBox = document.getElementById('skin');
+    var c = true;
+
+    skinBtn.onclick = function() {
+        // alert('nihao')
+        if (c == true) {
+            skinBox.style.height = '120px';
+            return c = false;
+        } else {
+            skinBox.style.height = '0';
+            return c = true;
+        }
+    }
+
+
+
+
+
+
+
+
+    //更换皮肤
+    var oSkin = document.getElementById('skin').getElementsByTagName('div');
+    var oColor = ['#0AA6E8', '#F15453', '#435A6B', '#FEF4E4'];
+    // alert(oSkin.length)
+    for (var i = 0; i < oSkin.length; i++) {
+        oSkin[i].index = i;
+        oSkin[i].onclick = function() {
+            // alert(this.index)
+            changeBg(oColor[this.index]);
+        }
+    }
+    var changeBg = function(a) {
+        document.body.style.background = a;
     }
 
 

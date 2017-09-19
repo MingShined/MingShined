@@ -5,14 +5,18 @@ body {
 
 
 
+
+
 /* 外套wrap */
 
 .wrap {
     position: relative;
     width: 640px;
     margin: 0 auto;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
+
+
 
 
 
@@ -29,13 +33,21 @@ body {
 
 
 
+
+
 /* 头部header */
 
 header {
+    /* position: fixed; */
     padding: 30px 11px 10px;
     text-align: center;
     line-height: 40px;
     color: #333;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    box-sizing: border-box;
 }
 
 header .sub-menu,
@@ -69,6 +81,8 @@ header .main-menu .open {
     background-color: #FF7F66;
     color: #fff;
 }
+
+
 
 
 
@@ -114,6 +128,8 @@ header .main-menu .open {
 .items .items-title .icon-xing1 {
     font-size: 26px;
 }
+
+
 
 /* .items .fig-box {
     display: block;
@@ -198,11 +214,15 @@ header .main-menu .open {
 
 
 
+
+
 /* 趣闻news部分 */
 
 .news {
     display: none;
 }
+
+
 
 
 
@@ -222,6 +242,8 @@ header .main-menu .open {
 
 
 
+
+
 /* sidebar左导航 */
 
 .sidebar {
@@ -231,6 +253,7 @@ header .main-menu .open {
     width: 80%;
     height: 100%;
     background-color: #22202D;
+    /* background: url('../img/p2.jpeg'); */
     -o-transform: translateX(-100%);
     -moz-transform: translateX(-100%);
     -webkit-transform: translateX(-100%);
@@ -318,10 +341,51 @@ header .main-menu .open {
     box-sizing: border-box;
     text-align: center;
     line-height: 60px;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .sidebar .func ul li a,
 .sidebar .func ul li i {
+    font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+    color: rgba(255, 255, 255, .5);
+}
+
+
+
+
+/* 功能区 */
+
+.func-box>a {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 28px;
+    font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
     color: #fff;
+    border-top: 1px solid #33313D;
+}
+
+.skin {
+    /* position: absolute; */
+    /* display: none; */
+    height: 0;
+    overflow: hidden;
+    padding-left: calc(50% - 180px);
+    background-color: #2B2938;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+.skin>div {
+    margin: 20px 0 20px 10px;
+    height: 80px;
+    width: 80px;
+    border-radius: 15px;
+    color: #92c197;
+    text-align: center;
+    line-height: 80px;
+    cursor: pointer;
 }
