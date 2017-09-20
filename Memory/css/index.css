@@ -1,10 +1,6 @@
 body {
-    background-color: #FEF4E4;
+    background-color: #fff; 
 }
-
-
-
-
 
 
 /* 外套wrap */
@@ -18,20 +14,16 @@ body {
 
 
 
-
-
-
 /* 内容区 */
 
 .content {
+    padding: 0 20px;
     -o-transition: .6s;
     -moz-transition: .6s;
     -webkit-transition: .6s;
     transition: .6s;
+    background-color: #FEF4E4;
 }
-
-
-
 
 
 
@@ -83,10 +75,6 @@ header .main-menu .open {
 }
 
 
-
-
-
-
 /* friend朋友圈部分 */
 
 .items .items-title {
@@ -129,8 +117,6 @@ header .main-menu .open {
     font-size: 26px;
 }
 
-
-
 /* .items .fig-box {
     display: block;
 } */
@@ -142,6 +128,8 @@ header .main-menu .open {
 
 .items .items-content .pic {
     position: relative;
+    margin: 0 auto;
+    /* width: 80%; */
     height: 360px;
 }
 
@@ -211,19 +199,11 @@ header .main-menu .open {
 }
 
 
-
-
-
-
-
 /* 趣闻news部分 */
 
 .news {
     display: none;
 }
-
-
-
 
 
 
@@ -236,12 +216,8 @@ header .main-menu .open {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, .6);
 }
-
-
-
-
 
 
 /* sidebar左导航 */
@@ -349,8 +325,6 @@ header .main-menu .open {
     font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
     color: rgba(255, 255, 255, .5);
 }
-
-
 
 
 /* 功能区 */
