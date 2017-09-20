@@ -145,7 +145,7 @@ window.onload = function() {
         }
     }
     var changeBg = function(a) {
-        document.body.style.background = a;
+        content.style.background = a;
     }
 
 
