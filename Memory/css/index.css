@@ -1,5 +1,5 @@
 body {
-    background-color: #fff; 
+    background-color: #333; 
 }
 
 
@@ -10,6 +10,7 @@ body {
     width: 640px;
     margin: 0 auto;
     overflow: hidden;
+    background-color: #FEF4E4;
 }
 
 
@@ -17,12 +18,12 @@ body {
 /* 内容区 */
 
 .content {
-    padding: 0 20px;
+    /* padding: 0 20px; */
     -o-transition: .6s;
     -moz-transition: .6s;
     -webkit-transition: .6s;
     transition: .6s;
-    background-color: #FEF4E4;
+    /* background-color: #FEF4E4; */
 }
 
 
@@ -76,6 +77,10 @@ header .main-menu .open {
 
 
 /* friend朋友圈部分 */
+
+.items {
+    margin: 0 20px;
+}
 
 .items .items-title {
     padding: 46px 20px;
@@ -131,6 +136,8 @@ header .main-menu .open {
     margin: 0 auto;
     /* width: 80%; */
     height: 360px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .items .items-content .pic-one {
@@ -196,6 +203,12 @@ header .main-menu .open {
     border: 1px solid rgba(255, 255, 255, .2);
     border-radius: 5px;
     font-size: 23px;
+}
+
+.items-gap {
+    /* width: calc(100% + 40px); */
+    height: 15px;
+    border-bottom: 15px solid #EBECEC;
 }
 
 
