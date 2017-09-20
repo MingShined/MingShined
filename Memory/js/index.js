@@ -26,7 +26,7 @@ window.onload = function() {
 
     tabCard();
 
-    function tabCard(argument) {
+    function tabCard() {
         f_tab.onclick = function() {
             news.style.display = 'none';
             around.style.display = 'block';
@@ -113,23 +113,12 @@ window.onload = function() {
 
     var skinBtn = document.getElementById('skinbtn');
     var skinBox = document.getElementById('skin');
-    var c = true;
+    var oHeight = skinBox.style;
 
     skinBtn.onclick = function() {
         // alert('nihao')
-        if (c == true) {
-            skinBox.style.height = '120px';
-            return c = false;
-        } else {
-            skinBox.style.height = '0';
-            return c = true;
-        }
+        oHeight.height = oHeight.height == '120px'?'0':'120px';
     }
-
-
-
-
-
 
 
 

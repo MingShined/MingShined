@@ -80,6 +80,7 @@ header .main-menu .open {
 
 .items {
     margin: 0 20px;
+    padding-bottom: 40px;
 }
 
 .items .items-title {
@@ -208,7 +209,7 @@ header .main-menu .open {
 .items-gap {
     /* width: calc(100% + 40px); */
     height: 15px;
-    border-bottom: 15px solid #EBECEC;
+    border-bottom: 15px solid rgba(125, 125, 125, .1);
 }
 
 
