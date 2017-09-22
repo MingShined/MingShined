@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>求和</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        margin: 50px auto;
+        width: 500px;
+        font-size: 15px;
+    }
+
+    .box>label>input {
+        width: 200px;
+    }
+
+    button {
+        display: block;
+        margin: 10px 0;
+        padding: 5px 8px;
+    }
+
+    .result {
+        font-size: 40px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <label>
+            <input type="text" name="text" value="" id="text">输入数字求和，数字之间用半角","号分隔</label>
+        <button type="" id="add">求和</button>
+        <div class="result">
+            结果：
+            <h1 id="res"></h1>
+        </div>
+    </div>
+    <script type="text/javascript">
+    var oInp = document.getElementsByTagName('input')[0];
+    var oAdd = document.getElementById('add');
+    var oRes = document.getElementById('res');
+
+    oInp.onkeyup = function() {
+        this.value = this.value.replace(/[^(\d),]/, ""); //当键盘按下时，用正则表达式替换
+    }
+
+    oAdd.onclick = function() {
+        var oInp = document.getElementsByTagName('input')[0].value.split(','); //分割字符串为数组
+        var sum = 0;
+        for (var i = 0; i < oInp.length; i++) {
+            sum += parseInt(oInp[i]); //累加数组，并转为整形
+        }
+        oRes.innerHTML = sum; //显示在innerHTML
+    }
+    </script>
+</body>
+
+</html>

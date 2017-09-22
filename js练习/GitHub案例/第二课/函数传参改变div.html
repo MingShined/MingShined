@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>函数传参改变div</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        margin: 50px auto;
+        width: 250px;
+    }
+
+    lable,
+    input {
+        display: block;
+        margin: 10px 0;
+        width: 200px;
+        height: 20px;
+        padding: 5px 0 5px 10px;
+    }
+
+    button {
+        display: inline-block;
+        padding: 5px 8px;
+        cursor: pointer;
+    }
+
+    .box {
+        margin-top: 20px;
+        width: 200px;
+        height: 200px;
+        background-color: #eee;
+        border-radius: 10px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label>属性名:
+            <input type="text" name="" value="background">
+        </label>
+        <label>属性值:
+            <input type="text" name="" value="#eee">
+        </label>
+        <button type="" id="sure">确定</button>
+        <button type="" id="reset">重置</button>
+        <div class="box" id="box"></div>
+    </div>
+    <script type="text/javascript">
+    var oSure = document.getElementById('sure');
+    var oInp = document.getElementsByTagName('input');
+    var oReset = document.getElementById('reset');
+    var oBox = document.getElementById('box');
+
+    oSure.onclick = function() {
+        var val1 = oInp[0].value;
+        var val2 = oInp[1].value;
+        change(oBox, val1, val2);
+    }
+    oReset.onclick = function() {
+        oBox.style.cssText = "";
+    }
+
+    function change(elem, name, value) {
+        elem.style[name] = value;
+    }
+    </script>
+</body>
+
+</html>

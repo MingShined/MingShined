@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>输入法</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        margin: 50px auto;
+        width: 50px;
+    }
+
+    ul {
+        display: none;
+        width: 50px;
+        border: 1px solid #ccc;
+    }
+
+    ul>li {
+        width: 50px;
+        cursor: pointer;
+        padding: 5px 8px;
+        box-sizing: border-box;
+        font-size: 12px;
+    }
+
+    ul>li:hover {
+        background-color: #eee;
+    }
+
+    ul>li:last-child {
+        border-top: 1px solid #333;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <button type="">输入法</button>
+        <ul id="inp">
+            <li>手写</li>
+            <li>拼音</li>
+            <li id="close">关闭</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+    window.onload = function() {
+        var oBtn = document.getElementsByTagName('button')[0];
+        var oClose = document.getElementById('close');
+        var oInp = document.getElementById('inp');
+        var oStyle = oInp.style;
+        oBtn.onclick = function() {
+            oStyle.display = oStyle.display == 'block' ? 'none' : 'block';
+
+        }
+        oClose.onclick = function() {
+            oStyle.display = 'none';
+        }
+    }
+    </script>
+</body>
+
+</html>
