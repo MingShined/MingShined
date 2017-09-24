@@ -86,7 +86,7 @@ window.onload = function() {
             day = time.getDate();
             hours = time.getHours();
             minutes = time.getMinutes();
-            tag = '<li>' + '陈先生有酒有故事、:' + textArea[this.index].value + '<span class="fr">' + year + '年' + month + '月' + day + '日' +(hours>=12?'上午':'下午')+ hours + '时' + minutes + '分' + '</span>' + '</li>';
+            tag = '<li>' + '陈先生有酒有故事、:' + textArea[this.index].value + '<span class="fr">' + year + '年' + month + '月' + day + '日' + (hours >= 12 ? '上午' : '下午') + hours + '时' + minutes + '分' + '</span>' + '</li>';
             var ul = document.createElement('ul');
             ul.innerHTML = tag;
             comtInfo[this.index].appendChild(ul);
@@ -99,12 +99,9 @@ window.onload = function() {
         comtBtn[j].index = j;
         comtBtn[j].onclick = function() {
             textArea[this.index].value = '';
-            comtBox[this.index].style.display = 'block';
+            comtBox[this.index].style.display = comtBox[this.index].style.display == 'block' ? 'none' : 'block';
         }
     }
-
-
-
 
 
 
