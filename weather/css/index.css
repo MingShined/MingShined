@@ -5,6 +5,7 @@ body {
 }
 
 
+
 /* 外套 */
 
 .wrap {
@@ -15,6 +16,7 @@ body {
     background-color: #eee;
     overflow: hidden;
 }
+
 
 
 /* 搜索框 */
@@ -50,6 +52,7 @@ body {
 
 
 
+
 /* 内容 */
 
 .content {
@@ -58,34 +61,36 @@ body {
 }
 
 
+
 /* 日期 */
 
 .date {
-    height: 300px;
+    height: 200px;
     font-size: 35px;
     color: #333;
     background-color: blue;
     text-align: center;
-    line-height: 300px;
+    line-height: 200px;
 }
+
 
 
 /* 温度 */
 
 .temperature-box {
     position: relative;
-    height: 400px;
+    height: 300px;
     background-color: yellowgreen;
 }
 
 .temperature {
     position: absolute;
-    left: calc(50% - 100px);
+    left: calc(50% - 75px);
     top: 20%;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     text-align: center;
-    line-height: 200px;
+    line-height: 150px;
     font-size: 55px;
     border: 1px solid #eee;
     border-radius: 50%;
@@ -93,7 +98,7 @@ body {
 
 .temperature-box>h1 {
     position: absolute;
-    bottom: 60px;
+    bottom: 30px;
     width: 100%;
     text-align: center;
     font-size: 30px;
@@ -107,7 +112,9 @@ body {
 }
 
 
+
 /* 白天/晚上 */
+
 .temp-info .day,
 .temp-info .night {
     width: 50%;
