@@ -63,15 +63,50 @@ window.onload = function() {
     likeFunc('like3', 'thumb3');
 
     //评论
-    function commentFunc(com) {
-        var oComment = document.getElementById(com);
-        oComment.onclick = function() {
-            alert('暂时无法评论');
+
+    var textArea = document.getElementsByTagName('textarea');
+    var publish = document.getElementsByTagName('button');
+    var comtBox = document.getElementsByClassName('comment-box');
+    var comtBtn = document.getElementsByClassName('comment-btn');
+    var comtInfo = document.getElementsByClassName('comment-info');
+    // alert(comtBtn.length);
+    // alert(commentBox.length)
+    // alert(publish.length)
+    // alert(textArea.length)
+
+    //评论功能
+    for (var i = 0; i < textArea.length; i++) {
+        publish[i].index = i;
+        var tag = '';
+        var time = new Date();
+        publish[i].onclick = function() {
+            // alert(textArea[this.index].value)
+            year = time.getFullYear();
+            month = time.getMonth() + 1;
+            day = time.getDate();
+            hours = time.getHours();
+            minutes = time.getMinutes();
+            tag = '<li>' + '陈先生有酒有故事、:' + textArea[this.index].value + '<span class="fr">' + year + '年' + month + '月' + day + '日' +(hours>=12?'上午':'下午')+ hours + '时' + minutes + '分' + '</span>' + '</li>';
+            var ul = document.createElement('ul');
+            ul.innerHTML = tag;
+            comtInfo[this.index].appendChild(ul);
+            comtBox[this.index].style.display = 'none';
         }
     }
-    commentFunc("comment1");
-    commentFunc("comment2");
-    commentFunc("comment3");
+
+    //评论按钮点击文本框出现
+    for (var j = 0, length2 = comtBtn.length; j < length2; j++) {
+        comtBtn[j].index = j;
+        comtBtn[j].onclick = function() {
+            textArea[this.index].value = '';
+            comtBox[this.index].style.display = 'block';
+        }
+    }
+
+
+
+
+
 
     // 分享share
     $('#share1').click(function() {
@@ -117,7 +152,7 @@ window.onload = function() {
 
     skinBtn.onclick = function() {
         // alert('nihao')
-        oHeight.height = oHeight.height == '120px'?'0':'120px';
+        oHeight.height = oHeight.height == '120px' ? '0' : '120px';
     }
 
 
