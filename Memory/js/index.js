@@ -86,7 +86,12 @@ window.onload = function() {
             day = time.getDate();
             hours = time.getHours();
             minutes = time.getMinutes();
-            tag = '<li>' + '陈先生有酒有故事、:' + textArea[this.index].value + '<span class="fr">' + year + '年' + month + '月' + day + '日' + (hours >= 12 ? '上午' : '下午') + hours + '时' + minutes + '分' + '</span>' + '</li>';
+            tag = '<li>';
+            tag += '陈先生有酒有故事、:' + textArea[this.index].value;
+            tag += '<span class="fr">';
+            tag +=  year + '年' + month + '月' + day + '日';
+            tag += (hours <= 12 ? '上午' : '下午') + hours + '时' + minutes + '分';
+            tag += '</span>' + '</li>';
             var ul = document.createElement('ul');
             ul.innerHTML = tag;
             comtInfo[this.index].appendChild(ul);
@@ -105,7 +110,7 @@ window.onload = function() {
 
 
 
-    // 分享share
+    // 分享share功能
     $('#share1').click(function() {
         window.sharetitle = $('#tit1').html();
         // window.shareUrl = $('#img').attr('src');
