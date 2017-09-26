@@ -35,14 +35,13 @@ body {
 .search {
     position: relative;
     margin: 0 10px;
-    height: 80px;
     background-color: rgba(0, 0, 0, .9);
     text-align: center;
     line-height: 80px;
 }
 
 .search #city {
-    padding: 10px 13px;
+    padding: 10px 0;
     padding-left: 45px;
     font-size: 25px;
     border: 1px solid rgba(125, 125, 125, .6);
