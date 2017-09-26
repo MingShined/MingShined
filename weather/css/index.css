@@ -2,8 +2,8 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    font-family: serif;
-    background-color: #eee;
+    font-family: 华文行楷;
+    background-color: #000;
 }
 
 
@@ -81,7 +81,7 @@ body {
 .date {
     height: 200px;
     font-size: 35px;
-    color: #fff;
+    color: rgba(255, 255, 255, .6);
     text-align: center;
     line-height: 200px;
 }
@@ -103,7 +103,7 @@ body {
 .temperature-box {
     position: relative;
     height: 300px;
-    color: #Fff;
+    color: #eee;
     /* border-top: 10px solid #16171B; */
     /* border-bottom: 10px solid #16171B; */
     box-sizing: border-box;
@@ -121,6 +121,7 @@ body {
     font-size: 55px;
     border: 1px solid #333;
     border-radius: 50%;
+    color: #ddd;
 }
 
 .temperature::after {
