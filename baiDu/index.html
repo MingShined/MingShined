@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>百度搜索</title>
+    <title>百度一下,你就知道</title>
     <link rel="stylesheet" href="">
     <style type="text/css">
     * {
@@ -15,8 +15,8 @@
 
     .container {
         position: relative;
-       margin-top: 200px;
-        left: calc(50% - 297px);
+        margin-top: 200px;
+        margin-left: calc(50% - 297px);
     }
 
     .container img {
@@ -44,18 +44,21 @@
         color: #fff;
         cursor: pointer;
     }
+
     .result ul {
         margin-top: -3px;
-    	width: 492px;
-    	border: 1px solid #ddd;
+        width: 492px;
+        border: 1px solid #ddd;
         box-sizing: border-box;
     }
+
     .result ul li {
         padding-left: 10px;
     }
+
     .result ul li:hover {
-    	cursor: pointer;
-		background-color: #eee;
+        cursor: pointer;
+        background-color: #eee;
     }
     </style>
 </head>
@@ -73,7 +76,7 @@
     <script type="text/javascript">
     $(function() {
         $("#text").keyup(function() {
-        	//获取文本框的值
+            //获取文本框的值
             var key = $("#text").val();
             //ajax异步获取数据
             $.ajax({
