@@ -2,10 +2,7 @@ function weather(data) {
     var d = data.weather;
     var area = data.area[2][0];
     var oDate = document.getElementById('date');
-    // var dayHTML = document.getElementById('day').innerHTML = ' ';
-    // var nightHTML = document.getElementById('night').innerHTML = ' ';
     for (var i = 0; i < d.length - 4; i++) {
-        // var day = document.getElementById('day');
         var date = d[i].date;
         var day = d[i].info.day;
         var night = d[i].info.night;
