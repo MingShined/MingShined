@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>侧栏导航</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .fl {
+        float: left;
+    }
+
+    .fr {
+        float: right;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .clearfix::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    .container {
+        position: relative;
+        margin: 200px auto;
+        width: 800px;
+        height: 400px;
+        background-color: #eee;
+    }
+
+    .sidemenu {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 200px;
+        height: 400px;
+        background-color: #9EAAAE;
+    }
+
+    .sidemenu .list {
+        height: 60px;
+        line-height: 50px;
+    }
+
+    .list a {
+        margin: 0 10px;
+        height: 60px;
+        display: block;
+        border-bottom: 1px solid #fff;
+        box-sizing: border-box;
+    }
+
+    .menu-content {
+        position: absolute;
+        top: 0;
+        left: 200px;
+        width: 500px;
+    }
+
+    .item {
+        display: none;
+        padding: 20px;
+        height: 400px;
+        box-sizing: border-box;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    .sub-item .title {
+        height: 40px;
+    }
+
+    .sub-item .row {
+        height: 40px;
+    }
+
+    .row>a {
+        padding: 0 15px;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 大容器 -->
+    <div class="container">
+        <!-- 菜单 -->
+        <div class="sidemenu">
+            <div class="list clearfix">
+                <a href="#">
+                    <span>手机、配件</span>
+                    <span class="fr">&gt;</span>
+                </a>
+            </div>
+            <div class="list clearfix">
+                <a href="#">
+                    <span>手机、配件</span>
+                    <span class="fr">&gt;</span>
+                </a>
+            </div>
+            <div class="list clearfix">
+                <a href="#">
+                    <span>手机、配件</span>
+                    <span class="fr">&gt;</span>
+                </a>
+            </div>
+            <div class="list clearfix">
+                <a href="#">
+                    <span>手机、配件</span>
+                    <span class="fr">&gt;</span>
+                </a>
+            </div>
+        </div>
+        <!-- 内容 -->
+        <div class="menu-content hide" id="menu-content">
+            <div class="item">
+                <div class="sub-item">
+                    <div class="title">
+                        ipad、配件
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="sub-item">
+                    <div class="title">
+                        iphone
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="sub-item">
+                    <div class="title">
+                        吉他
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="sub-item">
+                    <div class="title">
+                        守望先锋
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                    <div class="row">
+                        <span>手机通讯:</span>
+                        <a href="#">手机</a>
+                        <span>/</span>
+                        <a href="#">手机维修</a>
+                        <span>/</span>
+                        <a href="#">以旧换新</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    window.onload = function() {
+        //获取参数
+        var list = document.getElementsByClassName('list');
+        var item = document.getElementsByClassName('item');
+        var menuCont = document.getElementById('menu-content');
+        // alert(item.length)
+        // alert(list.length)
+
+        //遍历菜单导航鼠标移入事件
+        for (var i = 0; i < list.length; i++) {
+            //获取相对于i的索引值给index(因为之后访问不到i)
+            list[i].index = i;
+            list[i].onmouseover = function() {
+                //内容显示
+                menuClass('menu-content');
+                //全部重置(排他思想)
+                for (var j = 0, length2 = list.length; j < length2; j++) {
+                    item[j].style.display = 'none';
+                    list[j].style.background = 'none';
+                }
+                //当前对应内容显示
+                item[this.index].style.display = 'block';
+                this.style.background = '#ddd';
+            }
+            //导航菜单鼠标移出时内容消失
+            list[i].onmouseout = function() {
+                menuClass('menu-content hide');
+            }
+        }
+
+        //内容鼠标移入时显示
+        menuCont.onmouseover = function() {
+            menuClass('menu-content');
+        }
+
+        //内容鼠标移入时消失
+        menuCont.onmouseout = function() {
+            menuClass('menu-content hide');
+        }
+
+        //内容显示/消失 函数
+        function menuClass(val) {
+            menuCont.className = val;
+        }
+    }
+    </script>
+</body>
+
+</html>
