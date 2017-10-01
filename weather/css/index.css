@@ -7,6 +7,7 @@ body {
 }
 
 
+
 /* 外套 */
 
 .wrap {
@@ -16,6 +17,7 @@ body {
     height: 100%;
     overflow: hidden;
 }
+
 
 
 /* iconfont部分 */
@@ -28,6 +30,7 @@ body {
     font-size: 35px;
     color: #Fff;
 }
+
 
 
 /* 搜索框 */
@@ -62,6 +65,16 @@ body {
     font-size: 25px;
 }
 
+#msg {
+    position: absolute;
+    width: 640px;
+    color: #fff;
+    font-size: 40px;
+    z-index: 99;
+    text-align: center;
+}
+
+
 
 /* 内容 */
 
@@ -75,6 +88,7 @@ body {
 }
 
 
+
 /* 日期 */
 
 .date {
@@ -84,6 +98,7 @@ body {
     text-align: center;
     line-height: 200px;
 }
+
 
 
 /* .date time {
@@ -149,6 +164,7 @@ body {
     height: 660px;
     /* height: 100%; */
 }
+
 
 
 /* 白天/晚上 */
