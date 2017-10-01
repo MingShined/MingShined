@@ -53,14 +53,20 @@
     </div>
     <script type="text/javascript">
     window.onload = function() {
+
+        //获取参数
         var oBtn = document.getElementsByTagName('button')[0];
         var oClose = document.getElementById('close');
         var oInp = document.getElementById('inp');
         var oStyle = oInp.style;
-        oBtn.onclick = function() {
-            oStyle.display = oStyle.display == 'block' ? 'none' : 'block';
 
+        //点击事件
+        oBtn.onclick = function() {
+            //三目条件判断出现消失属性
+            oStyle.display = oStyle.display == 'block' ? 'none' : 'block';
         }
+
+        //关闭按钮
         oClose.onclick = function() {
             oStyle.display = 'none';
         }

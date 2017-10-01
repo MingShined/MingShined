@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>发送短信</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<input type="text" name="">
+	<button id="btn">点击发送短信</button>
+	<script type="text/javascript">
+	//获取按钮参数 和 定义倒计时时间 以及 定时器变量
+		var btn = document.getElementById('btn');
+		var time = 5;
+		var timer = null;
+	//按钮点击事件
+		btn.onclick = function () {
+			//点击时按钮不可用
+			this.disabled = true;
+			//that指向btn按钮
+			var that = this;
+			//设置定时器(1秒执行一次)
+			var timer = setInterval(function () {
+				time--;
+				//时间>=0时显示倒计时  否则重置按钮清除定时器
+				if (time >= 0) {
+					that.innerHTML = '还剩余' + time + '秒';
+				}else {
+					that.innerHTML = '重新发送';
+					that.disabled = false;
+					clearInterval(timer);
+					time = 5;
+				}
+			},1000);
+		}
+	</script>
+</body>
+</html>

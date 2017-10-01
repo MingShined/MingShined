@@ -142,10 +142,13 @@
         </ul>
     </div>
     <script type="text/javascript">
+        //获取参数
     	var list = document.getElementById('list').getElementsByTagName('li');
     	var desc = document.getElementById('desc').getElementsByTagName('li');
     	// alert(list.length)
     	// alert(desc.length)
+
+        //循环遍历月份盒子
     	for (var i = 0; i < list.length; i++) {
     		list[i].index = i;
     		list[i].onmouseover = function () {

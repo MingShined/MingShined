@@ -40,18 +40,20 @@
         <button type="">传参</button>
     </div>
     <script type="text/javascript">
+    //获取参数
+    var oBtn = document.getElementsByTagName('button')[0];
+    var oInp = document.getElementsByTagName('input');
 
-    function show (province,city) {
-    	alert(province.value);
-    	alert(city.value);
+    //点击传参
+    oBtn.onclick = function() {
+        show(oInp[0], oInp[1]);
     }
 
-    	var oBtn = document.getElementsByTagName('button')[0];
-    	var oInp = document.getElementsByTagName('input');
-
-    	oBtn.onclick = function () {
-    		show(oInp[0],oInp[1]);
-    	}
+    //参数alert
+    function show(province, city) {
+        alert(province.value);
+        alert(city.value);
+    }
     </script>
 </body>
 

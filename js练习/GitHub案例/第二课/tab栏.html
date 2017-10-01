@@ -117,17 +117,22 @@
         </div>
     </div>
     <script type="text/javascript">
+    //获取参数
     var tab = document.getElementById('tab').getElementsByTagName('li');
     var cont = document.getElementById('content').getElementsByTagName('ul');
     // alert(tab.length)
     // alert(cont.length)
+
+    //切换函数
     for (var i = 0; i < tab.length; i++) {
+        //获取对应的i
         tab[i].index = i;
         tab[i].onclick = function() {
             for (var j = 0, length2 = tab.length; j < length2; j++) {
                 tab[j].className = '';
                 cont[j].style.display = 'none';
             }
+            //因为这里访问不到i妹子,所以只能在前面加一个参数index，去获取对应的i
             this.className = 'current';
             cont[this.index].style.display = 'block';
         }

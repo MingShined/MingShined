@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>闭包</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script type="text/javascript">
+    //1.简单形式的闭包(闭包的作用在于突破作用域链可以用来获取参数)
+    function x() {
+        var a = 7;
+        return function() {
+            alert(a);
+        }
+    }
+	var y = x();
+	y();
+    // x()();
+
+    function a (val) {
+    	var b = function () {
+    		return val;
+    	}
+    	val++;
+    	return b;
+    }
+    //访问的整个作用域自身
+    var text = a(1124);
+    alert(text());
+    </script>
+</body>
+
+</html>

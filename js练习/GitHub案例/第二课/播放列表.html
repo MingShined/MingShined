@@ -67,10 +67,12 @@
         </ul>
     </div>
     <script type="text/javascript">
+    //这个也很弱智，不写注释了
     var play = document.getElementsByTagName('h4')[0];
     // alert(play.innerHTML)
     var list = document.getElementById('song').style;
     play.onclick = function() {
+        //这个就是三目运算符做开关，不想用可以用if esle
         list.display = list.display == 'block' ? 'none' : 'block';
     }
     </script>

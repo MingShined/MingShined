@@ -47,12 +47,17 @@
         </div>
     </div>
     <script type="text/javascript">
+    //获取参数
     var oLabel = document.getElementsByTagName('label')[0];
     var oTips = document.getElementById('tips');
     // alert(oLabel.innerHTML)
+
+    // 移入显示
     oLabel.onmouseover = function() {
         oTips.style.display = "block";
     };
+
+    //移除消失
     oLabel.onmouseout = function() {
         oTips.style.display = "none";
     };

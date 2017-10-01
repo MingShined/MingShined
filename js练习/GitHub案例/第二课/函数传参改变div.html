@@ -55,20 +55,25 @@
         <div class="box" id="box"></div>
     </div>
     <script type="text/javascript">
+    //函数传参
     var oSure = document.getElementById('sure');
     var oInp = document.getElementsByTagName('input');
     var oReset = document.getElementById('reset');
     var oBox = document.getElementById('box');
 
+    //确定事件
     oSure.onclick = function() {
         var val1 = oInp[0].value;
         var val2 = oInp[1].value;
         change(oBox, val1, val2);
     }
+
+    //重置事件
     oReset.onclick = function() {
         oBox.style.cssText = "";
     }
 
+    //盒子属性改变函数
     function change(elem, name, value) {
         elem.style[name] = value;
     }

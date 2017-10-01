@@ -45,21 +45,28 @@
         </div>
     </div>
     <script type="text/javascript">
+    //获取参数
     var oInp = document.getElementsByTagName('input')[0];
     var oAdd = document.getElementById('add');
     var oRes = document.getElementById('res');
 
+    //监听键盘输入事件,并用正则匹配数值
     oInp.onkeyup = function() {
-        this.value = this.value.replace(/[^(\d),]/, ""); //当键盘按下时，用正则表达式替换
+        //当键盘按下时，用正则表达式替换
+        this.value = this.value.replace(/[^(\d),]/, ""); 
     }
 
+    //求和点击事件
     oAdd.onclick = function() {
-        var oInp = document.getElementsByTagName('input')[0].value.split(','); //分割字符串为数组
+        //分割字符串为数组
+        var oInp = document.getElementsByTagName('input')[0].value.split(',');
         var sum = 0;
         for (var i = 0; i < oInp.length; i++) {
-            sum += parseInt(oInp[i]); //累加数组，并转为整形
+            //累加数组，并转为整形
+            sum += parseInt(oInp[i]); 
         }
-        oRes.innerHTML = sum; //显示在innerHTML
+        //显示在innerHTML
+        oRes.innerHTML = sum; 
     }
     </script>
 </body>

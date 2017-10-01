@@ -34,12 +34,14 @@
         <p>这是一段文字吱吱吱吱这是一段文字吱吱吱吱这是一段文字吱一段文字吱吱吱吱</p>
     </div>
     <script type="text/javascript">
+    //这个太弱智了，不想写注释
     var oDiv = document.getElementsByTagName('div');
     // alert(oDiv.length)
     for (var i = 0; i < oDiv.length; i++) {
         // oDiv[i].index = i;
         oDiv[i].onclick = function() {
-            alert(this.innerHTML);//可以直接用this指向onclick事件源
+            //可以直接用this指向onclick事件源
+            alert(this.innerHTML);
         }
     }
     </script>

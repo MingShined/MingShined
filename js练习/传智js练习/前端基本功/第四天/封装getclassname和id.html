@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script type="text/javascript">
+    function getClassName(classname, id) {
+        //支持getClassName
+        if (document.getElementsByClassName) {
+            //有id
+            if (id) {
+                var elemId = document.getElementById(id);
+                return elemId.getElementsByClassName(classname);
+            }
+            //没有id
+            else {
+                return document.getElementsByClassName(classname);
+            }
+        }
+        //不支持getClassName
+        else {
+            //有id
+            if (id) {
+                var elemId = document.getElementById(id);
+                var dom = elemId.getElementsByTagName('*');
+            }
+            //没有id
+            else{
+            	var dom = document.getElementsByTagName(*);
+            	}
+            	var arr = [];
+            	for (var i = 0; i < dom.length; i++) {
+            		var domArr = dom[i].className.split(" ");
+            		for(var j = 0, length2 = domArr.length; j < length2; j++){
+            			if (domArr[j] == classname) {
+            				arr.push(dom[i]);
+            			}
+            		}
+            	}
+            	return arr;
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>
