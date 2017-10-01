@@ -127,11 +127,6 @@ header .main-menu .open {
     font-size: 26px;
 }
 
-
-/* .items .fig-box {
-    display: block;
-} */
-
 .items .fig-box figcaption h1 {
     font-size: 30px;
     text-align: center;
@@ -140,7 +135,6 @@ header .main-menu .open {
 .items .items-content .pic {
     position: relative;
     margin: 0 auto;
-    /* width: 80%; */
     height: 360px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -255,7 +249,6 @@ header .main-menu .open {
 }
 
 .items-gap {
-    /* width: calc(100% + 40px); */
     height: 15px;
     border-bottom: 15px solid rgba(125, 125, 125, .1);
 }

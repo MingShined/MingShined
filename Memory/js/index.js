@@ -89,15 +89,24 @@ window.onload = function() {
             tag = '<li>';
             tag += '陈先生有酒有故事、:' + textArea[this.index].value;
             tag += '<span class="fr">';
-            tag +=  year + '年' + month + '月' + day + '日';
+            tag += year + '年' + month + '月' + day + '日';
             tag += (hours <= 12 ? '上午' : '下午') + hours + '时' + minutes + '分';
-            tag += '</span>' + '</li>';
-            var ul = document.createElement('ul');
+            tag += '</span>' + '<a href="javascript:;" class="fr del">删除</a></li>';
+            ul = document.createElement('ul');
             ul.innerHTML = tag;
             comtInfo[this.index].appendChild(ul);
             comtBox[this.index].style.display = 'none';
+            //评论删除功能
+            del = document.getElementsByClassName('del');
+            for (var i = 0; i < del.length; i++) {
+                del[i].onclick = function() {
+                    ul.removeChild(this.parentNode);
+                }
+            }
         }
     }
+
+
 
     //评论按钮点击文本框出现
     for (var j = 0, length2 = comtBtn.length; j < length2; j++) {
@@ -108,6 +117,13 @@ window.onload = function() {
         }
     }
 
+
+    //发布功能
+    var public = document.getElementById('public');
+    var items = document.getElementsByClassName('items')[0];
+    public.onclick = function() {
+        around.appendChild(items.cloneNode(true));
+    }
 
 
     // 分享share功能
