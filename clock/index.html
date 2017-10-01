@@ -79,7 +79,7 @@
     <script type="text/javascript">
 
     //距离考研时间
-    var box = document.getElementById('box');
+    var box = $('box');
     //设定结束时间
     var endTime = new Date('2017/12/24 08:30:00');
     //设定定时器每秒获取当前时间
@@ -107,9 +107,9 @@
 
     //时钟旋转
     //获取盒子
-    var hour = document.getElementById('hour');
-    var minute = document.getElementById('minute');
-    var second = document.getElementById('second');
+    var hour = $('hour');
+    var minute = $('minute');
+    var second = $('second');
 
     //初始化变量
     var h = 0,m = 0,s = 0;
@@ -126,6 +126,10 @@
         minute.style.transform = 'rotate('+6*m+'deg)';
         second.style.transform = 'rotate('+6*s+'deg)';
     },50);
+
+    function $ (id) {
+        return typeof(id) === 'string'?document.getElementById(id):id;
+    }
     </script>
 </body>
 
