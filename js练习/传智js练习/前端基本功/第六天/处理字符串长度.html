@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>处理字符串长度</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script type="text/javascript">
+
+    function getStringLenght(val) {
+        var length = 0;
+        var c = 0;
+        for (var i = 0; i < val.length; i++) {
+            c = val.charCodeAt(i);
+            if (c >= 0 && c <= 127) {//unicode长度为0-127 无法识别汉字
+                length++;
+            } else {
+                length += 2;//一个汉字占两个字节
+            }
+        }
+        // return length;
+        alert(length)
+    }
+    getStringLenght('la级');
+    </script>
+</body>
+
+</html>

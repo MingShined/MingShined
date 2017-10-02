@@ -16,7 +16,7 @@
 			if (count <= 0) {
 				window.location.href = 'http://www.baidu.com';
 			}else {
-				setTimeout(gotoIndexPage,1000);
+				setTimeout(arguments.callee,1000);//arguments.callee指调用函数名本身
 			}
 		}
 	</script>
