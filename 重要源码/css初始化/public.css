@@ -61,7 +61,7 @@ th, td /* table elements 表格元素 */ {
 }
 
 header, footer, article, aside, section, nav, menu, hgroup, details, dialog, figure, figcaption {
-    display: block
+    display: block;
 }
 
 
@@ -71,7 +71,8 @@ ol, li, ul, dl, dt, dd {
 }
 
 fieldset, img {
-    border: 0
+    border: 0;
+    vertical-align: top;
 }
 
 
