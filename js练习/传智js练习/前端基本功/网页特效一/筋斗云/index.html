@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>筋斗云</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #333;
+    }
+
+    .clearfix::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    nav {
+        position: relative;
+        margin: 50px auto;
+        width: 600px;
+        height: 42px;
+        background-color: #fff;
+        border-radius: 10px;
+        user-select: none;
+    }
+
+    .cloud {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 83px;
+        height: 42px;
+        background: url('cloud.gif') no-repeat;
+    }
+
+    .ul {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    nav>ul>li {
+        float: left;
+        width: 83px;
+        height: 42px;
+        text-align: center;
+        line-height: 42px;
+        text-decoration: none;
+        color: #333;
+        list-style: none;
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <span class="cloud" id="cloud"></span>
+        <ul class="ul">
+            <li>首页新闻</li>
+            <li>首页新闻</li>
+            <li>首页新闻</li>
+            <li>首页新闻</li>
+            <li>首页新闻</li>
+            <li>首页新闻</li>
+        </ul>
+    </nav>
+    <script type="text/javascript">
+    //获取id函数
+    function $(id) {
+        return document.getElementById(id);
+    }
+    //获取参数 current用来获取点击时的offsetLeft位置
+    var leader = 0,
+        target = 0,
+        current = 0;
+    var list = $('nav').children[1].children;
+    // alert(list.length)
+    //循环遍历li
+    for (var i = 0; i < list.length; i++) {
+        //鼠标移入时获取对应li的offsetLeft给target
+        list[i].onmouseover = function() {
+            // alert(this.offsetLeft)
+            target = this.offsetLeft;
+        }
+        //鼠标移出时获取对应li的current给target
+        list[i].onmouseout = function() {
+            target = current;
+        }
+        //鼠标点击时获取对应li的offsetLeft给current
+        list[i].onclick = function() {
+            current = this.offsetLeft;
+        }
+    }
+
+    //减速函数
+    setInterval(function() {
+        leader = leader + (target - leader) / 10;
+        $('cloud').style.left = leader + 'px';
+    }, 20);
+    </script>
+</body>
+
+</html>

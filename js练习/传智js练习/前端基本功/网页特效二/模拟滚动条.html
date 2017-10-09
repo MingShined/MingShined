@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>模拟滚动条</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        position: relative;
+        padding: 10px;
+        margin: 50px auto;
+        width: 400px;
+        height: 300px;
+        border: 1px solid #333;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .content {
+        position: relative;
+        padding-right: 20px;
+    }
+
+    .bar-box {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 20px;
+        height: 100%;
+        background-color: #ddd;
+    }
+
+    .bar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* height: 20px; */
+        background-color: #333;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box1">
+        <div class="content">
+            这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字 这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字 这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字 这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字 这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字这是文字
+        </div>
+        <div class="bar-box">
+            <div class="bar"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+    scollFunc('box1');
+
+    //封装为滚动条函数
+    function scollFunc(id) {
+        //获取参数
+        var box = document.getElementById(id);
+        var content = box.children[0];
+        var bar_box = box.children[1];
+        var bar = bar_box.children[0];
+
+        //取得滚动条的高度
+        var barHeight = box.offsetHeight / content.offsetHeight * box.offsetHeight;
+        bar.style.height = barHeight + 'px';
+
+        //拖动滚动条
+        bar.onmousedown = function(event) {
+            var event = event || window.event;
+            //获取空白距离
+            var distanceY = event.clientY - this.offsetTop;
+            //指向指针
+            var that = this;
+            //当鼠标移动时事件
+            document.onmousemove = function(event) {
+                //兼容性
+                var event = event || window.event;
+                window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+                //滚动条滚动距离 = 当前鼠标滑动client - 空白距离
+                var barScroll = event.clientY - distanceY;
+                that.style.top = barScroll + 'px';
+                //判断滚动条溢出
+                if (barScroll < 0) {
+                    that.style.top = 0;
+                } else if (barScroll > that.parentNode.offsetHeight - that.offsetHeight) {
+                    that.style.top = that.parentNode.offsetHeight - that.offsetHeight + 'px';
+                }
+
+                //内容移动算法 (比例)
+                var contScroll = -barScroll * content.offsetHeight / that.parentNode.offsetHeight;
+                content.style.top = contScroll + 'px';
+                //判断内容溢出
+                if (contScroll > 0) {
+                    content.style.top = 0;
+                } else if (contScroll < box.offsetHeight - content.offsetHeight) {
+                    content.style.top = box.offsetHeight - content.offsetHeight - 20 + 'px';
+                }
+            }
+            //鼠标弹起清空移动事件
+            document.onmouseup = function() {
+                document.onmousemove = null;
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>拖动条</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        position: relative;
+        margin: 50px auto;
+        width: 400px;
+        height: 10px;
+        background-color: #eee;
+    }
+
+    .bar {
+        position: absolute;
+        width: 10px;
+        height: 20px;
+        left: 0;
+        top: -5px;
+        background-color: #333;
+        cursor: pointer;
+    }
+
+    .inner_box {
+        position: absolute;
+        width: 0;
+        height: 100%;
+        background-color: skyblue;
+        left: 0;
+        top: 0;
+    }
+
+    .info {
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div class="bar"></div>
+        <div class="inner_box"></div>
+    </div>
+    <div class="info" id="info"></div>
+    <script type="text/javascript">
+    //获取参数
+    var box = document.getElementById('box');
+    var bar = box.children[0];
+    var inner_Box = box.children[1];
+    var info = document.getElementById('info');
+
+    //拖拽事件一定是以onmousedown开始
+    bar.onmousedown = function(event) {
+        //事件兼容性
+        var event = event || window.event;
+        //获取左侧空白距离
+        var distance = event.clientX - this.offsetLeft;
+        //传递指针，指向bar.onmousedown
+        var that = this;
+        //文档鼠标移动时
+        document.onmousemove = function(event) {
+            //事件兼容性
+            var event = event || window.event;
+            //防止选择移动
+            window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+            //bar的移动距离算法
+            that.style.left = event.clientX - distance + 'px';
+            //处理溢出距离
+            var val = parseInt(that.style.left);
+            if (val < 0) {
+                that.style.left = 0;
+            } else if (val > 390) {
+                that.style.left = '390px';
+            }
+            //显示移动参数在页面上
+            inner_Box.style.width = that.style.left;
+            var percent = '已经走了:' + parseInt(parseInt(that.style.left) / 390 * 100) + '%' + '<br/>';
+            var px = '已经走了:' + that.style.left;
+            info.innerHTML = percent + px;
+        }
+        //当鼠标弹起时清空移动
+        document.onmouseup = function() {
+            document.onmousemove = null;
+        }
+    }
+    </script>
+</body>
+
+</html>

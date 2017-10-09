@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>轮播动画切换</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .clearfix::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    .fl {
+        float: left;
+    }
+
+    .fr {
+        float: right;
+    }
+
+    img {
+        vertical-align: top;
+    }
+
+    .banner {
+        position: relative;
+        margin: 150px auto;
+        /* padding: 50px; */
+        width: 490px;
+        height: 170px;
+        box-sizing: border-box;
+        overflow: hidden;
+        user-select: none;
+    }
+
+    .tab,
+    .pic {
+        position: absolute;
+    }
+
+    .pic {
+        width: 500%;
+        height: 100%;
+        left: 0;
+        top: 0;
+    }
+
+    .pic img {
+        float: left;
+        cursor: pointer;
+    }
+
+    .tab {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .tab ul li {
+        float: left;
+        margin-left: 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #ddd;
+        list-style: none;
+        cursor: pointer;
+    }
+
+    .tab li.current {
+        background-color: #fff;
+    }
+    .btn {
+        position: absolute;
+        width: 490px;
+        top: calc(50% - 20px);
+        opacity: .9;
+        cursor: pointer;
+    }
+    .left,.right {
+        height: 40px;
+        background-color: #ccc;
+        font-size: 3em;
+        line-height: 40px;
+        color: #fff;
+        opacity: .9;
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="banner" id="banner">
+        <div class="pic" id="pic">
+            <img src="img/01.jpg" alt="pic" width="490" height="170">
+            <img src="img/02.jpg" alt="pic" width="490" height="170">
+            <img src="img/03.jpg" alt="pic" width="490" height="170">
+            <img src="img/04.jpg" alt="pic" width="490" height="170">
+            <img src="img/05.jpg" alt="pic" width="490" height="170">
+        </div>
+        <div class="tab" id="tab">
+            <ul>
+                <li class="current"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="btn" id="btn">
+            <span class="left fl">&lt;</span>
+            <span class="right fr">&gt;</span>
+        </div>
+    </div>
+    <script type="text/javascript">
+    var pic = document.getElementById('pic');
+    var tab = document.getElementById('tab').getElementsByTagName('li');
+    var btn = document.getElementById('btn');
+    var left = btn.getElementsByTagName('span')[0];
+    var right = btn.getElementsByTagName('span')[1];
+    var leader = 0,
+        target = 0,
+        index = 0,
+        timer = null;
+
+    time();
+    function time () {
+        timer = setInterval(function () {
+            index++;
+            if (index%5==0) {index = 0}
+            auto();
+        },2000);
+    }
+
+    for (var i = 0; i < tab.length; i++) {
+        tab[i].index = i;
+        tab[i].onmouseover = function() {
+            index = this.index;
+            clearInterval(timer);
+            auto();
+        }
+        tab[i].onmouseout = function () {
+        	time();
+        }
+    }
+
+    pic.onmouseover = btn.onmouseover = function () {
+        left.style.display = right.style.display =  'block';
+        clearInterval(timer);
+    }    
+    pic.onmouseout = btn.onmouseout = function () {
+        left.style.display = right.style.display =  'none';
+        time();
+    }
+
+    left.onclick = function () {
+        target += 490;
+        if (target > 0) {
+            target = 0;
+        }
+    }
+
+    right.onclick = function () {
+        target -= 490;
+        if (target < -1960) {
+            target = -1960;
+        }
+    }
+
+    setInterval(function() {
+        leader = leader + (target - leader) / 10;
+        pic.style.left = leader + 'px';
+    }, 30);
+
+    function auto() {
+        for (var j = 0, length2 = tab.length; j < length2; j++) {
+            tab[j].setAttribute('class', '');
+        }
+        tab[index].setAttribute('class', 'current');
+        target = -490 * index;
+    }
+    </script>
+</body>
+
+</html>
