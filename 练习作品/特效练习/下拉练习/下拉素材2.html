@@ -1,0 +1,173 @@
+<!--CSS实现下拉菜单-->  
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>CSS实现下拉菜单</title>  
+    <style type="text/css">  
+        * {  
+            margin: 0;  
+            padding: 0;  
+        }  
+  
+        #menu {  
+            position: relative;  
+            background-color: #000;  
+            width: 100%;  
+            height: 55px;  
+        }  
+  
+        .logo {  
+            color: #57d4ce;  
+            display: inline-block;  
+            line-height: 55px;  
+            position: absolute;  
+            padding: 0 40px;  
+        }  
+  
+        ul {  
+            list-style: none;  
+            display: inline-block;  
+            padding-left: 136px;  
+        }  
+  
+        ul li {  
+            line-height: 55px;  
+            text-align: center;  
+            position: relative;  
+            float: left;  
+        }  
+  
+        a {  
+            text-decoration: none;  
+            color: #fff;  
+            display: block;  
+            padding: 0 20px;  
+            white-space: nowrap;  
+        }  
+  
+        a:hover {  
+            color: #FFF;  
+            background-color: #ccc;  
+        }  
+  
+        ul li ul li {  
+            float: none;  
+            margin-top: 2px;  
+            background-color: #000; 
+        }  
+  
+        ul li ul li a:hover {  
+            color: #FFF;  
+            background-color: #ccc;  
+        }  
+  
+        ul li ul {  
+            position: absolute;  
+            left: 0;  
+            top: 55px;  
+            display: none;  
+            padding-left: 0;  
+        }  
+  
+        ul li:hover ul {  
+            display: block;  
+        }  
+    </style>  
+</head>  
+<body>  
+<div id="menu">  
+    <div class="logo">  
+        MiJiang  
+    </div>  
+    <ul>  
+        <li><a href="#">首页</a></li>  
+        <li><a href="#">课程大厅</a>  
+            <ul>  
+                <li><a href="#">JavaScript</a></li>  
+                <li><a href="#">jQuery</a></li>  
+            </ul>  
+        </li>  
+        <li><a href="#">学习中心</a>  
+            <ul>  
+                <li><a href="#">视频学习</a></li>  
+                <li><a href="#">案例学习</a></li>  
+                <li><a href="#">交流平台</a></li>  
+            </ul>  
+        </li>  
+        <li><a href="#">经典案例</a>  
+            <ul>  
+                <li><a href="#">华中科技大学</a></li>  
+                <li><a href="#">中南大学</a></li>  
+                <li><a href="#">湖南大学</a></li>  
+            </ul>  
+        </li>  
+        <li><a href="#">关于我们</a>  
+            <ul>  
+                <li><a href="#">公司简介</a></li>  
+                <li><a href="#">人才招聘</a></li>  
+                <li><a href="#">联系我们</a></li>  
+            </ul>  
+        </li>  
+    </ul>  
+</div>  
+</body>  
+</html>  
+
+（2）一级菜单中中英文切换显示
+[html] view plain copy
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>  
+    <title></title>  
+    <style type="text/css">  
+        .top-nav  
+        {  
+            font-size: 12px;  
+            font-weight: bold;  
+            list-style: none;  
+            border-bottom: 8px solid #DC4E1B;  
+            overflow: auto;  
+        }  
+        .top-nav li  
+        {  
+            float: left;  
+            margin-right: 1px;  
+        }  
+        .top-nav li a  
+        {  
+            line-height: 20px;  
+            text-decoration: none;  
+            background: #DDDDDD;  
+            color: #666666;  
+            display: block;  
+            width: 80px;  
+            text-align: center;  
+        }  
+         
+        /*设置正常状态英文菜单隐藏*/  
+        .top-nav li a span{  
+            display:none;  
+        }  
+          
+        /*鼠标移动到链接上面时将英文菜单显示*/  
+        .top-nav li a:hover span{  
+            display:block;  
+        }  
+          
+        /*鼠标移动到链接上面时将中文菜单位置上移*/  
+        .top-nav li a:hover{  
+            margin-top:-20px;  
+        }  
+  
+   
+    </style>  
+</head>  
+<body>  
+    <ul class="top-nav">  
+        <li><a href="#">首页<span>Home</span></a></li>  
+        <li><a href="#">课程大厅<span>Course</span></a></li>  
+        <li><a href="#">学习中心<span>Learn</span></a></li>  
+        <li><a href="#">关于我们<span>About</span></a></li>  
+    </ul>  
+</body>  
+</html>  

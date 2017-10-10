@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>wifi、battery and phone</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+/* 		div {
+			float: left;
+			padding: 2px;
+			border: 2px solid;
+			border-color: #000 transparent transparent transparent;
+			border-radius: 50%;
+		} */
+
+		.battery {
+			position: relative;
+			margin: 0 auto;
+			width: 100px;
+			height: 40px;
+			border: 1px solid #222;
+			border-radius: 8px;
+		}
+		.battery:after {
+			position: absolute;
+			right: -10px;
+			top: 12px;
+			content: "";
+			width: 8px;
+			height: 16px;
+			border-radius: 0 16px 16px 0;
+			background-color: #111;
+		}
+		.battery > div {
+			margin: 2px 5px;
+			width: 90px;
+			height: 36px;
+			background-color: #333;
+			border-radius: 5px;
+		}
+
+		.phone {
+			position: relative;
+			margin: 0 auto;
+			top: 50px;
+			width: 100px;
+			height: 50px;
+			border: 1px solid #222;
+			border-radius: 8px;
+			transform: rotate(90deg);
+		}
+		.phone:after {
+			position: absolute;
+			right: 0.5px;
+			top: 23px;
+			content: "";
+			width: 4px;
+			height: 4px;
+			border-radius: 100%;
+			background-color: #111;
+		}
+		.phone > div {
+			margin: 2px 5px;
+			width: 90px;
+			height: 46px;
+			background-color: #333;
+			border-radius: 5px;
+		}		
+	</style>
+</head>
+<body>
+	<div>
+		<div>
+			<div></div>
+		</div>
+	</div>
+
+	<div class="battery">
+		<div>
+			
+		</div>
+	</div>
+
+<div class="phone">
+		<div>
+			
+		</div>
+	</div>	
+</body>
+</html>

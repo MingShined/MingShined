@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		/*CSS全局设置*/  
+*{  
+   margin:0;  
+   padding:0;  
+}  
+.nav{  
+   background-color:#EEEEEE;  
+   height:40px;  
+   width:450px;  
+   margin:0 auto;  
+}  
+/*横向一级菜单样式设置*/  
+ul{  
+   list-style:none; 
+}  
+ul li{  
+   float:left;  
+   line-height:40px;  
+   text-align:center;  
+   position:relative;
+}  
+a{  
+    text-decoration:none;  
+    color:#000000;  
+    display:block;/*将a行内元素转变成块级元素*/  
+    width:90px;  
+    height:40px; 
+}  
+a:hover{  
+    background-color:#666666;  
+    color:#FFFFFF; 
+}  
+/*二级下拉菜单样式设置*/  
+.nav ul li ul li{  
+    float:none;  
+    background-color: red;  
+}  
+ul li ul{  
+    position:absolute;  
+    top:40px;  
+    left:0px;  
+    display:none;/*默认状态下或鼠标离开时隐藏*/  
+    width:90px;
+}  
+/*为了兼容IE7写的CSS样式，但是必须写在a:hover前面*/  
+ul li ul li a:link,ul li ul li a:visited{  
+    background-color:white; 
+}  
+ul li ul li a:hover{  
+    background-color:black;  
+}  
+/*鼠标滑过一级菜单的元素时显示下拉菜单*/  
+ul li:hover ul{  
+    display:block;
+}  
+	</style>
+</head>
+<body>
+	
+	<div id="nav" class="nav">  
+     <ul>  
+              <li><a href="#">网站首页</a></li>  
+          <li><a href="#">课程大厅</a>  
+              <ul>  
+                  <li><a href="#">JavaScript</a></li>  
+                  <li><a href="#">jQuery</a></li>  
+                  <li><a href="#">Ajax</a></li>  
+              </ul>  
+          </li>  
+          <li><a href="#">学习中心</a>  
+              <ul>  
+                  <li><a href="#">视频学习</a></li>  
+                  <li><a href="#">案例学习</a></li>  
+                  <li><a href="#">交流平台</a></li>  
+              </ul>  
+          </li>  
+          <li><a href="#">经典案例</a></li>  
+          <li><a href="#">关于我们</a></li>  
+     </ul>  
+</div>  
+</body>
+</html>

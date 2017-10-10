@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .banner{
+            width: 1500px;
+            height: 100px;
+            background-color: rgba(125, 125, 125, .3);
+            /* overflow: hidden; */
+        }
+
+        .pic{
+            width: 1500px;
+            height: 100px;
+        }
+
+        .pic ul li{
+            list-style: none;
+        }
+
+        .pic ul li img{
+            float: left;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+ <marquee behavior="scroll" deraction="left" scrollamount="25" onmouseover=this.stop() onmouseout=this.start() width="1000" height="100" class="roll">    
+<div class="banner">
+         <div class="pic">
+               
+                <ul>
+                  <li><img src="img/1.jpg" alt="" width="300" height="100"></li>
+                  <li><img src="img/2.jpg" alt="" width="300" height="100"></li>
+                  <li><img src="img/3.jpg" alt="" width="300" height="100"></li>
+                 <li> <img src="img/4.jpg" alt="" width="300" height="100"></li>
+                  <li><img src="img/5.jpg" alt="" width="300" height="100"> </li>
+                </ul>
+               
+        </div>
+   
+</div>
+
+ </marquee>
+
+
+    <script type="text/javascript" sr="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>
