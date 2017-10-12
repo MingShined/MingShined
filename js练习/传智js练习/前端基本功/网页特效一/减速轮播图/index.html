@@ -134,8 +134,8 @@
     function time () {
         timer = setInterval(function () {
             index++;
-            if (index%5==0) {index = 0}
-            auto();
+            index %= 5;
+            change();
         },2000);
     }
 
@@ -144,7 +144,7 @@
         tab[i].onmouseover = function() {
             index = this.index;
             clearInterval(timer);
-            auto();
+            change();
         }
         tab[i].onmouseout = function () {
         	time();
@@ -161,25 +161,23 @@
     }
 
     left.onclick = function () {
-        target += 490;
-        if (target > 0) {
-            target = 0;
-        }
+        index--;
+        if (index < 0) {index = 4;}
+        change();
     }
 
     right.onclick = function () {
-        target -= 490;
-        if (target < -1960) {
-            target = -1960;
-        }
+        index++;
+        index %= 5;
+        change();
     }
 
     setInterval(function() {
-        leader = leader + (target - leader) / 10;
+        leader = leader + (target - leader) / 5;
         pic.style.left = leader + 'px';
     }, 30);
 
-    function auto() {
+    function change() {
         for (var j = 0, length2 = tab.length; j < length2; j++) {
             tab[j].setAttribute('class', '');
         }

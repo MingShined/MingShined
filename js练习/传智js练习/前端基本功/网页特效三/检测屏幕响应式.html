@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>检测屏幕响应式</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script type="text/javascript">
+    window.onload = function() {
+        //页面加载完成先执行一次screen函数
+        screen();
+
+        //页面大小改变时，执行screen函数
+        window.onresize = screen;
+
+        //screen函数(检测屏幕大于960 大于640 以及小于640)
+        function screen() {
+            // alert(getClient().width)
+            if (getClient().width > 960) {
+                document.body.style.background = '#f15';
+            } else if (getClient().width > 640) {
+                document.body.style.background = '#eee';
+            } else {
+                document.body.style.background = '#333';
+            }
+        }
+
+        //检测屏幕兼容性函数
+        function getClient() {
+            //最新浏览器和ie9+
+            if (window.innerWidth != null) {
+                return {
+                    width: window.innerWidth,
+                    height: window.innerHeight
+                }
+            }
+            //普通浏览器
+            else if (document.compatMode === 'CSS1Compat') {
+                return {
+                    width: document.documentElement.clientWidth,
+                    height: document.documentElement.clientHeight
+                }
+            }
+            //怪异模式
+            return {
+                width: document.body.clientWidth,
+                height: document.body.clientHeight
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>
