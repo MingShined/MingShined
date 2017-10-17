@@ -51,10 +51,10 @@
         var y = event.clientY;
         //选中内容兼容性
         if (window.getSelection) {
-        	//主流浏览器
+            //主流浏览器
             tex = window.getSelection().toString();
         } else {
-        	//ie浏览器
+            //ie浏览器
             tex = document.selection.createRange().text;
         }
         //如果选中文字不为空执行显示函数(传入参数x，y，tex)
@@ -74,10 +74,13 @@
 
     //info移动显示函数
     function show(xVal, yVal, textHTML) {
-        info.style.left = xVal + 'px';
-        info.style.top = yVal + 'px';
-        info.style.display = 'block';
-        info.innerHTML = textHTML;
+        //设置定时器延迟出现
+        timer = setTimeout(function() {
+            info.style.left = xVal + 'px';
+            info.style.top = yVal + 'px';
+            info.style.display = 'block';
+            info.innerHTML = textHTML;
+        }, 300);
     }
     </script>
 </body>

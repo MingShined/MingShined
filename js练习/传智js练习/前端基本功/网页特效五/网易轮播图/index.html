@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>网易轮播图</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        vertical-align: top;
+    }
+
+    .banner-wrap {
+        position: relative;
+        margin: 50px auto;
+        width: 490px;
+        height: 170px;
+        padding: 5px;
+        border-radius: 10px;
+        border: 1px solid #eee;
+        box-shadow: 0 0 10px 10px #eee;
+    }
+
+    .banner {
+        position: relative;
+        width: 490px;
+        height: 170px;
+        user-select: none;
+        overflow: hidden;
+    }
+
+    .pic {
+        position: relative;
+        /* width: 980px; */
+        height: 170px;
+        background-color: #eee;
+    }
+
+    .pic-box {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .tab {
+        position: relative;
+        bottom: 25px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+	.tab .btn {
+		display: none;
+	}
+
+    .tab .tab-btn {
+        display: inline-block;
+        margin-left: 8px;
+        width: 12px;
+        height: 12px;
+        border-radius: 100%;
+        background-color: #fff;
+        text-indent: -20em;
+        overflow: hidden;
+    }
+
+    .tab .left-btn,
+    .tab .right-btn {
+        position: absolute;
+        top: -80px;
+        /* width: 20px; */
+        /* height: 40px; */
+        font-size: 4em;
+        line-height: 40px;
+        text-align: center;
+        color: #ccc;
+    }
+
+    .tab .left-btn {
+        left: 0;
+    }
+
+    .tab .right-btn {
+        right: 0;
+    }
+
+    .tab span.current {
+        background-color: #333;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="banner-wrap">
+        <div class="banner" id="main_banner">
+            <div class="pic">
+                <div class="pic-box"><a href="#"><img src="img/01.jpg" alt="banner" width="490" height="170"></a></div>
+                <div class="pic-box"><a href="#"><img src="img/02.jpg" alt="banner" width="490" height="170"></a></div>
+                <div class="pic-box"><a href="#"><img src="img/03.jpg" alt="banner" width="490" height="170"></a></div>
+                <div class="pic-box"><a href="#"><img src="img/04.jpg" alt="banner" width="490" height="170"></a></div>
+                <div class="pic-box"><a href="#"><img src="img/05.jpg" alt="banner" width="490" height="170"></a></div>
+            </div>
+            <div class="tab">
+                <span class="btn left-btn">&lt;</span>
+                <span class="btn right-btn">&gt;</span>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    var oBanner = document.getElementById('main_banner');
+    var oPic_box = oBanner.children[0].children;
+    var oTab = oBanner.children[1];
+    var btn = document.getElementsByClassName('btn');
+    for (var i = 0; i < oPic_box.length; i++) {
+        var span = document.createElement('span');
+        span.setAttribute('class', 'tab-btn');
+        span.innerHTML = oPic_box.length - i;
+        oTab.insertBefore(span, oTab.children[1]);
+    }
+
+    var aSpan = oTab.children;
+    // alert(aSpan.length)
+
+    aSpan[1].className = 'tab-btn current';
+
+    var scrollVal = oBanner.offsetWidth;
+    oBanner.children[0].style.width = 2*scrollVal + 'px';
+    for (var i = 1; i < oPic_box.length; i++) {
+        oPic_box[i].style.left = scrollVal + 'px';
+    }
+
+    var index = 0;
+
+    for (key in aSpan) {
+        aSpan[key].onclick = function() {
+            // alert(this.innerHTML)
+            if (this.className == 'btn right-btn') {
+                autoPlay();
+            } else if (this.className == 'btn left-btn') {
+                animate(oPic_box[index], { left: scrollVal });
+                --index < 0 ? index = oPic_box.length - 1 : index;
+                oPic_box[index].style.left = -scrollVal + 'px';
+                animate(oPic_box[index], { left: 0 });
+                change();
+            } else {
+                var that = this.innerHTML - 1;
+                if (that > index) {
+                    // 做法等同于 右侧按钮
+                    animate(oPic_box[index], { left: -scrollVal }); // 当前的这张慢慢的走出去 左侧
+                    oPic_box[that].style.left = scrollVal + "px"; // 点击的那个索引号 快速走到右侧  310
+                } else if (that < index) {
+                    // 做法等同于 左侧按钮
+                    animate(oPic_box[index], { left: scrollVal });
+                    oPic_box[that].style.left = -scrollVal + "px";
+                }
+                index = that; // 给当前的索引号
+                animate(oPic_box[index], { left: 0 });
+                change();
+            }
+        }
+    }
+
+    var timer = null;
+    timer = setInterval(autoPlay, 1000);
+
+    function autoPlay() {
+        animate(oPic_box[index], { left: -scrollVal });
+        ++index > oPic_box.length - 1 ? index = 0 : index;
+        oPic_box[index].style.left = scrollVal + 'px';
+        animate(oPic_box[index], { left: 0 });
+        change();
+    }
+
+    function change() {
+        for (var i = 1; i < aSpan.length - 1; i++) {
+            aSpan[i].className = 'tab-btn';
+        }
+        aSpan[index + 1].className = 'tab-btn current';
+    }
+
+    oBanner.onmouseover = function() {
+        clearInterval(timer);
+        btnShow('block');
+    }
+    oBanner.onmouseout = function() {
+        clearInterval(timer);
+        timer = setInterval(autoPlay, 1000);
+        btnShow('none');
+    }
+
+    function btnShow (val) {
+    	for (var i = 0; i < btn.length; i++) {
+    		btn[i].style.display = val;
+    	}
+    }
+
+    function animate(elem, json, callBack) {
+        clearInterval(elem.timer);
+        elem.timer = setInterval(function() {
+            var flag = true;
+            for (attr in json) {
+                var current = 0;
+                if (attr == 'opacity') {
+                    current = Math.round(parseInt(getStyle(elem, attr) * 100)) || 0;
+                } else {
+                    current = parseInt(getStyle(elem, attr));
+                }
+                var step = (json[attr] - current) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (attr == 'opacity') {
+                    if ('opacity' in elem.style) {
+                        elem.style.opacity = (current + step) / 100;
+                    } else {
+                        elem.style.filter = 'alpha(opacity = ' + (current + step) * 10 + ')';
+                    }
+                } else if (attr == 'zIndex') {
+                    elem.style.zIndex = json[attr];
+                } else {
+                    elem.style[attr] = current + step + 'px';
+                }
+                if (current != json[attr]) {
+                    flag = false;
+                }
+            }
+            if (flag) {
+                clearInterval(elem.timer);
+                if (callBack) {
+                    callBack();
+                }
+            }
+        }, 15);
+
+        function getStyle(elem, attr) {
+            if (elem.currentStyle) {
+                return elem.currentStyle[attr];
+            } else {
+                return window.getComputedStyle(elem, null)[attr];
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>
