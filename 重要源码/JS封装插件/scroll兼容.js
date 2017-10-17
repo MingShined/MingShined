@@ -1,4 +1,4 @@
-function scroll() {
+function getScroll() {
         //检测是否支持pageYOffset对象
         if (window.pageYOffset != null) {
             return {
