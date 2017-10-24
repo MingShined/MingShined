@@ -4,6 +4,7 @@ body {
 
 
 
+
 /* 外套wrap */
 
 .wrap {
@@ -13,6 +14,7 @@ body {
     overflow: hidden;
     background-color: #FEF4E4;
 }
+
 
 
 
@@ -27,6 +29,7 @@ body {
     transition: .6s;
     /* background-color: #FEF4E4; */
 }
+
 
 
 
@@ -77,6 +80,7 @@ header .main-menu .open {
     background-color: #FF7F66;
     color: #fff;
 }
+
 
 
 
@@ -255,22 +259,25 @@ header .main-menu .open {
 
 
 
+
 /* 趣闻news部分 */
 
 .news {
     display: none;
     position: relative;
     width: 100%;
-    height: 1000px;
+    /* height: 1000px; */
 }
 
 
+
 /* 轮播 */
+
 .banner-wrap {
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ccc;
-    box-shadow:  0 0 10px 10px #333;
+    box-shadow: 0 0 10px 10px #ccc;
 }
 
 .banner {
@@ -305,7 +312,7 @@ header .main-menu .open {
     cursor: pointer;
 }
 
-.banner .ctrl > span {
+.banner .ctrl>span {
     display: inline-block;
     margin-left: 6px;
     width: 10px;
@@ -323,7 +330,7 @@ header .main-menu .open {
     bottom: 0;
     width: 100%;
     height: 50px;
-    background-image: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+    background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
     font: 1.6em 微软雅黑;
     color: #Fff;
 }
@@ -336,9 +343,10 @@ header .main-menu .open {
     line-height: 50px;
 }
 
+
 /* 新闻内容 */
 
-.new-content > h1 {
+.new-content>h1 {
     font-size: 2em;
     text-shadow: 0 3px 3px #333;
     text-align: center;
@@ -346,7 +354,7 @@ header .main-menu .open {
 
 .new-content .list {
     margin-bottom: 20px;
-    padding-bottom: 20px;
+    padding: 0 10px 20px 10px;
     width: 640px;
     height: 180px;
     border-bottom: 1px solid #ccc;
@@ -354,7 +362,7 @@ header .main-menu .open {
 }
 
 .new-content .list .cont {
-    padding: 10px;
+    padding: 30px 30px 10px 10px;
     width: 400px;
     height: 180px;
     box-sizing: border-box;
@@ -369,9 +377,10 @@ header .main-menu .open {
     margin: 0 0 0 10px;
 }
 
-.new-content .list > h1 {
+.new-content .list>h1 {
     font-size: .9em;
 }
+
 
 
 /* 遮罩层 */
@@ -385,6 +394,7 @@ header .main-menu .open {
     height: 100%;
     background-color: rgba(0, 0, 0, .6);
 }
+
 
 
 /* sidebar左导航 */
@@ -496,6 +506,7 @@ header .main-menu .open {
 
 
 
+
 /* 功能区 */
 
 .func-box>a {
@@ -535,8 +546,7 @@ header .main-menu .open {
 }
 
 .login-bar .register,
-.login-bar .login
- {
+.login-bar .login {
     padding: 5px 8px;
     font-size: 28px;
     color: #fff;
@@ -544,4 +554,3 @@ header .main-menu .open {
     box-shadow: 0 0 3px 3px #eee;
     margin-top: 300px;
 }
-
