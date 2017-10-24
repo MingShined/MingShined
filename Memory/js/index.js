@@ -231,8 +231,8 @@ jQuery(document).ready(function($) {
 
     function change() {
         $('#ctrl span').eq(index).addClass('current').siblings().removeClass('current');
-        $('#pic ul li img').stop().fadeOut();
-        $('#pic ul li img').eq(index).stop().fadeIn();
+        $('#pic ul li img').stop().fadeOut(400);
+        $('#pic ul li img').eq(index).stop().fadeIn(400);
         $('#desc span').eq(index).show().siblings('span').hide();
     }
 
