@@ -1,4 +1,4 @@
-window.onload = function() {
+jQuery(document).ready(function($) {
     var show = document.getElementById('show');
     var mask = document.getElementById('mask');
     var sidebar = document.getElementById('sidebar');
@@ -190,5 +190,56 @@ window.onload = function() {
         content.style.background = a;
     }
 
+    //注册登录弹窗
+    $('.login,.register').click(function() {
+        $(location).attr('href', 'https://passport.weibo.cn/signin/welcome?entry=mweibo&r=http%3A%2F%2Fm.weibo.cn%2F%3F%26jumpfrom%3Dweibocom');
+    });
 
-}
+    //趣闻轮播图
+    var tag = '';
+    var timer = null;
+    var index = 0;
+    $('#pic ul li a img').eq(0).css('display', 'block');
+
+    for (var i = 0; i < $('#pic ul li a img').length; i++) {
+        tag += '<span></span>';
+    }
+
+    $('#ctrl').append(tag);
+    $('#ctrl span').first().addClass('current');
+    $('#desc span').first().css('display', 'block');
+
+    $('#ctrl span').mouseenter(function() {
+        clearInterval(timer);
+        var index = $(this).index();
+        change();
+    });
+
+    $('#ctrl span').mouseleave(function() {
+        autoPlay();
+    });
+
+    autoPlay();
+
+    function autoPlay() {
+        timer = setInterval(function() {
+            index++;
+            index %= $('#pic ul li a img').length;
+            change();
+        }, 2000);
+    }
+
+    function change() {
+        $('#ctrl span').eq(index).addClass('current').siblings().removeClass('current');
+        $('#pic ul li img').stop().fadeOut();
+        $('#pic ul li img').eq(index).stop().fadeIn();
+        $('#desc span').eq(index).show().siblings('span').hide();
+    }
+
+    //新闻链接
+    $('.list').click(function() {
+        var arr = ['http://weibo.com/ttarticle/p/show?id=2309614165822506487295','http://weibo.com/ttarticle/p/show?id=2309614165837601807757','http://weibo.com/ttarticle/p/show?id=2309614165850608307845'];
+        var index = $(this).index();
+        $(window).attr('location',arr[index]);
+    });
+});
