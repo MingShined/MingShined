@@ -89,13 +89,17 @@
     var oBtn = oBanner.children[1];
     var aLi = oBanner.children[0].getElementsByTagName('li');
     var aBtn = oBanner.children[1].children;
+    var timer = null;
 
     oBanner.onmouseover = function() {
         animate(oBtn, { opacity: 100 });
+        clearInterval(timer);
     }
 
     oBanner.onmouseout = function() {
         animate(oBtn, { opacity: 0 });
+        clearInterval(timer);
+        timer = setInterval(change,2000);
     }
 
     //定义li参数json
@@ -158,6 +162,8 @@
             }
         }
     }
+
+    timer = setInterval(change,2000);
 
     //调用change函数赋初值
     change();

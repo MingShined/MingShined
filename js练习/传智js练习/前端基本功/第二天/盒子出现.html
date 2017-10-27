@@ -38,7 +38,6 @@
         border: 1px solid #eee;
         padding: 5px 7px;
         border-radius: 2px;
-        /* outline-style: none; */
         cursor: pointer;
     }
 
@@ -60,24 +59,41 @@
 
 <body>
     <div class="container">
-        <div class="btn-box">
-            <button type="" onclick="show('box1')">第一个盒子</button>
-            <button type="" onclick="show('box2')">第二个盒子</button>
-            <button type="" onclick="show('box3')">第三个盒子</button>
-            <button type="" onclick="show('box4')">第四个盒子</button>
+        <div class="btn-box" id="btn">
+            <button>第一个盒子</button>
+            <button>第二个盒子</button>
+            <button>第三个盒子</button>
+            <button>第四个盒子</button>
         </div>
-        <div class="div-box clearfix">
-            <div class="box" id="box1">1</div>
-            <div class="box" id="box2">2</div>
-            <div class="box" id="box3">3</div>
-            <div class="box" id="box4">4</div>
+        <div class="div-box clearfix" id="box">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
         </div>
     </div>
     <script type="text/javascript">
-        function show(box) {
-            var oBox = document.getElementById(box);
-            oBox.style.display = 'block';
-        }
+    // var aBtn = document.getElementById('btn').children;
+    // var aBox = document.getElementById('box').children;
+    // for (var i = 0; i < aBtn.length; i++) {
+    //     aBtn[i].index = i;
+    //     aBtn[i].onclick = function() {
+    //         aBox[this.index].style.display = aBox[this.index].style.display == 'block' ?
+    //             'none' : 'block';
+    //     }
+    // }
+    // 
+    var aBtn = document.getElementById('btn').children;
+    var aBox = document.getElementById('box').children;
+    for (var i = 0; i < aBtn.length; i++) {
+        // aBtn[i].index = i;
+        aBtn[i].onclick = function(val) {
+            return function() {
+                aBox[val].style.display = 'block';
+
+            }
+        }(i);
+    }
     </script>
 </body>
 

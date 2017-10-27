@@ -32,16 +32,19 @@
         text-align: left;
     }
 
-        .right {  /*正确的*/
-            color: #5EFF5E;
-            background:url(img/right.png) no-repeat 4px 3px #DFFFDF ;
-            border: 1px solid #ACFFAC;
-        }
-        .wrong {  /*错误的*/
-            background:url(img/wrong.png) no-repeat 4px 3px #FFDCD0 ;
-            border: 1px solid #FFAC91;
-            color: #FF6B39;
-        }
+    .right {
+        /*正确的*/
+        color: #5EFF5E;
+        background: url(img/right.png) no-repeat 4px 3px #DFFFDF;
+        border: 1px solid #ACFFAC;
+    }
+
+    .wrong {
+        /*错误的*/
+        background: url(img/wrong.png) no-repeat 4px 3px #FFDCD0;
+        border: 1px solid #FFAC91;
+        color: #FF6B39;
+    }
     </style>
 </head>
 
@@ -56,8 +59,6 @@
         return document.getElementById(id);
     }
     $('text').onblur = function() {
-        // alert(this.value);
-        // alert('aaa');
         if (this.value == "") {
             $('result').innerHTML = '内容不能是空';
             $('result').className = 'wrong';

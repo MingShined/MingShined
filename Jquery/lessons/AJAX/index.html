@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>JQuery AJAX</title>
+    </head>
+
+    <body>
+        <div id="result">before ajax</div>
+        <button>Click me</button>
+    </body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('button').on('click', function() {
+            $.ajax({
+               url: 'http://api.joind.in/v2.1/talks/10889',
+               data: {
+                  format: 'json'
+               },
+               error: function() {
+               },
+               dataType: 'jsonp',
+               success: function(data) {
+                    console.log('a');
+               },
+               async: false,
+               type: 'GET'
+            });
+            console.log('b');
+        });
+
+
+
+    });
+
+    </script>
+</html>
+

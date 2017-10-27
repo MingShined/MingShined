@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>JQuery Intro</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <button>Click Me</button>
+
+        <!-- <div class='test'></div> -->
+    </body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('button').on('click', function() {
+            alert('hello world');
+        });
+        $('.test').hide(1000).show(2000);
+
+    });
+
+    </script>
+    <!-- <script src="/js/jquery-latest.js"></script> -->
+</html>
+

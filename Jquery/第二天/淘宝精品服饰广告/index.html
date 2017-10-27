@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .clearfix::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    .fl {
+        float: left;
+    }
+
+    .fr {
+        float: right;
+    }
+
+    ul li {
+        list-style: none;
+    }
+
+    img {
+        vertical-align: top;
+    }
+
+    .container {
+        margin: 100px auto;
+        width: 300px;
+        height: 270px;
+    }
+
+    .container li {
+        width: 50px;
+        height: calc(250px / 9);
+        background: url('images/lili.jpg') repeat-x;
+        font: .8em 微软雅黑;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+    }
+
+    .tab {
+        width: 50px;
+        height: 250px;
+    }
+
+    .tab ul li:hover {
+        background: url('images/abg.gif') repeat-x;
+    }
+
+    .product {
+        margin-left: 50px;
+        margin-right: -50px;
+        width: 200px;
+        height: 250px;
+    }
+
+    .product a {
+        display: none;
+    }
+
+    .product a.block {
+        display: block;
+    }
+    </style>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('.tab-left ul li').hover(function() {
+            var index = $(this).index();
+            $('.product a').eq(index).show().siblings().hide();
+        });
+        $('.tab-right ul li').hover(function() {
+            var index = $(this).index();
+            $('.product a').eq(index + 9).show().siblings().hide();
+        })
+    });
+    </script>
+</head>
+
+<body>
+    <div class="container clearfix">
+        <nav class="tab tab-left fl">
+            <ul>
+                <li class="current">女靴</li>
+                <li>雪地靴</li>
+                <li>冬裙</li>
+                <li>呢大衣</li>
+                <li>毛衣</li>
+                <li>棉服</li>
+                <li>女裤</li>
+                <li>羽绒服</li>
+                <li>牛仔裤</li>
+            </ul>
+        </nav>
+        <nav class="tab tab-right fr">
+            <ul>
+                <li>女包</li>
+                <li>男包</li>
+                <li>登山鞋</li>
+                <li>皮带</li>
+                <li>围巾</li>
+                <li>皮衣</li>
+                <li>男毛衣</li>
+                <li>男棉服</li>
+                <li>男靴</li>
+            </ul>
+        </nav>
+        <div class="product">
+            <a href="#" class="block"><img src="images/女靴.jpg" alt=""></a>
+            <a href="#"><img src="images/雪地靴.jpg" alt=""></a>
+            <a href="#"><img src="images/冬裙.jpg" alt=""></a>
+            <a href="#"><img src="images/呢大衣.jpg" alt=""></a>
+            <a href="#"><img src="images/毛衣.jpg" alt=""></a>
+            <a href="#"><img src="images/棉服.jpg" alt=""></a>
+            <a href="#"><img src="images/女裤.jpg" alt=""></a>
+            <a href="#"><img src="images/羽绒服.jpg" alt=""></a>
+            <a href="#"><img src="images/牛仔裤.jpg" alt=""></a>
+            <a href="#"><img src="images/女包.jpg" alt=""></a>
+            <a href="#"><img src="images/男包.jpg" alt=""></a>
+            <a href="#"><img src="images/登山鞋.jpg" alt=""></a>
+            <a href="#"><img src="images/皮带.jpg" alt=""></a>
+            <a href="#"><img src="images/围巾.jpg" alt=""></a>
+            <a href="#"><img src="images/皮衣.jpg" alt=""></a>
+            <a href="#"><img src="images/男毛衣.jpg" alt=""></a>
+            <a href="#"><img src="images/男棉服.jpg" alt=""></a>
+            <a href="#"><img src="images/男靴.jpg" alt=""></a>
+        </div>
+    </div>
+</body>
+
+</html>

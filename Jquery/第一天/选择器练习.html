@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>选择器练习</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <button type="">点击我</button>
+    <p>这是我的选择器练习</p>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li>4</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <li>sdfsd</li>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $("button").click(function() {
+            $('p').css('background-color', 'red');
+            // $('li:odd').css('background-color','blue');
+            // $('li:even').css('background-color','blue');
+            // $('li:not(li:first)').css('background-color','green');
+            // $('li:not(ul li)').css('background-color','green');
+            // $('li:eq(4)').css('background-color', 'green');
+            // $('li:gt(4)').css('background-color', 'green');
+            // $('li:lt(4)').css('background-color', 'green');
+            $('li:nth-child(4)').css('background-color', 'red');
+        });
+    });
+    </script>
+</body>
+
+</html>

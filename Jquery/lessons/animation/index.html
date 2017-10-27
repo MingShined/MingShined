@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>JQuery Animation</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <div class="result">Hello Wolrd</div>
+        <button class="btn1">Click 1</button>
+        <button class="btn2">Click 2</button>
+        <button class="btn3">Click 3</button>
+        <button class="btn4">Click 4</button>
+        <button class="btn5">Click 5</button>
+        <button class="btn6">Click 6</button>
+        <button class="btn7">Click 7</button>
+
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+
+    </body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('.btn1').on('click', function() {
+            $('.result').slideUp('1000', function(){
+                $('.result').slideDown('fast');
+            });
+        });
+        $('.btn2').on('click', function() {
+            $('.result').slideToggle('2000');
+        });
+        $('.btn3').on('click', function() {
+            $('.result').fadeOut('normal', function(){
+                $('.result').fadeIn('slow');
+            });
+        });
+        $('.btn4').on('click', function() {
+            $('.result').fadeTo('normal', 0.5);
+        });
+
+        $(".btn5").click(function(){
+
+            $(".result").animate({
+                width: "100%",
+                height: "100%",
+                fontSize: "10em",
+                borderWidth: 10
+            }, 1000, 'swing');
+
+        });
+
+        $(".btn6").click(function(){
+            $( ".block:first" ).animate({
+                left: 100
+            }, {
+                duration: 1000,
+                step: function( now, fx ){
+                    $( ".block:gt(0)" ).css( "left", now );
+                }
+            });
+        });
+        $(".btn7").click(function(){
+
+            $(".result").animate({
+                width: "100%",
+                height: "100%",
+                fontSize: "10em",
+                borderWidth: 10
+            }, 10000, 'swing').hide(5000);
+
+            setTimeout(function(){
+                $(".result").stop(true, true);
+            }, 2000);
+
+        });
+    });
+
+    </script>
+</html>
+
