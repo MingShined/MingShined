@@ -49,7 +49,8 @@ ul li {
 }
 
 .move-wrap ul li {
-    float: left;
+    position: absolute;
+    /*float: left;*/
 }
 
 .ctrl {
@@ -94,7 +95,7 @@ span.current {
 }
 
 #banner2 {
-	margin-top: 200px;
+    margin-top: 200px;
 }
 </style>
 
@@ -107,7 +108,6 @@ span.current {
                 <li><img src="images/slider-3.jpg" alt=""></li>
                 <li><img src="images/slider-4.jpg" alt=""></li>
                 <li><img src="images/slider-5.jpg" alt=""></li>
-                <li><img src="images/slider-1.jpg" alt=""></li>
             </ul>
         </div>
         <div class="ctrl" id="ctrl">
@@ -117,11 +117,10 @@ span.current {
             <span class="libs" data-value="2"></span>
             <span class="libs" data-value="3"></span>
             <span class="libs" data-value="4"></span>
-            <span class="libs" data-value="5"></span>
             <span class="arrow next"></span>
         </div>
-    </div>    
-    <div class="banner" id="banner2">
+    </div>
+        <div class="banner" id="banner2">
         <div class="move-wrap" id="move-wrap1">
             <ul>
                 <li><img src="images/slider-1.jpg" alt=""></li>
@@ -141,41 +140,71 @@ span.current {
     <script type="text/javascript">
     $(function() {
         var pageFunc = {
-            scrollFunc: function(oWarp, oCtrl) {
+            scrollFunc: function(oWarp, oCtrl, oLibs, oClass, oSpeed, cb) {
+                var $timer = null;
                 var $index = 0;
                 var $moveWrap = oWarp.find('ul');
+                var $moveWrapChild = $moveWrap.children('li');
                 var $moveVal = $moveWrap.children('li').find('img').width();
                 var $maxNum = $moveWrap.children('li').length;
-                var $ulWidthVal = $moveVal * $maxNum + 'px';
+                var $ulWidthVal = $moveVal * 2 + 'px';
+                var $oCtrl = oCtrl;
+                var $oLibs = oLibs;
+                var $oClass = oClass;
+                var $oSpeedVal = oSpeed;
+                if ($oSpeedVal) {
+                    $oSpeedVal = oSpeed;
+                } else {
+                    $oSpeedVal = 400;
+                }
                 $moveWrap.css('width', $ulWidthVal);
-                oCtrl.on('click', 'span', function(event) {
+                $moveWrapChild.each(function(index, el) {
+                    if (index > 0) {
+                        $(el).css({ left: $moveVal });
+                    }
+                });
+                $oCtrl.on('click', 'span', function(event) {
                     event.preventDefault();
                     if ($(this).attr('class') == "arrow prev") {
-                        $index--;
-                        if ($index < 0) $index = $maxNum - 1;
-                        moveFunc($moveWrap, $index);
-                        changeFunc($index);
+                        $moveWrapChild.eq($index).stop().animate({ left: $moveVal }, $oSpeedVal);
+                        --$index;
+                        $index < 0 ? $index = $maxNum - 1 : $index;
+                        $moveWrapChild.eq($index).css({ left: -$moveVal }).stop().animate({ left: 0 }, $oSpeedVal);
+                        libsChange($oLibs, $index, $oClass);
                     } else if ($(this).attr('class') == 'arrow next') {
-                        $index++;
-                        $index %= $maxNum;
-                        moveFunc($moveWrap, $index);
-                        changeFunc($index);
+                        autoPlay();
                     } else {
-                        $index = $(this).attr('data-value');
-                        moveFunc($moveWrap, $index);
-                        changeFunc($index);
+                        var $that = $(this).attr('data-value');
+                        if ($that > $index) {
+                            $moveWrapChild.eq($index).stop().animate({ left: -$moveVal }, $oSpeedVal);
+                            $moveWrapChild.eq($that).css({ left: $moveVal });
+                        } else if ($that < $index) {
+                            $moveWrapChild.eq($index).stop().animate({ left: $moveVal }, $oSpeedVal);
+                            $moveWrapChild.eq($that).css({ left: -$moveVal });
+                        }
+                        $index = $that;
+                        $moveWrapChild.eq($index).stop().animate({ left: 0 }, $oSpeedVal);
+                        libsChange($oLibs, $index, $oClass);
                     }
-                    function changeFunc(val) {
-                        oCtrl.children('.libs').eq(val).addClass('current').siblings().removeClass('current')
+                    if (cb) {
+                        cb();
                     }
-                    function moveFunc(elem, val) {
-                        elem.stop().animate({ left: (-$moveVal * val) }, 600);
+                    function libsChange(elem, val, classname) {
+                        elem.removeClass(classname).eq(val).addClass(classname);
+                    }
+
+                    function autoPlay() {
+                        $moveWrapChild.eq($index).stop().animate({ left: -$moveVal }, $oSpeedVal);
+                        ++$index;
+                        $index %= $maxNum;
+                        $moveWrapChild.eq($index).css({ left: $moveVal }).stop().animate({ left: 0 }, $oSpeedVal);
+                        libsChange($oLibs, $index, $oClass);
                     }
                 });
             }
         }
-        pageFunc.scrollFunc($('#move-wrap'), $('#ctrl'));
-        pageFunc.scrollFunc($('#move-wrap1'),$('#ctrl1'));
+        pageFunc.scrollFunc($('#move-wrap'), $('#ctrl'), $('#ctrl .libs'), 'current', 450);
+        pageFunc.scrollFunc($('#move-wrap1'), $('#ctrl1'), $('#ctrl1 .libs'), 'current');
     })
     </script>
 </body>
