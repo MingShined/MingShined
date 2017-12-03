@@ -1,0 +1,107 @@
+/* 头部 */
+
+body {
+	padding: 0.2rem;
+	box-sizing: border-box;
+	font-family: Arial;
+	color: #333;
+}
+
+.header {
+	/* margin: 0.2rem; */
+	border-top: 1px solid rgba(0, 0, 0, .4);
+	border-bottom: 1px solid rgba(0, 0, 0, .4);
+}
+
+.header {
+	font: .8rem Arial;
+	color: #333;
+}
+
+/* 主体 */
+
+.main .locat {
+	position: relative;
+	display: block;
+	top: 0.3rem;
+	font-size: 1.3rem;
+}
+
+.main .location {
+	margin-left: 1.3rem;
+	font-size: .7rem;
+	color: #333;
+}
+
+.main .temp {
+	font-size: 5rem;
+	font-family: Tahoma;
+}
+
+.main .text .fa-sun-o {
+	font-size: 1.5rem;
+}
+
+.main .info {
+	position: relative;
+	top: 0.2rem;
+}
+
+.main .info li {
+	float: left;
+	margin-top: 0.2rem;
+	width: 33%;
+	border-right: 1px solid rgba(0, 0, 0, .4);
+	font-size: .45rem;
+	text-align: center;
+}
+
+.main .info li:last-child {
+	border-right: none;
+}
+
+.main .tips {
+	position: relative;
+	top: 0.3rem;
+	font-size: 0.4rem;
+}
+
+.main .tips li {
+	padding-left: 0.4rem;
+	margin-top: 0.1rem;
+}
+
+.main .tips .tit {
+	text-align: center;
+}
+
+.main .future-tit {
+	position: relative;
+	top: .5rem;
+	font-size: 0.45rem;
+	text-align: center;
+}
+
+.swiper-container,
+.swiper-wrapper {
+    position: relative;
+    top: .5rem;
+    width: 100%;
+    height: 5rem;
+}
+
+.swiper-container .swiper-slide {
+    /* height: 3.5rem; */
+    font-size: 0.6rem;
+    text-align: center;
+}
+
+/* .swiper-button-next,
+.swiper-button-prev {
+    top: 21.8rem;
+}
+ */
+
+
+/* 尾部 */
+
