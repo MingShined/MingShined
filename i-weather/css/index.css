@@ -24,11 +24,18 @@ body {
 	/* margin: 0.2rem; */
 	border-top: 1px solid rgba(0, 0, 0, .4);
 	border-bottom: 1px solid rgba(0, 0, 0, .4);
-}
-
-.header {
 	font: .8rem Arial;
 	color: #777;
+}
+
+.header .time-wrap,
+.header .date-wrap {
+	position: relative;
+	width: 100%;
+}
+
+.header .time-wrap .hour {
+	margin-left: 0.1rem;
 }
 
 .header .copyright {
