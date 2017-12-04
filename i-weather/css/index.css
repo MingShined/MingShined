@@ -1,10 +1,23 @@
+/* CSS Document 
+use for:www.18183.com
+version:1.0
+Data:2017/12/04
+Author: MingShined
+*/
+
+
 /* 头部 */
 
 body {
+	position: absolute;
+	width: 100%;
+	height: 100%;
 	padding: 0.2rem;
 	box-sizing: border-box;
 	font-family: Arial;
 	color: #333;
+	overflow: hidden;
+	background-color: #eee;
 }
 
 .header {
@@ -15,7 +28,12 @@ body {
 
 .header {
 	font: .8rem Arial;
-	color: #333;
+	color: #777;
+}
+
+.header .copyright {
+	font-size: 0.3rem;
+	line-height: 0.92rem;
 }
 
 /* 主体 */
@@ -54,53 +72,64 @@ body {
 	border-right: 1px solid rgba(0, 0, 0, .4);
 	font-size: .45rem;
 	text-align: center;
+	color: #777;
+}
+
+.main .info li:nth-child(2) {
+	color: red;
 }
 
 .main .info li:last-child {
 	border-right: none;
 }
 
+.main .title {
+	position: relative;
+	display: block;
+	top: .5rem;
+	font-size: 0.5rem;
+	text-align: center;
+}
+
 .main .tips {
 	position: relative;
-	top: 0.3rem;
-	font-size: 0.4rem;
+	margin-top: 1rem;
 }
 
-.main .tips li {
-	padding-left: 0.4rem;
-	margin-top: 0.1rem;
-}
-
-.main .tips .tit {
-	text-align: center;
-}
-
-.main .future-tit {
-	position: relative;
-	top: .5rem;
+.main .tips .swiper-slide {
+	padding: 0 1rem;
+	box-sizing: border-box;
 	font-size: 0.45rem;
+	color: #333;
+}
+
+.main .tips .swiper-slide .tips-tit {
 	text-align: center;
 }
 
-.swiper-container,
-.swiper-wrapper {
+.main .tips .swiper-button-next,
+.main .tips .swiper-button-prev {
+	position: absolute;
+	top: 1.3rem;
+}
+
+.future,
+.future .swiper-wrapper {
     position: relative;
     top: .5rem;
     width: 100%;
-    height: 5rem;
+    height: 4rem;
 }
 
-.swiper-container .swiper-slide {
-    /* height: 3.5rem; */
-    font-size: 0.6rem;
+.future .swiper-slide {
+    font-size: 0.5rem;
     text-align: center;
 }
 
-/* .swiper-button-next,
-.swiper-button-prev {
-    top: 21.8rem;
+
+.future .swiper-slide ul li:nth-child(2) {
+	font-size: 0.55rem;
 }
- */
 
 
 /* 尾部 */

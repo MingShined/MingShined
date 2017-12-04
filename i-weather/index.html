@@ -16,15 +16,21 @@
 
 <body>
     <!-- 头部star -->
-    <div class="header">
+    <div class="header clearfix">
         <div class="time">
             <span>AM</span>
             <span>08:36</span>
+            <span class="fr copyright">APP：I-weather</span>
         </div>
         <div class="date">
             <span>Date</span>
             <span>2017/12/03</span>
+            <span class="fr copyright">Author: @陈先生有酒有故事</span>
         </div>
+<!--         <div class="copyright fr">
+	        <p>APP：I-weather</p>
+        	<p>author: @陈先生有酒有故事</p>
+        </div> -->
     </div>
     <!-- 头部end -->
     <!-- 主体star -->
@@ -46,17 +52,66 @@
             <li>日出/06:00</li>
             <li>日落/07:00</li>
         </ul>
-        <ul class="tips">
-            <li class="tit">提醒事项:</li>
-            <li>穿着:sssssssssssssss</li>
-            <li>出行:sssssssssssssss</li>
-            <li>车行:sssssssssssssss</li>
-            <li>旅游:sssssssssssssss</li>
-            <li>病发:sssssssssssssss</li>
-            <li>运动:sssssssssssssss</li>
-        </ul>
-        <p class="future-tit">未来五天</p>
-        <div class="swiper-container" id="swiper4">
+        <h1 class="title">
+        	<i class="fa fa-bell-o"></i>
+        	提醒事项
+        </h1>
+        <div class="swiper-container tips" id="tips">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <p class="tips-tit">
+                    	<i class="fa fa-female"></i>
+                    	穿着
+                    </p>
+                    <p class="tips-desc">建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等。</p>
+                </div>
+                <div class="swiper-slide">
+                    <p class="tips-tit">
+                    	<i class="fa fa-bicycle"></i>
+                    	出行
+                    </p>
+                    <p class="tips-desc">建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等。</p>
+                </div>
+                <div class="swiper-slide">
+                    <p class="tips-tit">
+                    	<i class="fa fa-car"></i>
+                    	车行
+                    </p>
+                    <p class="tips-desc">建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等。</p>
+                </div>
+                <div class="swiper-slide">
+                    <p class="tips-tit">
+                    	<i class="fa fa-plane"></i>
+                    	旅游
+                    </p>
+                    <p class="tips-desc">建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等。</p>
+                </div>
+                <div class="swiper-slide">
+                    <p class="tips-tit">
+                    	<i class="fa fa-bug"></i>
+                    	病发
+                    </p>
+                    <p class="tips-desc">建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等。</p>
+                </div>
+                <div class="swiper-slide">
+                    <p class="tips-tit">
+                    	<i class="fa fa-futbol-o"></i>
+                    	运动
+                    </p>
+                    <p class="tips-desc">建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等。</p>
+                </div>
+            </div>
+            <!-- add arrow -->
+            <div class="swiper-button-next swiper-next1"></div>
+            <div class="swiper-button-prev swiper-prev1"></div>
+            <!-- add pagination -->
+            <!-- <div class="swiper-pagination"></div> -->
+        </div>
+        <h1 class="title">
+        	<i class="fa fa-calendar"></i>
+        	未来五天
+        </h1>
+        <div class="swiper-container future" id="future">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <ul>
@@ -100,8 +155,8 @@
                 </div>
             </div>
             <!-- Add Arrows -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next swiper-next2"></div>
+            <div class="swiper-button-prev swipe-prev2"></div>
         </div>
     </div>
     <!-- 主体end -->
