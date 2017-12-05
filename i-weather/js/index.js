@@ -141,7 +141,7 @@ $(function() {
                     $html += '<div class="swiper-slide"><ul>';
                     $html += '<li>' + $future[i + 1].day + '</li>';
                     $html += '<li>' + $future[i + 1].text + '</li>';
-                    $html += '<li><img src="' + $suggestionImg + '" /></li>';
+//                     $html += '<li><img src="' + $suggestionImg + '" /></li>';
                     $html += '<li>' + $future[i + 1].low + '~' + $future[i].high + '</li>';
                     $html += '</ul></div>';
                 }
