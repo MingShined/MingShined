@@ -8,6 +8,7 @@ Author: MingShined
 
 $(function() {
 
+
     //获取动态小时、分钟
     var timeElem = [$('.hour'), $('.minute')];
 
