@@ -69,7 +69,7 @@ body {
 	position: relative;
 	width: 100%;
 	height: 2rem;
-	font-size: 1.5rem;
+	font: 1rem/2rem 微软雅黑;
 }
 
 .main .text img {
@@ -101,6 +101,7 @@ body {
 
 .main .title {
 	position: relative;
+	height: 0.66rem;
 	display: block;
 	top: .5rem;
 	font-size: 0.5rem;
@@ -110,6 +111,7 @@ body {
 .main .tips {
 	position: relative;
 	margin-top: 1rem;
+	height: 1.8rem;
 }
 
 .main .tips .swiper-slide {
@@ -120,6 +122,7 @@ body {
 	box-sizing: border-box;
 	font-size: 0.45rem;
 	color: #333;
+	overflow: hidden;
 }
 
 .main .tips .swiper-slide .tips-tit {
