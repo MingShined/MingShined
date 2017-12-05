@@ -16,7 +16,7 @@ body {
 	box-sizing: border-box;
 	font-family: Arial;
 	color: #333;
-	overflow: hidden;
+	/* overflow: hidden; */
 	background-color: #eee;
 }
 
@@ -117,7 +117,7 @@ body {
 .main .tips .swiper-slide {
 	position: relative;
 	width: 11.93rem;
-	height: 1.8rem;
+	height: 2rem;
 	padding: 0 1rem;
 	box-sizing: border-box;
 	font-size: 0.45rem;
@@ -148,6 +148,13 @@ body {
     text-align: center;
 }
 
+.future .swiper-slide ul li img {
+	position: relative;
+	margin: 0 auto;
+	display: block;
+	width: 1.8rem;
+	height: 1.8rem;
+}
 
 .future .swiper-slide ul li:nth-child(2) {
 	font-size: 0.55rem;
