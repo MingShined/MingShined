@@ -81,6 +81,7 @@ body {
 
 .main .info {
 	position: relative;
+	height: 1.6rem;
 	top: 0.2rem;
 }
 
@@ -112,6 +113,9 @@ body {
 }
 
 .main .tips .swiper-slide {
+	position: relative;
+	width: 11.93rem;
+	height: 1.8rem;
 	padding: 0 1rem;
 	box-sizing: border-box;
 	font-size: 0.45rem;

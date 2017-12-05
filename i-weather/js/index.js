@@ -135,24 +135,25 @@ $(function() {
                     $('#tips .tips-desc').eq(i).text($suggessVal[i].details);
                     console.log($('#tips .tips-desc').eq(i + 1).html());
                 }
+                //提醒事项滑屏
+                var tips = new Swiper('#tips', {
+                    loop: true,
+                    slidesPerView: 1,
+                    slidesPerGroup: 1,
+                    loopFillGroupWithBlank: true,
+                    spaceBetween: 10,
+                    navigation: {
+                        nextEl: '.swiper-next1',
+                        prevEl: '.swiper-prev1',
+                    },
+                })
             })
             .fail(function() {
                 console.log("error");
             })
     }
 
-    //提醒事项滑屏
-    var tips = new Swiper('#tips', {
-        loop: true,
-        slidesPerView: 1,
-        slidesPerGroup: 1,
-        loopFillGroupWithBlank: true,
-        spaceBetween: 10,
-        navigation: {
-            nextEl: '.swiper-next1',
-            prevEl: '.swiper-prev1',
-        },
-    })
+
 
 
 
