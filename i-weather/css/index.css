@@ -53,18 +53,28 @@ body {
 }
 
 .main .location {
+	height: 1.61rem;
 	margin-left: 1.3rem;
 	font-size: .7rem;
-	color: #333;
+	color: #777;
 }
 
 .main .temp {
+	height: 6.03rem;
 	font-size: 5rem;
 	font-family: Tahoma;
 }
 
-.main .text .fa-sun-o {
+.main .text {
+	position: relative;
+	width: 100%;
+	height: 2rem;
 	font-size: 1.5rem;
+}
+
+.main .text img {
+	width: 2rem;
+	height: 2rem;
 }
 
 .main .info {
@@ -80,10 +90,6 @@ body {
 	font-size: .45rem;
 	text-align: center;
 	color: #777;
-}
-
-.main .info li:nth-child(2) {
-	color: red;
 }
 
 .main .info li:last-child {

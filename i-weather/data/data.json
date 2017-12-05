@@ -187,3 +187,7 @@
         }]
     }]
 }
+
+// 天气code图片拼装规则
+var codeImg = '//weixin.jirengu.com/images/weather/code/${data.weather[0].now.code}.png'
+var suggestionImg = '//weixin.jirengu.com/images/weather/suggestion/${data.weather[0].today.suggestion.dressing}.png'
