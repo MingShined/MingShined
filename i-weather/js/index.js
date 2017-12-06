@@ -143,6 +143,9 @@ $(function() {
                     $html += '</ul></div>';
                 }
                 $('#future .swiper-wrapper').append($html);
+                setTimeout(function() {
+                    $('.mask').slideUp(400);
+                }, 4000);
 
                 //提醒事项滑屏
                 var tips = new Swiper('#tips', {
@@ -168,9 +171,6 @@ $(function() {
                         prevEl: '.swiper-prev2',
                     },
                 });
-                setTimeout(function () {
-                    $('.mask').slideUp(400);
-                },5000);
             })
             .fail(function() {
                 console.log("error");
