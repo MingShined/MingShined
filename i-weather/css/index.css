@@ -9,130 +9,134 @@ Author: MingShined
 /* 头部 */
 
 body {
-	/* position: absolute; */
-	/* width: 100%; */
-	/* height: 100%; */
-	padding: 0.2rem;
-	box-sizing: border-box;
-	font-family: Arial;
-	color: #333;
-	/* overflow: hidden; */
-	background-color: #eee;
+    font-family: Arial;
+    color: #fff;
+}
+
+.body-wrap {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0.2rem;
+    background: url('../images/body_bg.jpg') center top no-repeat;
+    background-size: 100% 100%;
 }
 
 .header {
-	/* margin: 0.2rem; */
-	border-top: 1px solid rgba(0, 0, 0, .4);
-	border-bottom: 1px solid rgba(0, 0, 0, .4);
-	font: .8rem Arial;
-	color: #777;
+    /* margin: 0.2rem; */
+    border-top: 1px solid rgba(0, 0, 0, .4);
+    border-bottom: 1px solid rgba(0, 0, 0, .4);
+    font: .8rem Arial;
+    color: #ccc;
 }
 
 .header .time-wrap,
 .header .date-wrap {
-	position: relative;
-	width: 100%;
+    position: relative;
+    width: 100%;
 }
 
 .header .time-wrap .hour {
-	margin-left: 0.1rem;
+    margin-left: 0.1rem;
 }
 
 .header .copyright {
-	font-size: 0.3rem;
-	line-height: 0.92rem;
+    font-size: 0.3rem;
+    line-height: 0.92rem;
 }
+
+
+
 
 /* 主体 */
 
 .main .locat {
-	position: relative;
-	display: block;
-	top: 0.3rem;
-	font-size: 1.3rem;
+    position: relative;
+    display: block;
+    top: 0.3rem;
+    font-size: 1.3rem;
 }
 
 .main .location {
-	height: 1.61rem;
-	margin-left: 1.3rem;
-	font-size: .7rem;
-	color: #777;
+    height: 1.61rem;
+    margin-left: 1.3rem;
+    font-size: .7rem;
+    color: #999;
 }
 
 .main .temp {
-	height: 6.03rem;
-	font-size: 5rem;
-	font-family: Tahoma;
+    height: 6.03rem;
+    font-size: 5rem;
+    font-family: Tahoma;
 }
 
 .main .text {
-	position: relative;
-	width: 100%;
-	height: 2rem;
-	font: 1rem/2rem 微软雅黑;
+    position: relative;
+    width: 100%;
+    height: 2rem;
+    font: 1rem/2rem 微软雅黑;
 }
 
 .main .text img {
-	width: 2rem;
-	height: 2rem;
-	border: none;
-	outline-style: none;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    outline-style: none;
 }
 
 .main .info {
-	position: relative;
-	height: 1.6rem;
-	top: 0.2rem;
+    position: relative;
+    height: 1.6rem;
+    top: 0.2rem;
 }
 
 .main .info li {
-	float: left;
-	margin-top: 0.2rem;
-	width: 33%;
-	border-right: 1px solid rgba(0, 0, 0, .4);
-	font-size: .45rem;
-	text-align: center;
-	color: #777;
+    float: left;
+    margin-top: 0.2rem;
+    width: 33%;
+    border-right: 1px solid rgba(0, 0, 0, .4);
+    font-size: .45rem;
+    text-align: center;
+    color: #fff;
 }
 
 .main .info li:last-child {
-	border-right: none;
+    border-right: none;
 }
 
 .main .title {
-	position: relative;
-	height: 0.66rem;
-	display: block;
-	top: .5rem;
-	font-size: 0.5rem;
-	text-align: center;
+    position: relative;
+    height: 0.66rem;
+    display: block;
+    top: .5rem;
+    font-size: 0.5rem;
+    text-align: center;
 }
 
 .main .tips {
-	position: relative;
-	margin-top: 1rem;
-	height: 1.8rem;
+    position: relative;
+    margin-top: 1rem;
+    height: 1.8rem;
 }
 
 .main .tips .swiper-slide {
-	position: relative;
-	width: 11.93rem;
-	height: 2rem;
-	padding: 0 1rem;
-	box-sizing: border-box;
-	font-size: 0.45rem;
-	color: #333;
-	overflow: hidden;
+    position: relative;
+    width: 11.93rem;
+    height: 2rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    font-size: 0.45rem;
+    color: #ddd;
+    overflow: hidden;
 }
 
 .main .tips .swiper-slide .tips-tit {
-	text-align: center;
+    text-align: center;
 }
 
 .main .tips .swiper-button-next,
 .main .tips .swiper-button-prev {
-	position: absolute;
-	top: 1.3rem;
+    position: absolute;
+    top: 1.3rem;
 }
 
 .future,
@@ -149,17 +153,105 @@ body {
 }
 
 .future .swiper-slide ul li img {
-	position: relative;
-	margin: 0 auto;
-	display: block;
-	width: 1.8rem;
-	height: 1.8rem;
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    width: 1.8rem;
+    height: 1.8rem;
 }
 
 .future .swiper-slide ul li:nth-child(2) {
-	font-size: 0.55rem;
+    font-size: 0.55rem;
 }
+
+
+
 
 
 /* 尾部 */
 
+.mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #000;
+    z-index: 99;
+    overflow: hidden;
+}
+
+.mask .loading {
+    position: absolute;
+    width: 100%;
+    height: 1rem;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -40%);
+    text-align: center;
+}
+
+.mask .loading span {
+    display: inline-block;
+}
+
+.mask .loading .circle {
+    margin-left: 0.1rem;
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 100%;
+    background-color: #fff;
+    animation: loading 1.4s ease-in-out infinite;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+
+.mask .loading .circle.c1 {
+    animation-delay: -0.32s;
+}
+
+.mask .loading .circle.c2 {
+    animation-delay: -0.16s;
+}
+
+.mask .loading .text {
+    font: .6rem 微软雅黑;
+    animation-duration: 1.5s;
+}
+
+@keyframes loading {
+    0%,
+    80%,
+    100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    }
+    40% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
+
+.mask .big-circle {
+    position: absolute;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 100%;
+    left: -3rem;
+    top: -3rem;
+    border: 10px solid #fff;
+    background-color: #fff;
+    box-shadow: 0 0 100px 2px #ddd;
+    /* animation: roll 6s infinite alternate; */
+    transform-origin: 0 0;
+}
+
+@keyframes roll {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

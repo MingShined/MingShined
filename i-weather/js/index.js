@@ -8,7 +8,6 @@ Author: MingShined
 
 $(function() {
 
-
     //获取动态小时、分钟
     var timeElem = [$('.hour'), $('.minute')];
 
@@ -62,9 +61,7 @@ $(function() {
     // });  
 
 
-
     //获取IP
-    // var $curIp = '';
     $.ajax({
             url: 'https://weixin.jirengu.com/weather/ip',
             type: 'get',
@@ -171,6 +168,9 @@ $(function() {
                         prevEl: '.swiper-prev2',
                     },
                 });
+                setTimeout(function () {
+                    $('.mask').slideUp(400);
+                },5000);
             })
             .fail(function() {
                 console.log("error");

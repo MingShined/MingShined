@@ -15,113 +15,122 @@
 </head>
 
 <body>
-    <!-- 头部star -->
-    <div class="header clearfix">
-        <div class="time-wrap fl">
-            <span class="timeSign fl">AM</span>
-            <span class="time">
+    <div class="body-wrap">
+        <!-- 头部star -->
+        <div class="header clearfix">
+            <div class="time-wrap fl">
+                <span class="timeSign fl">AM</span>
+                <span class="time">
                 <span class="hour fl"></span>
-            <span class="fl">:</span>
-            <span class="minute fl"></span>
-            </span>
-            <span class="fr copyright">APP：I-weather</span>
+                <span class="fl">:</span>
+                <span class="minute fl"></span>
+                </span>
+                <span class="fr copyright">APP：I-weather</span>
+            </div>
+            <div class="date-wrap fl">
+                <span>Date</span>
+                <span class="date"></span>
+                <span class="fr copyright">Author: @陈先生有酒有故事</span>
+            </div>
         </div>
-        <div class="date-wrap fl">
-            <span>Date</span>
-            <span class="date"></span>
-            <span class="fr copyright">Author: @陈先生有酒有故事</span>
-        </div>
-    </div>
-    <!-- 头部end -->
-    <!-- 主体star -->
-    <div class="main clearfix">
-        <i class="fa fa-map-marker fl locat"></i>
-        <div class="location">
-            <p class="cityname"></p>
-            <p class="cityid"></p>
-        </div>
-        <div class="temp"></div>
-        <div class="text clearfix">
-            <!-- <i class="fa fa-sun-o">/晴</i> -->
-            <img src="" alt="" class="codeimg fl">
-            <span class="codetext fl"></span>
-        </div>
-        <ul class="info clearfix">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-        <h1 class="title">
+        <!-- 头部end -->
+        <!-- 主体star -->
+        <div class="main clearfix">
+            <i class="fa fa-map-marker fl locat"></i>
+            <div class="location">
+                <p class="cityname"></p>
+                <p class="cityid"></p>
+            </div>
+            <div class="temp"></div>
+            <div class="text clearfix">
+                <!-- <i class="fa fa-sun-o">/晴</i> -->
+                <img src="" alt="" class="codeimg fl">
+                <span class="codetext fl"></span>
+            </div>
+            <ul class="info clearfix">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <h1 class="title">
             <i class="fa fa-bell-o"></i>
             提醒事项
         </h1>
-        <div class="swiper-container tips" id="tips">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <p class="tips-tit">
-                        <i class="fa fa-female"></i> 穿着
-                    </p>
-                    <p class="tips-desc"></p>
+            <div class="swiper-container tips" id="tips">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <p class="tips-tit">
+                            <i class="fa fa-female"></i> 穿着
+                        </p>
+                        <p class="tips-desc"></p>
+                    </div>
+                    <div class="swiper-slide">
+                        <p class="tips-tit">
+                            <i class="fa fa-bicycle"></i> 出行
+                        </p>
+                        <p class="tips-desc"></p>
+                    </div>
+                    <div class="swiper-slide">
+                        <p class="tips-tit">
+                            <i class="fa fa-car"></i> 车行
+                        </p>
+                        <p class="tips-desc"></p>
+                    </div>
+                    <div class="swiper-slide">
+                        <p class="tips-tit">
+                            <i class="fa fa-plane"></i> 旅游
+                        </p>
+                        <p class="tips-desc"></p>
+                    </div>
+                    <div class="swiper-slide">
+                        <p class="tips-tit">
+                            <i class="fa fa-bug"></i> 病发
+                        </p>
+                        <p class="tips-desc"></p>
+                    </div>
+                    <div class="swiper-slide">
+                        <p class="tips-tit">
+                            <i class="fa fa-futbol-o"></i> 运动
+                        </p>
+                        <p class="tips-desc"></p>
+                    </div>
                 </div>
-                <div class="swiper-slide">
-                    <p class="tips-tit">
-                        <i class="fa fa-bicycle"></i> 出行
-                    </p>
-                    <p class="tips-desc"></p>
-                </div> 
-                <div class="swiper-slide">
-                    <p class="tips-tit">
-                        <i class="fa fa-car"></i> 车行
-                    </p>
-                    <p class="tips-desc"></p>
-                </div>
-                <div class="swiper-slide">
-                    <p class="tips-tit">
-                        <i class="fa fa-plane"></i> 旅游
-                    </p>
-                    <p class="tips-desc"></p>
-                </div>
-                <div class="swiper-slide">
-                    <p class="tips-tit">
-                        <i class="fa fa-bug"></i> 病发
-                    </p>
-                    <p class="tips-desc"></p>
-                </div>
-                <div class="swiper-slide">
-                    <p class="tips-tit">
-                        <i class="fa fa-futbol-o"></i> 运动
-                    </p>
-                    <p class="tips-desc"></p>
-                </div>
+                <!-- add arrow -->
+                <div class="swiper-button-next swiper-next1"></div>
+                <div class="swiper-button-prev swiper-prev1"></div>
+                <!-- add pagination -->
+                <!-- <div class="swiper-pagination"></div> -->
             </div>
-            <!-- add arrow -->
-            <div class="swiper-button-next swiper-next1"></div>
-            <div class="swiper-button-prev swiper-prev1"></div>
-            <!-- add pagination -->
-            <!-- <div class="swiper-pagination"></div> -->
-        </div>
-        <h1 class="title">
+            <h1 class="title">
             <i class="fa fa-calendar"></i>
             未来六天
         </h1>
-        <div class="swiper-container future" id="future">
-            <div class="swiper-wrapper">
+            <div class="swiper-container future" id="future">
+                <div class="swiper-wrapper">
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next swiper-next2"></div>
+                <div class="swiper-button-prev swiper-prev2"></div>
             </div>
-            <!-- Add Arrows -->
-            <div class="swiper-button-next swiper-next2"></div>
-            <div class="swiper-button-prev swiper-prev2"></div>
         </div>
+        <!-- 主体end -->
+        <!-- 弹窗star -->
+        <div class="mask">
+            <div class="loading">
+                <span class="circle c1"></span>
+                <span class="circle c2"></span>
+                <span class="circle c3"></span>
+                <span class="text animated bounce infinite">老司机正在加载</span>
+            </div>
+            <div class="big-circle"></div>
+        </div>
+        <!-- 弹窗end -->
+        <script type="text/javascript" src="js/swiper.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
     </div>
-    <!-- 主体end -->
-    <!-- 尾部star -->
-    <div class="footer"></div>
-    <!-- 尾部end -->
-    <script type="text/javascript" src="js/swiper.js"></script>
-    <script type="text/javascript" src="js/jQuery.Hz2Py-min.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
 </body>
 
 </html>
