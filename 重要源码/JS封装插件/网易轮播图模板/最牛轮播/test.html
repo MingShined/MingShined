@@ -120,7 +120,7 @@ span.current {
             <span class="arrow next"></span>
         </div>
     </div>
-        <div class="banner" id="banner2">
+    <div class="banner" id="banner2">
         <div class="move-wrap" id="move-wrap1">
             <ul>
                 <li><img src="images/slider-1.jpg" alt=""></li>
@@ -163,6 +163,10 @@ span.current {
                         $(el).css({ left: $moveVal });
                     }
                 });
+                clearInterval($timer);
+                $timer = setInterval(function() {
+                    autoPlay();
+                }, 1000);
                 $oCtrl.on('click', 'span', function(event) {
                     event.preventDefault();
                     if ($(this).attr('class') == "arrow prev") {
@@ -189,17 +193,27 @@ span.current {
                     if (cb) {
                         cb();
                     }
-                    function libsChange(elem, val, classname) {
-                        elem.removeClass(classname).eq(val).addClass(classname);
-                    }
+                });
 
-                    function autoPlay() {
-                        $moveWrapChild.eq($index).stop().animate({ left: -$moveVal }, $oSpeedVal);
-                        ++$index;
-                        $index %= $maxNum;
-                        $moveWrapChild.eq($index).css({ left: $moveVal }).stop().animate({ left: 0 }, $oSpeedVal);
-                        libsChange($oLibs, $index, $oClass);
-                    }
+                function autoPlay() {
+                    $moveWrapChild.eq($index).stop().animate({ left: -$moveVal }, $oSpeedVal);
+                    ++$index;
+                    $index %= $maxNum;
+                    $moveWrapChild.eq($index).css({ left: $moveVal }).stop().animate({ left: 0 }, $oSpeedVal);
+                    libsChange($oLibs, $index, $oClass);
+                }
+
+                function libsChange(elem, val, classname) {
+                    elem.removeClass(classname).eq(val).addClass(classname);
+                }
+
+                $oCtrl.hover(function() {
+                    clearInterval($timer);
+                }, function() {
+                    clearInterval($timer);
+                    $timer = setInterval(function() {
+                        autoPlay();
+                    }, 1000);
                 });
             }
         }
