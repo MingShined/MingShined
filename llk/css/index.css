@@ -105,7 +105,7 @@ body {
     vertical-align: top;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 640px) {
     .beauty {
         width: 6rem;
     }
