@@ -1,31 +1,57 @@
 body {
-	background-color: #333;
+    background-color: #333;
 }
 
 ul li {
-	list-style: none;
+    list-style: none;
 }
 
 .clearfix:after {
-	content: '';
-	display: table;
-	clear: both;
+    content: '';
+    display: table;
+    clear: both;
+}
+
+html,
+body {
+    position: absolute;
+    /* padding: 1rem -0px; */
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* box-sizing: border-box;      */
 }
 
 .beauty {
     position: relative;
-    top: 248px;
-    width: 550px;
-    /* height: 355px; */
-    margin: 0 auto;
+    padding-bottom: .18rem;
+    left: 50%;
+    top: 50%;
+    width: 12rem;
+    height: auto;
     background-color: #ccc;
+    border-radius: .2rem;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    box-sizing: border-box;
+    /* animation: box-roll 3s ease infinite; */
+    /* transform-origin: center top; */
+}
+
+@keyframes box-roll {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .startime {
     position: absolute;
-    top: -50px;
-    right: -50px;
-    font-size: 28px;
+    top: -.4rem;
+    right: -.50rem;
+    font-size: .28rem;
     color: #fff;
 }
 
@@ -33,34 +59,62 @@ ul li {
     position: absolute;
     left: 50%;
     top: 50%;
-    margin-left: -50px;
-    margin-top: -25px;
-    width: 100px;
-    height: 50px;
+    transform: translate(-50%, -50%);
+    width: 1rem;
+    height: .5rem;
     background-color: #eee;
     text-align: center;
-    line-height: 50px;
+    line-height: .5rem;
     text-decoration: none;
     color: #333;
+    font-size: .24rem;
+    padding: .2rem .1rem;
+    border-radius: .1rem;
 }
 
+.beauty ul {
+    float: left;
+    display: block;
+    margin: 0 auto;
+    /* margin-left: -.4rem; */
+    width: 90%;
+    height: 100%;
+    /* text-align: center; */
+}
 
 .beauty ul li {
     float: left;
-    margin: 14px 0 0 14px;
-    width: 135px;
-    height: 65px;
+    /* display: inline-block; */
+    margin: .18rem 0 0 .1rem;
+    width: 1.7rem;
+    height: .85rem;
     cursor: pointer;
-    border: 3px solid #fff;
+    border: .03rem solid #fff;
+    box-sizing: border-box;
 }
 
 .beauty ul li:hover,
 .beauty ul li.active {
-    border: 3px solid #e2285e;
+    border: .03rem solid #e2285e;
 }
 
 .beauty ul li img {
     display: block;
     width: 100%;
     height: 100%;
+    vertical-align: top;
+}
+
+@media screen and (max-width: 640px) {
+    .beauty {
+        width: 6rem;
+    }
+
+    .beauty ul {
+        margin-left: -.4rem;
+    }
+
+    .beauty ul li {
+        width: 30%;
+    }
 }

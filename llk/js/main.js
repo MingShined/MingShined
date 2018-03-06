@@ -9,6 +9,7 @@ $('.btn-play').on('click', function(event) {
 $.fn.gameLLK = function($options) {
 
     var $defaults = {
+        // row:
         time:120,
         gameWinCbk:function (t) {
             alert('您用时' + t + 's');
