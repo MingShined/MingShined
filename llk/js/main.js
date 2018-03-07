@@ -1,26 +1,38 @@
 ////美女连连看
 
-
-$('.btn-play').on('click', function(event) {
-    $('.beauty').gameLLK();
+$('.btn-play').on('click', function() {
     $(this).fadeOut();
+    audioGoFun();
+    setTimeout(function() {
+        $('.beauty').gameLLK();
+    }, 1800);
 });
+
+
+function audioGoFun() {
+    $('.word-ready').addClass('readyActive');
+    $('.word-go').addClass('goActive');
+    $('#go').get(0).play();
+}
 
 $.fn.gameLLK = function($options) {
 
     var $defaults = {
         // row:
-        time:120,
-        gameWinCbk:function (t) {
+        time: 120,
+        gameWinCbk: function(t) {
             alert('您用时' + t + 's');
         }
     }
 
-    var $settings = $.extend($defaults,$options);
+    var $settings = $.extend($defaults, $options);
 
     //具体游戏流程
     gameStar();
+
     function gameStar() {
+        $('.beauty').css('background', '#ccc').addClass('beautyActive');
+        $('#bgmusic').get(0).play();
         var starTime = $settings.time;
         var timeVal = $settings.time;
         var timer = null;
@@ -37,7 +49,7 @@ $.fn.gameLLK = function($options) {
                 // alertBoxShow('.item1');
                 clearInterval(timer);
                 alert('亲，时间到');
-            $('.startime').text(0 + 's');
+                $('.startime').text(0 + 's');
                 return false;
             } else {
                 $('.beauty ul').on('click', 'li', function() {
@@ -48,8 +60,10 @@ $.fn.gameLLK = function($options) {
                         return;
                     } else { //配对
                         $(this).stop().animate({
-                            opacity: 0
-                        }, 400).siblings('.active').stop().animate({
+                            opacity: 0,
+                        }, 400, function() {
+                            audioRightFun();
+                        }).siblings('.active').stop().animate({
                             opacity: 0
                         }, 400, function() {
                             ++count;
@@ -67,6 +81,15 @@ $.fn.gameLLK = function($options) {
         }, 1000)
     }
 
+    function audioRightFun() {
+        $('#right').get(0).play();
+
+    }
+
+    function audioWrongFun() {
+        $('#wrong').get(0).play();
+
+    }
 
     //图片随机
 

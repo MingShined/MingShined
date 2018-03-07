@@ -14,12 +14,11 @@ ul li {
 
 html,
 body {
-    position: absolute;
+    position: relative;
     /* padding: 1rem -0px; */
     width: 100%;
     height: 100%;
     overflow: hidden;
-    /* box-sizing: border-box;      */
 }
 
 .beauty {
@@ -29,21 +28,27 @@ body {
     top: 50%;
     width: 12rem;
     height: auto;
-    background-color: #ccc;
+    /* background-color: #ccc; */
     border-radius: .2rem;
     transform: translate(-50%, -50%);
     text-align: center;
     box-sizing: border-box;
+    user-select: none;
+    z-index: 99;
     /* animation: box-roll 3s ease infinite; */
     /* transform-origin: center top; */
 }
 
-@keyframes box-roll {
+.beauty.beautyActive {
+    animation: bounceIn 1s;
+}
+
+@keyframes bounceIn{
     from {
-        transform: rotate(0deg);
+        opacity: 0;
     }
     to {
-        transform: rotate(360deg);
+        opacity: 1;
     }
 }
 
@@ -76,10 +81,8 @@ body {
     float: left;
     display: block;
     margin: 0 auto;
-    /* margin-left: -.4rem; */
     width: 90%;
     height: 100%;
-    /* text-align: center; */
 }
 
 .beauty ul li {
@@ -87,12 +90,28 @@ body {
     /* display: inline-block; */
     margin: .18rem 0 0 .1rem;
     width: 1.7rem;
-    height: .85rem;
+    height: .9rem;
     cursor: pointer;
     border: .03rem solid #fff;
     box-sizing: border-box;
 }
 
+.beauty ul li.active {
+    animation: swing 1s;
+}
+
+/* @keyframes swing {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(10px);
+    }
+}
+ */
 .beauty ul li:hover,
 .beauty ul li.active {
     border: .03rem solid #e2285e;
@@ -116,5 +135,54 @@ body {
 
     .beauty ul li {
         width: 30%;
+    }
+}
+
+.word-ready {
+    position: absolute;
+    width: 100%;
+    display: block;
+    color: #eee;
+    text-align: center;
+    transform: translateY(-150%);
+}
+
+.word-go {
+    position: absolute;
+    width: 100%;
+    display: block;
+    color: #eee;
+    text-align: center;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.word-ready.readyActive {
+    /* animation: bounceInDown 1s; */
+    animation: readySlide 1s;
+}
+
+.word-go.goActive {
+    /* animation: bounceInDown 1s; */
+    animation: goSlide 1s .5s;
+}
+
+@keyframes readySlide {
+    from {
+        opacity: 1;
+        transform: translateY(-150%);
+    }to {
+        transform: translateY(0);
+        opacity: 0;
+    }
+}
+
+@keyframes goSlide {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }to {
+        transform: scale(1.7);
+        opacity: 1;
     }
 }
