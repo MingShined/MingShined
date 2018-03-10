@@ -17,6 +17,8 @@
     <audio src="audio/go.mp3" id="go"></audio>
     <audio src="audio/right.mp3" id="right"></audio>
     <audio src="audio/wrong.mp3" id="wrong"></audio>
+    <audio src="audio/win.mp3" id="win"></audio>
+    <audio src="audio/lose.mp3" id="lose"></audio>
     <!-- Ready Go -->
     <h1 class="word-ready">Ready</h1>
     <h1 class="word-go">Go</h1>
@@ -25,10 +27,39 @@
         <div class="startime"></div>
         <ul class="clearfix">
         </ul>
-        <a href="javascript:;" title="开始游戏" class="btn-play">开始游戏</a>
+        <a href="javascript:;" title="开始游戏" class="btn-play">开 始 游 戏</a>
     </div>
-    <script type="text/javascript" src="js/main.js"></script>
+    <div class="mask">
+        <div class="game-win">
+            <p>恭喜您用时 <i class="endtime"></i> S</p>
+            <div class="btn-group">
+                <a href="javascript:;" class="play-again">再玩一次</a>
+                <a href="javascript:;" class="show-score">炫耀分数</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="js/snowfall.jquery.js"></script>
     <script type="text/javascript" src="js/setHtmlFontSize.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+    $('.btn-play').one('click', function() {
+        $(this).fadeOut();
+        audioGoFun();
+        setTimeout(function() {
+            $('.beauty').gameLLK();
+        }, 1800);
+    });
+
+
+    function audioGoFun() {
+        $('.word-ready').addClass('readyActive');
+        $('.word-go').addClass('goActive');
+        $('#go').get(0).play();
+    }
+
+    $(document).snowfall({ deviceorientation: false, round: true, minSize: 4, maxSize: 6, flakeCount: 50 });
+    </script>
 </body>
 
 </html>

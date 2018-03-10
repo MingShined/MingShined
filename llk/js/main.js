@@ -1,40 +1,45 @@
 ////美女连连看
 
-$('.btn-play').on('click', function() {
-    $(this).fadeOut();
-    audioGoFun();
-    setTimeout(function() {
-        $('.beauty').gameLLK();
-    }, 1800);
-});
-
-
-function audioGoFun() {
-    $('.word-ready').addClass('readyActive');
-    $('.word-go').addClass('goActive');
-    $('#go').get(0).play();
-}
-
 $.fn.gameLLK = function($options) {
 
     var $defaults = {
-        // row:
+        picNum: 12,
         time: 120,
-        gameWinCbk: function(t) {
-            alert('您用时' + t + 's');
+        gameWinCbk: function gameWin(t) {
+            // $.ajax({
+            //         url: '',
+            //         type: 'post',
+            //         dataType: 'json',
+            //         xhrFields: {
+            //             withCredentials: true
+            //         },
+            //         crossDomain: true,
+            //         data: {
+            //             type: 3,
+            //             gametime: t
+            //         },
+            //     })
+            //     .done(function(data) {
+            //         alertBoxShow('.item6');
+            //     })
+            //     .fail(function() {})
         }
     }
 
     var $settings = $.extend($defaults, $options);
 
+    //配置参数
+    var starTime = $settings.time;
+    var timeVal = $settings.time;
+    var picNum1 = $settings.picNum;
+    var picNum2 = picNum1 - 1;
+
     //具体游戏流程
     gameStar();
 
     function gameStar() {
-        $('.beauty').css('background', '#ccc').addClass('beautyActive');
+        $('.beauty').css('background', '#555392').addClass('beautyActive');
         $('#bgmusic').get(0).play();
-        var starTime = $settings.time;
-        var timeVal = $settings.time;
         var timer = null;
         var count = 0;
         clearInterval(timer);
@@ -46,10 +51,9 @@ $.fn.gameLLK = function($options) {
             --timeVal;
             $('.startime').text(timeVal + 's');
             if (timeVal == -1) {
-                // alertBoxShow('.item1');
                 clearInterval(timer);
-                alert('亲，时间到');
                 $('.startime').text(0 + 's');
+                $('#lose').get(0).play();
                 return false;
             } else {
                 $('.beauty ul').on('click', 'li', function() {
@@ -58,21 +62,24 @@ $.fn.gameLLK = function($options) {
                         $(this).addClass('active').siblings().removeClass('active');
                     } else if ($(this).index() === $('.active').index()) { //是否本身
                         return;
-                    } else { //配对
+                    } else { //配对    
                         $(this).stop().animate({
                             opacity: 0,
                         }, 400, function() {
-                            audioRightFun();
+                            setTimeout(function() {
+                                audioRightFun();
+                            }, 1);
                         }).siblings('.active').stop().animate({
                             opacity: 0
                         }, 400, function() {
                             ++count;
-                            if (count == 12) {
+                            if (count == 1) {
                                 clearInterval(timer);
                                 endTime = parseInt(starTime - timeVal);
-                                // $('.endtime').text(timeVal);
-                                // gameWin(timeVal);
-                                $settings.gameWinCbk(endTime);
+                                gameWin(endTime);
+                                $settings.gameWinCbk();
+                                $('#bgmusic').get(0).pause();
+                                $('#win').get(0).play();
                             }
                         });
                     }
@@ -83,13 +90,19 @@ $.fn.gameLLK = function($options) {
 
     function audioRightFun() {
         $('#right').get(0).play();
-
     }
 
     function audioWrongFun() {
         $('#wrong').get(0).play();
-
     }
+
+    // function audioloseFun () {
+    //     $('#lose').get(0).play();
+    // }
+
+    // function audioWinFun () {
+    //     $('#win').get(0).play();
+    // }
 
     //图片随机
 
@@ -97,7 +110,7 @@ $.fn.gameLLK = function($options) {
         var randomArr1 = [];
         var randomArr2 = [];
         var randomArr3 = [];
-        for (var i = 1; i <= 12; i++) {
+        for (var i = 1; i <= picNum1; i++) {
             randomArr1.push(i);
             randomArr2.push(i);
             randomArr3.push(i - 1);
@@ -114,14 +127,13 @@ $.fn.gameLLK = function($options) {
 
         var html1 = '';
         var html2 = '';
-        for (var i = 0; i <= 11; i++) {
+        for (var i = 0; i <= picNum2; i++) {
             html1 += '<li data-roleid="' + randomArr1[i] + '"><img src="images/role' + randomArr1[i] + '.jpg" alt=""></li>'
 
         }
 
         $('.beauty ul').append(html1);
-        // $('.beauty ul').append(html2);
-        for (var j = 0; j <= 11; j++) {
+        for (var j = 0; j <= picNum2; j++) {
             html2 = '<li data-roleid="' + randomArr2[j] + '"><img src="images/role' + randomArr2[j] + '.jpg" alt=""></li>';
             if (j % 2 == 0) {
                 $('.beauty ul').children('li').eq(randomArr3[j]).before(html2);
@@ -132,25 +144,15 @@ $.fn.gameLLK = function($options) {
 
     }
 
-
     //游戏结束传入时间
-    // function gameWin(t) {
-    //     $.ajax({
-    //             url: 'http://hd.18183.com/api/201712sd?action=upload',
-    //             type: 'post',
-    //             dataType: 'json',
-    //             xhrFields: {
-    //                 withCredentials: true
-    //             },
-    //             crossDomain: true,
-    //             data: {
-    //                 type: 3,
-    //                 gametime: t
-    //             },
-    //         })
-    //         .done(function(data) {
-    //             alertBoxShow('.item6');
-    //         })
-    //         .fail(function() {})
-    // }
+    function gameWin(t) {
+        $('.endtime').text(t);
+        $('.beauty').slideUp();
+        $('.mask').fadeIn().find('.game-win').fadeIn();
+    }
+
+    //在玩一次
+    $('.play-again').on('click', function() {
+        location.reload();
+    });
 }
