@@ -167,12 +167,12 @@
 
  .word-ready.readyActive {
      /* animation: bounceInDown 1s; */
-     animation: readySlide 1s;
+     animation: readySlide 1.5s;
  }
 
  .word-go.goActive {
      /* animation: bounceInDown 1s; */
-     animation: goSlide 1s .5s;
+     animation: goSlide 1.5s .5s;
  }
 
  @keyframes readySlide {
@@ -207,7 +207,7 @@
      display: none;
  }
 
- .mask .game-win {
+ .mask .game-result {
      position: absolute;
      left: 50%;
      top: 50%;
@@ -223,7 +223,7 @@
      box-shadow: 0 0 .1rem .1rem #eee;
  }
 
- .mask .game-win p {
+ .mask .game-result p {
      padding: 1rem -0px;
  }
 

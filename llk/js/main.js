@@ -5,7 +5,7 @@ $.fn.gameLLK = function($options) {
     var $defaults = {
         picNum: 12,
         time: 120,
-        gameWinCbk: function gameWin(t) {
+        gameWinCbk: function gameWinCbk(t) {
             // $.ajax({
             //         url: '',
             //         type: 'post',
@@ -53,7 +53,9 @@ $.fn.gameLLK = function($options) {
             if (timeVal == -1) {
                 clearInterval(timer);
                 $('.startime').text(0 + 's');
+                $('#bgmusic').get(0).pause();
                 $('#lose').get(0).play();
+                gameWin(false);
                 return false;
             } else {
                 $('.beauty ul').on('click', 'li', function() {
@@ -73,10 +75,10 @@ $.fn.gameLLK = function($options) {
                             opacity: 0
                         }, 400, function() {
                             ++count;
-                            if (count == 1) {
+                            if (count == picNum1) {
                                 clearInterval(timer);
                                 endTime = parseInt(starTime - timeVal);
-                                gameWin(endTime);
+                                gameWin(true,endTime);
                                 $settings.gameWinCbk();
                                 $('#bgmusic').get(0).pause();
                                 $('#win').get(0).play();
@@ -95,14 +97,6 @@ $.fn.gameLLK = function($options) {
     function audioWrongFun() {
         $('#wrong').get(0).play();
     }
-
-    // function audioloseFun () {
-    //     $('#lose').get(0).play();
-    // }
-
-    // function audioWinFun () {
-    //     $('#win').get(0).play();
-    // }
 
     //图片随机
 
@@ -145,10 +139,14 @@ $.fn.gameLLK = function($options) {
     }
 
     //游戏结束传入时间
-    function gameWin(t) {
-        $('.endtime').text(t);
+    function gameWin(flag,t) {
+        if (flag) {
+            $('.endtime').text(t);
+        }else {
+            $('.game-result').find('p').html('时间到啦~');
+        }
         $('.beauty').slideUp();
-        $('.mask').fadeIn().find('.game-win').fadeIn();
+        $('.mask').fadeIn().find('.game-result').fadeIn();
     }
 
     //在玩一次
