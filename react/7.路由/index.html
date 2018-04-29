@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style type="text/css" media="screen">
+    	.container {
+    		width: 960px;
+    		margin: 0 auto;
+    		text-align: center;
+    	}
+        ul li {
+            display: inline-block;
+            /* float: left; */
+            list-style: none;
+            padding: 10px 20px;
+            text-align: center;
+            background-color: #eee;
+            margin-left: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        ul li a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: #333;
+        }
+        ul li a.active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../dist/react.js"></script>
+    <script src="../dist/react-dom.js"></script>
+    <script src="../dist/browser.min.js"></script>
+    <script type="text/javascript" src="../dist/ReactRouter.min.js"></script>  
+    <script type="text/babel" src="index.js"></script>
+</body>
+
+</html>
