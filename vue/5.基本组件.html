@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style type="text/css"></style>
+</head>
+
+<body>
+    <div id="box">
+        <box></box>
+        <!-- <input type="button" name="" value="a组件" @click="val='a'"> -->
+        <!-- <input type="button" name="" value="b组件" @click="val='b'"> -->
+        <!-- <component :is="val"></component> -->
+    </div>
+    <template id="app">
+        <div>
+            <h1>我是标题1</h1>
+            <ul>
+                <li v-for="(value,index) in arr">{{value}}</li>
+            </ul>
+        </div>
+    </template>
+    <script type="text/javascript" src="bower_components/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+    // 1.第一种方式
+    // var zj = Vue.extend({
+    //     template: '<h3>{{msg}}</h3>',
+    //     data: function() {
+    //         return {
+    //             msg: '我是设计的福克斯地方'
+    //         }
+    //     }
+    // })
+    // new Vue({
+    //     el: '#box',
+    //     data: {
+    //         flag: true
+    //     },
+    //     components: {
+    //         'box': zj
+    //     }
+    // })
+
+    // 2.第二种方式(模板)
+    var vue = new Vue({
+        el: '#box',
+        data: {
+            msg: '斯蒂芬斯蒂芬的'
+        },
+        components: {
+            'box': {
+                data: function() {
+                    return {
+                        msg: '是发生的发生',
+                        arr: ['apple', 'pear']
+                    }
+                },
+                template: '#app'
+            }
+        }
+    })
+
+    // 3.第三种方式(动态组件)
+    // var vue = new Vue({
+    //     el: '#box',
+    //     data: {
+    //         msg: '斯蒂芬斯蒂芬的',
+    //         val: 'a'
+    //     },
+    //     components: {
+    //         'a': {
+    //             template: '<h3>我是a组件</h3>',
+    //         },
+    //         'b': {
+    //             template: '<h3>我是b组件</h3>'
+    //         }
+    //     }
+    // })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    .v-link-active {
+        font-size: 20px;
+    }
+    </style>
+</head>
+<script type="text/javascript" src="js/vue1.js"></script>
+<script type="text/javascript" src="js/vue-router.js"></script>
+
+<body>
+    <div class="box" id="box">
+        <ul>
+            <li><a v-link="{path:'/home'}">主页</a></li>
+            <li><a v-link="{path:'/news'}">新闻</a></li>
+        </ul>
+        <router-view></router-view>
+    </div>
+    <template id="homePage">
+        <div>
+            <h3>我是主页内容</h3>
+            <a v-link="{path:'/home/login'}">登录</a>
+            <a v-link="{path:'/home/regin'}">注册</a>
+            <router-view></router-view>
+        </div>
+    </template>
+    <template id="newsPage">
+        <div>
+            <h3>我是新闻页内容</h3>
+            <a v-link="{path:'/news/detail/001'}">新闻001</a>
+            <a v-link="{path:'/news/detail/002'}">新闻002</a>
+            <router-view></router-view>
+        </div>
+    </template>
+    <template id="detail">
+        <div>
+			<p>当前参数--->{{$route.params | json}} </p>
+			<p>当前路径--->{{$route.path | json}}</p>
+			<p>当前数据--->{{$route.query | json}}</p>
+        </div>
+    </template>
+    <script type="text/javascript">
+    //1.准备一个根组件
+    var App = Vue.extend();
+
+    //2.准备home 和 new组件
+    var Home = Vue.extend({
+        template: '#homePage'
+    });
+    var News = Vue.extend({
+        template: '#newsPage'
+    });
+    var Detail = Vue.extend({
+        template: '#detail'
+    });
+
+    //3.准备路由
+    var myRouter = new VueRouter();
+
+    //4.关联路由
+    myRouter.map({
+        'home': {
+            component: Home,
+            subRoutes: {
+                'login/:name': {
+                    component: {
+                        template: '<p>我是主页子导航登录{{$route.params | json}}</p>'
+                    }
+                },
+                'regin': {
+                    component: {
+                        template: '<p>我是主页子导航注册</p>'
+                    }
+                }
+            }
+        },
+        'news': {
+            component: News,
+            subRoutes: {
+                'detail/:id': {
+                    component: Detail
+                }
+            }
+        }
+    })
+
+    //5.开启路由
+    myRouter.start(App, '#box');
+
+    //6.配置初始页
+    myRouter.redirect({
+        '/': '/home'
+    })
+    </script>
+</body>
+
+</html>

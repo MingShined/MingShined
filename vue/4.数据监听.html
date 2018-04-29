@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" v-cloak>
+        <p>{{a}}</p>
+        <p>{{b}}</p>
+    </div>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript">
+    var vue = new Vue({
+        data: {
+            a: {name:'sss',age:16},
+            b: 3
+        }
+    }).$mount('.box');
+
+    document.onclick = function() {
+        vue.$watch(a, function() {
+            alert('发生变化了');
+            this.b = 123;
+        })
+    }
+    </script>
+</body>
+
+</html>
