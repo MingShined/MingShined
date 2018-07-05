@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>虾米官网效果</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        vertical-align: top;
+    }
+
+    ul li {
+        list-style: none;
+    }
+
+    .clearfix::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    .container {
+        width: 732px;
+        margin: 100px auto;
+        padding: 10px 10px 10px 0;
+        /* box-sizing: border-box; */
+        border: 1px solid #333;
+    }
+
+    .container li {
+        position: relative;
+        float: left;
+        margin: 10px 0 10px 5px;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    .container ul li span {
+        position: absolute;
+        bottom: 0;
+        display: block;
+        width: 178px;
+        height: 0;
+        font: .8em 微软雅黑;
+        text-align: center;
+        line-height: 30px;
+        color: #333;
+        overflow: hidden;
+        background: #ddd url('images/bg.png') 3.14px 3px no-repeat;
+    }
+    </style>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $("#list ul li").mouseenter(function() {
+            $(this).children('span').stop().animate({ height: 30 }, 300);
+        });
+        $("#list ul li").mouseleave(function() {
+            $(this).children('span').stop().animate({ height: 0 }, 300);
+        });
+        $('#list ul li span').each(function(index, el) {
+            var val = index * 25;
+            $(el).css('backgroundPosition', '3.14px ' + (3 - val) + 'px');
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div class="container clearfix" id="list">
+        <ul>
+            <li><img src="images/01.JPG" alt="" width="178" height="125"><span>陈先生有酒有故事、</span></li>
+            <li><img src="images/02.JPG" alt="" width="178" height="125"><span>陈先生有酒有故事、</span></li>
+            <li><img src="images/03.JPG" alt="" width="178" height="125"><span>陈先生有酒有故事、</span></li>
+            <li><img src="images/04.JPG" alt="" width="178" height="125"><span>陈先生有酒有故事、</span></li>
+            <li><img src="images/05.JPG" alt="" width="178" height="125"><span>陈先生有酒有故事、</span></li>
+            <li><img src="images/06.JPG" alt="" width="178" height="125"><span>陈先生有酒有故事、</span></li>
+            <li><img src="images/07.JPG" alt="" width="178" height="125"><span>陈先生有酒有故事、</span></li>
+            <li><img src="images/08.JPG" alt="" width="178" height="125"><span>陈先生有酒有故事、</span></li>
+        </ul>
+    </div>
+</body>
+
+</html>

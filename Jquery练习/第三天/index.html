@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul li {
+        list-style: none;
+    }
+
+    .clearfix:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    .box {
+        font-size: 0;
+    }
+
+    .box ul li {
+        float: left;
+        font-size: 50px;
+        margin-left: 20px;
+        cursor: pointer;
+        color: red;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>☆</li>
+            <li>☆</li>
+            <li>☆</li>
+            <li>☆</li>
+            <li>☆</li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    var $shixin = '★';
+    var $kongxin = '☆';
+    $('.box ul').on('mouseenter click mouseleave', 'li', function(event) {
+        if (event.type == 'mouseenter') {
+            event.preventDefault();
+            $(this).text($shixin).prevAll().text($shixin).end().nextAll().text($kongxin);
+        } else if (event.type == 'click') {
+            $(this).addClass('on').siblings().removeClass('on');
+        } else if (event.type == 'mouseleave') {
+            if ($('.on').length != 0) {
+                $(this).find('.on').text($shixin).prevAll().text($shixin).end().nextAll().text($kongxin);
+            }else {
+            	$(this).children('li').html($kongxin);
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>

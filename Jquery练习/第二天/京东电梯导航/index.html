@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    header,
+    main,
+    footer {
+        margin: 0 auto;
+        width: 1210px;
+    }
+
+    img {
+        vertical-align: top;
+    }
+
+    nav {
+        display: none;
+        position: fixed;
+        left: 10%;
+        top: calc(50% - 95px);
+    }
+
+    nav ul li {
+        width: 38px;
+        height: 38px;
+        list-style: none;
+        background-color: #eee;
+        text-align: center;
+        font: .8em 微软雅黑;
+        color: #333;
+        line-height: 18px;
+        cursor: pointer;
+    }
+    </style>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        var navText = ['电脑数码', '家电通讯', '服饰精品', '美容珠宝', '返回顶部'];
+        navBg();
+
+        function navBg() {
+            $('#nav ul li').each(function(index, el) {
+                if (index == 4) {
+                    $(this).css('background', 'url(images/bg.png) no-repeat 0  -550px');
+                } else {
+                    var val = index * -55;
+                    $(el).css('background', 'url(images/bg.png) no-repeat 0 ' + val + 'px');
+                }
+            });
+        }
+        $('#nav ul li').hover(function() {
+            var index = $(this).index();
+            $(this).text(navText[index]);
+            $(this).css('background', '');
+        }, function() {
+            $('#nav ul li').html('');
+            navBg();
+        });
+        var top = 0;
+        $(window).scroll(function(event) {
+            top = $(document).scrollTop();
+            if (top < 200) {
+                $('#nav').fadeOut(400);
+            } else {
+                $('#nav').fadeIn(400);
+            }
+        });
+        $('#nav ul li').click(function() {
+            var index = $(this).index();
+            if (index == 4) {
+                $('html,body').animate({ 'scrollTop': 0 }, 400);
+            } else {
+                $('html,body').animate({ 'scrollTop': $('#main img').eq(index).offset().top }, 400);
+            }
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <header id="header" class="">
+        <img src="images/top.png" alt="">
+    </header>
+    <!-- /header -->
+    <main id="main">
+        <img src="images/dian.png" alt="">
+        <img src="images/jia.png" alt="">
+        <img src="images/fu.png" alt="">
+        <img src="images/mei.png" alt="">
+        <nav id="nav">
+            <ul>
+                <li>
+                </li>
+                <li>
+                    <!-- 家电通讯 -->
+                </li>
+                <li>
+                    <!-- 服饰精品 -->
+                </li>
+                <li>
+                    <!-- 美容珠宝 -->
+                </li>
+                <li>
+                    <!-- 返回顶部 -->
+                </li>
+            </ul>
+        </nav>
+    </main>
+    <footer>
+        <img src="images/bottom.png" alt="">
+    </footer>
+</body>
+
+</html>

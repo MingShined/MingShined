@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>JQuery DOM Manipulation</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="hello">Hello</div>
+        <div class="world">World</div>
+        <button>Click me</button>
+
+    </body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('button').on('click', function() {
+            // $('div').replaceWith('<p>Hello World</p>');
+            $('.hello').before($('.world').clone());
+            // $('<p>Hello World</p>').replaceAll('div');
+        });
+
+    });
+
+    </script>
+    <!-- <script src="/js/jquery-latest.js"></script> -->
+</html>
+

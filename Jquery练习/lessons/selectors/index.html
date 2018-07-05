@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>JQuery Selectors</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div>Hello World</div>
+        <button>Click me</button>
+
+    </body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('button').on('click', function() {
+            // $('li:first-child').css('backgroundColor', 'yellow');
+            $(':input:enabled').css('backgroundColor', 'yellow');
+        });
+
+    });
+
+    </script>
+    <!-- <script src="/js/jquery-latest.js"></script> -->
+</html>
+
