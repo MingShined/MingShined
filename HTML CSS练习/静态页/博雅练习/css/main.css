@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 头部 */
+header {
+    padding-left: calc(50% - 481px);
+    min-width: 1000px;
+    background-color: #191D3A;
+    text-align: center;
+    color: #fff;
+    font: .8em 微软雅黑;
+}
+
+header:before,
+header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+header img, header ul, header a {
+    float: left;
+}
+
+header ul {
+    margin-left: 50px;
+}
+
+header ul li {
+    float: left;
+    width: 100px;
+    height: 58px;
+    line-height: 58px;
+    border-left: 1px solid #252947;
+}
+
+header ul li:hover {
+    background-color: #252947;
+}
+
+header a {
+    margin: 14.5px 0 0 50px;
+    padding: 5px 20px;
+    color: #fff;
+    background-color: #38B774;
+    border-radius: 5px;
+}
+
+header a:hover {
+    background-color: #FFA500;
+}
+
+/* 广告 */
+.banner {
+    position: relative;
+    width: 100%;
+    min-width: 1000px;
+    height: 465px;
+    background: url('../img/banner.jpg') no-repeat center top;
+}
+
+.banner ul {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.banner ul li {
+    float: left;
+    margin-left: 10px;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background-color: blue;
+}
+
+.banner ul li:hover {
+    background-color: blueviolet;
+}
+
+/* 第一部分内容 */
+.first-contend {
+    min-width: 1000px;
+    padding: 50px 0 10px 0;
+    text-align: center;
+}
+
+.first-contend figure {
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.first-contend figure h3,
+.first-contend figure a {
+    font: bold 1em 微软雅黑;
+}
+
+.first-contend figure a {
+    display: block;
+    padding-top: 10px;
+    font: bold .8em 微软雅黑;
+    color: red;
+}
+
+.first-contend figure a span {
+    margin-left: 5px;
+}
+
+/* 第二部分内容 */
+.second-contend {
+    width: 55%;
+    min-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 0 0 0;
+    border-top: 1px solid black;
+}
+
+.second-contend:before,
+.second-contend:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.second-contend .left {
+    float: left;
+    left: 50%;
+    /* height: 320px; */
+    background: url('../img/bynewsbg.jpg') no-repeat;
+}
+
+.left .more {
+    width: 500px;
+    height: 130px;
+    text-align: center;
+    line-height: 100px;
+}
+
+.left .more a {
+    padding: 5px 10px;
+    border: 1px solid red;
+    background-color: #fff;
+    border-radius: 5px;
+    color: indianred;
+}
+
+.left ul li {
+    width: 500px;
+    height: 53px;
+    cursor: auto;
+    font: .9em 微软雅黑;
+}
+
+.left ul li span {
+    color: #999;
+}
+
+.left ul li a {
+    margin-left: 20px;
+}
+
+.second-contend .right {
+    float: right;
+    width: 50%;
+}
+
+/* 页尾 */
+footer {
+    padding-left: calc(50% - 481px);
+    min-width: 1000px;
+    background-color: #191D3A;
+}
+
+footer:before,
+footer:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+footer ul li {
+    float: left;
+    margin: 27.5px 0;
+    width: 100px;
+    height: 20px;
+    padding: 0 3px;
+    font-size: .6em;
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
+}
+
+footer ul li:first-child {
+    border-right: 1px solid #eee;
+}
+
+footer img {
+    float: right;
+    margin-right: 200px;
+}

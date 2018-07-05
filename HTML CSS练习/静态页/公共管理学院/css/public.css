@@ -1,0 +1,429 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-image: url('../image/bg.png');
+	background-repeat: repeat-x;
+	width: 100%;
+	height: 1155px;
+	font-family: 微软雅黑;
+	font-size: 15px;
+	color: black;
+}
+
+.container{
+	width: 60%;
+	height: 1255px;
+	margin: 0 auto;
+}
+
+.title{
+	position: relative;
+	width: 90%;
+	height: 100px;
+	margin: 1px auto 0;
+	background-image: url('../image/header_bg.png');
+}
+
+.nav{
+	width: 90%;
+	height: 50px;
+	margin: 0px auto 0;
+	margin-left:60px;
+	background-color: #F5F9F7;
+	padding: left: 10px;
+	border-radius: 3px;
+}
+
+.banner1{
+	position: relative;
+	width: 90%;
+	height: 200px;
+	margin: -10px auto 0;
+	margin-left: 60px;
+	background-color: #EEEEEE;
+	border: 2px solid #EEEEEE;
+}
+
+.main1{
+	position: relative;
+	width: 90%;
+	height: 300px;
+	margin: 8px auto 0;
+	border: 2px solid #EEEEEE;
+}
+
+.main1 a{
+	color: black;
+}
+
+.main1 a:hover{
+	text-decoration: none;
+	color: red;
+}
+
+.banner2{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 325px;
+	height: 280px;
+	background-color:white;
+}
+
+.main1-work{
+	position: absolute;
+	top: 0px;
+	left: 350px;
+	width:335px;
+	height: 287px;
+	background-color:white;
+}
+
+.main1-imt{
+	position: absolute;
+	top: 0px;
+	left:698px;
+	width:330px;
+	height: 287px;
+	background-color:white;
+}
+
+.main2{
+	position: relative;
+	width: 90%;
+	height: 482px;
+	margin: 8px auto 0;
+	border: 2px solid #EEEEEE;
+	border-radius: 5px;
+	background-color: #EEEEEE;
+	font-size: 12px;
+}
+
+.main2 a{
+	color: black;
+}
+
+
+.main2 a:hover{
+	text-decoration: none;
+	color: red;
+}
+
+.main2-tec{
+	position: absolute;
+	top: 5px;
+	left: 0px;
+	width:410px;
+	height: 265px;
+	background-color:white;
+	border: 1px solid #EEEEEE;
+	border-radius: 5px;	
+}
+
+.main2-sic{
+	position: absolute;
+	top: 5px;
+	left: 425px;
+	width:420px;
+	height: 265px;
+	background-color:white;
+	border: 1px solid #EEEEEE;
+	border-radius: 5px;	
+}
+
+.main2-sub{
+	position: absolute;
+	bottom: 5px;
+	left: 425px;
+	width: 420px;
+	height: 195px;
+	background-color:white;
+	border: 1px solid #EEEEEE;
+	border-radius: 5px;	
+}
+
+.main2-stu{
+	position: absolute;
+	bottom: 5px;
+	left: 0px;
+	width: 410px;
+	height: 195px;
+	background-color:white;
+	border: 1px solid #EEEEEE;
+	border-radius: 5px;	
+}
+
+.main2-nav1{
+	position: absolute;
+	right: 3px;
+	top: 5px;
+	width:170px;
+	height: 475px;
+	background-color:white;
+	border: 1px solid #EEEEEE;
+	border-radius: 5px;	
+}
+
+.foot{
+	width: 90%;
+	height: 100px;
+	margin: 5px auto 0px;
+}
+
+.serch{
+	position: absolute;
+	right: -135px;
+	bottom: -70px;
+	width: 40%;
+	height: 100px;
+}
+
+input{
+	border-radius: 2px;
+	padding-left: 10px;
+}
+
+.input2{
+	position: absolute;
+	top: 1px;
+	left: 118px;
+}
+
+.pic{
+	position: absolute;
+	left: 14px;
+	top: 12px;
+	width: 995px;
+	height: 160px;
+	background-color: green;
+}
+
+.pic img{
+	display: none;
+}
+
+.tab{
+	position: absolute;
+	right: 0px;
+	bottom: 30px;
+	width: 150px;
+	height: 20px;
+	background-color: rgba(255,255,255,0.3);
+	border-radius: 10px;
+}
+
+.tab ul li{
+	list-style: none;
+	width: 15px;
+	height: 15px;
+	float: left;
+	margin-left: 10px;
+	cursor: pointer;
+	background-color: gray;
+	border-radius: 100%;
+	transition: .5s;
+}
+
+.pic2{
+	position: relative;
+	width: 325px;
+	height: 238px;
+	background-color: gray;
+	border-radius: 2px;
+	border: 1px solid #eeeeee;
+}
+
+.pic2 img,.pic2 span{
+	display: none;
+}
+
+.pic2 span{
+	width: 325px;
+	height: 35px;
+	margin-left: px;
+	margin-top: 10px;
+	background-color:#EEEEEE;
+	font-size: 18px;
+	line-height: 35px;
+	text-align: center;
+	font-family: 楷体;
+}
+
+.tab2{
+	position: absolute;
+	right: 0;
+	bottom: 43px;
+	width: 110px;
+	height: 22px;
+	background-color: rgba(255,255,255,0.3);
+	border-radius: 10px;
+}
+
+.tab2 ul li{
+	float: left;
+	background-color: gray;
+	margin-left: 6px;
+	margin-top: 5px;
+	list-style: none;
+	width: 15px;
+	height: 15px;
+	border-radius: 100%;
+	cursor: pointer;
+	transition: .6s;
+}
+
+.two{
+	width: 160px;
+	height: 8px;
+	margin-left: 100px;
+	margin-top: -15px;
+	background-color: #E1E5E6;
+}
+
+.top{
+	margin-top: 2px;
+	margin-left: 10px;
+	width: 335px;
+	height: 40px;
+}
+
+.one{
+	font-size: 17px;
+	color:#017ED0;
+	font-weight: bold;
+}
+
+.three{
+	margin-left:280px;
+	margin-top: -15px;
+}
+
+.content{
+	margin-left: 28px;
+	margin-top: -13px;
+}
+
+.content ul li{
+	list-style-image: url('../image/箭头.png' width: 8px;height: 8px;);
+	font-size: 12px;
+}
+
+.nav1-tit{
+	margin-left: 25px;
+	margin-top: 15px;
+	text-align: center;
+	width: 120px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: red;
+	/* background-image: url('../image/tb03.png'); */
+}
+
+.nav1-content1{
+	margin-left: 3px;
+	margin-top: 25px;
+	width: 165px;
+	height: 30px;
+	border-radius: 13px;
+	text-align:center;
+	background-color: #E1E5E6;
+}
+
+.nav1-content2{
+	margin-left: 3px;
+	margin-top: 45px;
+	width: 165px;
+	height: 30px;
+	border-radius: 13px;
+	text-align:center;
+	background-color: #E1E5E6;
+}
+
+.nav1-content3{
+	margin-left: 3px;
+	margin-top: 45px;
+	width: 165px;
+	height: 30px;
+	border-radius: 13px;
+	text-align:center;
+	background-color: #E1E5E6;
+}
+
+.nav1-content4{
+	margin-left: 3px;
+	margin-top: 45px;
+	width: 165px;
+	height: 30px;
+	border-radius: 13px;
+	text-align:center;
+	background-color: #E1E5E6;
+}
+
+.nav1-content5{
+	margin-left: 3px;
+	margin-top: 45px;
+	width: 165px;
+	height: 30px;
+	border-radius: 13px;
+	text-align:center;
+	background-color: #E1E5E6;
+}
+
+.nav1-content6{
+	margin-left: 8px;
+	margin-top: 40px;
+	text-align:center;
+}
+
+.a{
+	position: relative;
+	width: 410px;
+	height: 30px;
+	background-color: #EEE5E6;
+	border: 50px #E1E5E6;
+	border-radius: 10px;
+}
+
+.a-span1{
+	position: absolute;
+	left: 10px;
+}
+
+.a-span2{
+	position: absolute;
+	left: 20px;
+	font-size: 17px;
+	color:#017ED0;
+	font-weight: bold;	
+}
+
+.a-span3{
+	position: absolute;
+	right: 0;
+	top: 5px;
+}
+
+.contenta ul li{
+	margin-left: 35px;
+	line-height: 25px;
+}
+
+.foot{
+	position: relative;
+	background-image: url('../image/footer_bg.png')
+}
+
+.foot footer{
+	position: absolute;
+	left: 300px;
+	top: 30px;
+}
+
+.foot p{
+	text-align: center;
+	color: white;
+	font-size: 13px;
+}

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" keywords="刷出宇宙的计算器">
+    <title>帅出宇宙的计算器</title>
+    <link rel="stylesheet" href="animate.css">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        color: #Fff;
+    }
+
+    body {
+        background: url('img/bg_0.jpg') no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    .fl {
+        float: left;
+    }
+
+    .fr {
+        float: right;
+    }
+
+    .clearfix::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .skin {
+        position: absolute;
+        width: 200px;
+        right: 0;
+    }
+
+    .skin-box {
+        padding: 5px;
+        margin: 10px;
+        color: #333;
+        cursor: pointer;
+        background-color: #eee;
+        box-shadow: 0 0 5px 3px #eee;
+        box-sizing: border-box;
+    }
+
+    .skin h1 {
+        background-color: #fff;
+    }
+
+    .skin-box img {
+        border-radius: 5px;
+    }
+
+    .cal {
+        margin: 50px 0 0 200px;
+        width: 500px;
+        border-radius: 15px;
+        border: 10px solid #333;
+        box-shadow: 3px 3px 20px 20px #222;
+    }
+
+    .title {
+        font-size: 16px;
+        height: 30px;
+        background-color: #333;
+        text-align: right;
+        line-height: 30px;
+    }
+
+    .info {
+        height: 150px;
+        font-size: 100px;
+        text-align: right;
+        line-height: 150px;
+        border: 2px solid #EAEDDC;
+        overflow: hidden;
+        box-sizing: border-box;
+        background-image: linear-gradient(#EAEDDC, #E2E6CF);
+        text-shadow: 2px 2px 15px #333;
+    }
+
+    .key {
+        position: relative;
+        background-color: #333;
+        box-sizing: border-box;
+        padding-bottom: 20px;
+    }
+
+    .box {
+        float: left;
+        display: block;
+        width: 100px;
+        height: 80px;
+        margin: 20px 0 0 20px;
+        background-color: #ddd;
+        cursor: pointer;
+        text-align: center;
+        line-height: 80px;
+        font-size: 60px;
+        background-image: linear-gradient(#222, #333);
+        box-shadow: 0 0 10px 5px #fff;
+        border-radius: 5px;
+        text-shadow: 2px 2px 5px #333;
+		-webkit-transition: .3s;
+        transition: .3s;
+    }
+
+    .box:hover {
+        color: skyblue;
+        box-shadow: 0 0 10px 5px skyblue;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    .equal {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        height: 180px;
+        line-height: 180px;
+        background-image: linear-gradient(#F69A47, #C34F06);
+    }
+
+    .zero {
+        width: 220px;
+    }
+
+    .bgDDD {
+        background-image: linear-gradient(#Fff, #ccc);
+    }
+    </style>
+</head>
+
+<body onselectstart="return false;">
+    <div class="skin clearfix" id="skin">
+        <h1 class="skin-box fl">更换皮肤:</h1>
+        <div class="skin-box fl"><img src="img/bg_0.jpg" alt="" width="120" height="80"></div>
+        <div class="skin-box fl"><img src="img/bg_1.jpg" alt="" width="120" height="80"></div>
+        <div class="skin-box fl"><img src="img/bg_2.jpg" alt="" width="120" height="80"></div>
+        <div class="skin-box fl"><img src="img/bg_3.jpg" alt="" width="120" height="80"></div>
+        <div class="skin-box fl"><img src="img/bg_4.jpg" alt="" width="120" height="80"></div>
+        <div class="skin-box fl"><img src="img/bg_5.jpg" alt="" width="120" height="80"></div>
+    </div>
+    <div class="cal clearfix">
+        <div class="title"><strong>帅出宇宙的计算器  ----</strong> 福建师范大学@ 陈先生有酒有故事、</div>
+        <div class="info clearfix" id="info"></div>
+        <div class="key clearfix" id="key">
+            <span class="box bgDDD">C</span>
+            <span class="box bgDDD">%</span>
+            <span class="box bgDDD">/</span>
+            <span class="box bgDDD">x</span>
+            <span class="box">7</span>
+            <span class="box">8</span>
+            <span class="box">9</span>
+            <span class="box bgDDD">-</span>
+            <span class="box">4</span>
+            <span class="box">5</span>
+            <span class="box">6</span>
+            <span class="box bgDDD">+</span>
+            <span class="box">1</span>
+            <span class="box">2</span>
+            <span class="box">3</span>
+            <span class="box equal" id="equal">=</span>
+            <span class="box zero">0</span>
+            <span class="box">.</span>
+        </div>
+    </div>
+    <script type="text/javascript">
+    //获取参数
+    var info = document.getElementById('info');
+    var oBox = document.getElementById('key').getElementsByTagName('span');
+    var skin = document.getElementById('skin').getElementsByTagName('div');
+    var equal = document.getElementById('equal');
+
+    //更换皮肤
+
+    for (var i = 0; i < skin.length; i++) {
+        skin[i].index = i;
+        skin[i].onclick = function() {
+            document.body.style.backgroundImage = 'url(img/bg_' + this.index + '.jpg)';
+        }
+    }
+    
+    //计算器
+
+    for (var i = 0; i < oBox.length; i++) {
+        //遍历所有按钮
+        oBox[i].onclick = function() {
+            switch (this.innerHTML) {
+                //清除
+                case 'C':
+                    info.innerHTML = '';
+                    break;
+                    //加法
+                case '+':
+                    firstVal = info.innerHTML * 1;
+                    op = info.innerHTML = '+';
+                    break;
+                    //减法
+                case '-':
+                    firstVal = info.innerHTML * 1;
+                    op = info.innerHTML = '-';
+                    break;
+                    //乘法
+                case 'x':
+                    firstVal = info.innerHTML * 1;
+                    op = info.innerHTML = 'x';
+                    break;
+                    //除法
+                case '/':
+                    firstVal = info.innerHTML * 1;
+                    op = info.innerHTML = '/';
+                    break;
+                    //取余
+                case '%':
+                    firstVal = info.innerHTML * 1;
+                    op = info.innerHTML = '%';
+                    break;
+                    //运算结果
+                case '=':
+                    // this.className = 'box equal animated bounceIn infinite animated_slow';
+                    if (op == '+' || op == '-') {
+                        info.innerHTML = parseFloat(info.innerHTML) + firstVal;
+                    } else if (op == 'x') {
+                        info.innerHTML = info.innerHTML.replace(/[^\d]/, "") * firstVal;
+                    } else if (op == '/') {
+                        info.innerHTML = firstVal / info.innerHTML.replace(/[^\d]/, "");
+                    } else {
+                        info.innerHTML = firstVal % info.innerHTML.replace(/[^\d]/, "");
+                    }
+                    break;
+                default:
+                    info.innerHTML += this.innerHTML;
+                    break;
+            }
+        }
+        oBox[i].onfocus = function() {
+            this.blur();
+        }
+    }
+    </script>
+</body>
+
+</html>
