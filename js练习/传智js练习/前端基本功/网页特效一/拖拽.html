@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>拖拽</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .box {
+        position: absolute;
+        top: calc(40% - 150px);
+        left: calc(40% - 150px);
+        width: 300px;
+        height: 300px;
+        background-color: #eee;
+        border-radius: 10px;
+    }
+
+    .info {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 300px;
+        height: 50px;
+        background-color: #ddd;
+        text-align: center;
+        line-height: 50px;
+        cursor: move;
+        user-select: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div class="info">这里可以拖拽</div>
+    </div>
+    <script type="text/javascript">
+    //获取参数
+    var box = document.getElementById('box');
+    var info = box.children[0];
+    //拖拽事件以onmousedown开始
+    info.onmousedown = function(event) {
+        var event = event || window.event;
+        //获取当前鼠标按下距离盒子左边框和上边框的位置
+        var distanceX = event.clientX - box.offsetLeft;
+        var distanceY = event.clientY - box.offsetTop;
+        //当鼠标移动时事件
+        document.onmousemove = function(event) {
+            //兼容性
+            var event = event || window.event;
+            window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+            //box的移动距离 = 当前移动距离 - 鼠标按下距离盒子的距离
+            box.style.left = event.clientX - distanceX + 'px';
+            box.style.top = event.clientY - distanceY + 'px';
+        }
+        //鼠标弹起时清空移动事件
+        document.onmouseup = function() {
+            document.onmousemove = null;
+        }
+    }
+    </script>
+</body>
+
+</html>

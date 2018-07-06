@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>无缝滚动</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .clearfix::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    img {
+        vertical-align: top;
+    }
+
+    .box {
+        position: relative;
+        margin: 50px auto;
+        width: 980px;
+        height: 170px;
+        overflow: hidden;
+    }
+
+    #ul {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 400%;
+        cursor: pointer;
+    }
+
+    #ul li img {
+        float: left;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <ul id="ul">
+            <li><img src="img/01.jpg" alt="pic" width="490" height="170"></li>
+            <li><img src="img/02.jpg" alt="pic" width="490" height="170"></li>
+            <li><img src="img/03.jpg" alt="pic" width="490" height="170"></li>
+            <li><img src="img/04.jpg" alt="pic" width="490" height="170"></li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+    window.onload = function() {
+        var fn = new getInitState({
+            time: 15
+        })
+
+        function getInitState(options) {
+            var defaults = {
+                el: 'ul',
+                time: 10,
+            }
+            this.settings = extend(defaults, options);
+            if (!document.getElementById || !document.getElementsByTagName) return false;
+            this.el = document.getElementById(this.settings.el);
+            this.timeVal = this.settings.time;
+            this.imgObj = this.el.children[0].firstChild;
+
+            function extend(source, target) {
+                for (var key in target) {
+                    source[key] = target[key];
+                }
+                return source;
+            }
+        }
+        getInitState.prototype.handleEvent = function() {
+            this.handleClone();
+            this.handleScroll();
+        };
+        getInitState.prototype.handleClone = function() {
+            for (var i = 0; i < 2; i++) {
+                this.el.appendChild(this.el.children[i].cloneNode(true));
+            }
+        };
+        getInitState.prototype.handleScroll = function() {
+            var _this = this,
+                scrollNum = 0,
+                imgLength = this.el.children.length - 2,
+                imgWidthVal = parseInt(this.getStyle(this.imgObj, 'width')),
+                moveVal = imgLength * imgWidthVal * -1;
+
+            function time() {
+                clearInterval(_this.el.timer);
+                _this.el.timer = setInterval(function() {
+                    scrollNum -= 5;
+                    scrollNum = scrollNum <= moveVal ? 0 : scrollNum;
+                    _this.el.style.left = scrollNum + 'px';
+                }, _this.timeVal);
+            }
+            time();
+            this.toggleClearTime(time);
+        };
+        getInitState.prototype.toggleClearTime = function(cb) {
+            var _this = this;
+            this.el.onmouseover = function() {
+                clearInterval(_this.el.timer);
+            }
+            this.el.onmouseout = function() {
+                cb();
+            }
+        };
+        getInitState.prototype.getStyle = function(el, attr) {
+            if (el.currentStyle) {
+                return el.currentStyle[attr];
+            } else {
+                return window.getComputedStyle(el, null)[attr];
+            }
+        };
+        fn.handleEvent();
+    }
+    </script>
+</body>
+
+</html>

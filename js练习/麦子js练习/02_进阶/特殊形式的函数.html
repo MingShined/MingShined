@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>特殊形式的函数</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<script type="text/javascript">
+
+	//1.内部私有函数
+	console.log(fun1(10));
+		function fun1(x) {
+			function fun2(b) {
+				return b + 10;
+			}
+			return fun2(x);
+		}
+
+	//2.返回函数的函数
+	function f1 () {
+		alert('aa');
+		return function () {
+			alert('bbb')
+		}
+	}
+	//通过赋值给变量调用
+	// var f2 = f1();
+	// f2();
+
+	//通过自调函数调用
+	f1()();
+
+	//自调函数
+	(function () {
+		alert('bbbbbb');
+	})();
+
+	//3.重写函数
+	function a () {
+		alert('hello');
+		a = function () {
+			alert('world');
+		} 
+	}
+	//第一次调用自身
+	a();
+	//第二次调用重写之后的
+	a();
+
+	//4.实际应用
+
+	// 定义主函数
+	var func_main = function () {
+		//定义配置参数
+		function setUp () {
+			alert('我是配置参数的');
+		}
+		//定义功能参数
+		function doSomeThing () {
+			alert('我是执行功能的');
+		}
+		//调用配置参数
+		setUp();
+		//返回执行参数函数体,没有调用
+		return doSomeThing;
+	}();//自动调用主函数，且执行配置函数，不执行功能函数
+
+	//再次调用主函数,此时执行功能函数
+	func_main();
+	</script>
+</body>
+</html>

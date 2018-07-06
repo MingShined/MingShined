@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    .input-box {
+        margin: 0 auto;
+        width: 500px;
+        text-align: center;
+        padding: 0;
+    }
+
+    .box {
+        margin: 50px auto;
+        width: 200px;
+        height: 200px;
+        background-color: #eee;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="input-box">
+        <input type="button" name="" value="变宽">
+        <input type="button" name="" value="变高">
+        <input type="button" name="" value="变色">
+        <input type="button" name="" value="隐藏">
+        <input type="button" name="" value="重置">
+    </div>
+    <div class="box" id="box"></div>
+    <script type="text/javascript">
+    //获取id函数
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+    //改变样式函数
+    var changeStyle = function (elem,attr,value) {
+        elem.style[attr] = value;
+    };
+
+    //获取参数
+    var oBtn = document.getElementsByTagName('input');
+    var oBox = $('box');
+    var oAttr = ['width','height','background','display','display'];//属性名用数组存储
+    var oVal = ['300px','300px','#ddd','none','block'];//属性值用数组储存
+
+    //遍历btn
+    for (var i = 0; i < oBtn.length; i++) {
+        oBtn[i].index = i;
+        oBtn[i].onclick = function () {
+        	//当点击最后一个btn时,清空css样式,即重置
+            this.index == oBtn.length - 1 && (oBox.style.cssText = ""); 
+            //传入参数
+            changeStyle(oBox,oAttr[this.index],oVal[this.index]);
+        }
+    }
+    </script>
+</body>
+
+</html>

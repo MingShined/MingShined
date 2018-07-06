@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>模拟select控件</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .fl {
+        float: left;
+    }
+
+    .fr {
+        float: right;
+    }
+
+    .clearfix::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    body {
+        background-color: #333;
+    }
+
+    .box {
+        position: relative;
+        margin: 100px auto;
+        width: 400px;
+        padding: 10px;
+        background-image: linear-gradient(#fff, #ddd);
+        border-radius: 10px;
+    }
+
+    .box a {
+        text-decoration: none;
+        font-size: 1.1em;
+    }
+
+    .box .select {
+        display: block;
+        width: 250px;
+        height: 30px;
+        text-align: center;
+        background-color: #ccc;
+        cursor: pointer;
+        font: .8em 微软雅黑;
+        line-height: 30px;
+    }
+
+    .arrow {
+        position: absolute;
+        left: 230px;
+        margin-top: 10px;
+        width: 0;
+        height: 0;
+        border: 8px solid transparent;
+        border-top: 10px solid #333;
+    }
+
+    .list {
+        display: none;
+        position: absolute;
+        list-style: none;
+        border: 1px solid #fff;
+    }
+
+    .list li {
+        width: 250px;
+        height: 30px;
+        border-bottom: 1px dashed #fff;
+        background-color: #2b2b2b;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+        color: #Fff;
+    }
+
+    .list li:hover {
+        background-color: #ccc;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <form class="clearfix">
+            <span class="arrow"></span>
+            <span class="select fl" id="select">
+            	请选择游戏名称
+            </span>
+            <a href="#" class="fr">搜索</a>
+        </form>
+        <ul class="list" id="list">
+            <li>地下城与勇士</li>
+            <li>魔兽世界(国服)</li>
+            <li>魔兽世界(美服)</li>
+            <li>QQ飞车</li>
+            <li>守望先锋</li>
+            <li>英雄联盟</li>
+            <li>吃鸡</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+    //获取参数
+    var oSelect = document.getElementById('select');
+    var list = document.getElementById('list');
+    var aLi = list.children;
+    //select点击时list显示/消失
+    oSelect.onclick = function() {
+        list.style.display = list.style.display == 'block' ? 'none' : 'block';
+    }
+    //遍历list li 点击时获取html，同时list消失
+    for (var i = 0; i < aLi.length; i++) {
+        aLi[i].onclick = function() {
+            oSelect.innerHTML = this.innerHTML;
+            this.parentNode.style.display = 'none';
+        }
+    }
+    </script>
+</body>
+
+</html>

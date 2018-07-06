@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script type="text/javascript">
+    function getClassName(classname, id) {
+        //支持getclassname(W3C浏览器)
+        if (document.getElementsByClassName) {
+            if (id) {
+                //有id返回id下的getclassname
+                return document.getElementById(id).getElementsByClassName(classname);
+            } else {
+                //没id返回全局的classname
+                return document.getElementsByClassName(classname);
+            }
+        } 
+        //不支持getclassname(IE浏览器)
+        else {
+            if (id) {
+                //有id返回id下的所有节点
+                var dom = document.getElementById(id).getElementsByTagName('*');
+            } else {
+                //没id返回全局的节点
+                var dom = document.getElementsByTagName('*');
+            }
+            //设定空数组接受classname
+            var arr = [];
+            //遍历所有节点
+            for (var i = 0; i < dom.length; i++) {
+                //分割每一个节点的classname
+                var splitArr = dom[i].className.split(' ');
+                //依次判断每个classname是否等于我们要的classname
+                for (var j = 0, length2 = splitArr.length; j < length2; j++) {
+                    if (splitArr[j] == classname) {
+                        //相等则增加到空数组里
+                        arr.push(dom[i]);
+                    }
+                }
+            }
+            //返回数组
+            return arr;
+        }
+    }
+    </script>
+</body>
+
+</html>

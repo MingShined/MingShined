@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        vertical-align: top;
+    }
+
+    .clearfix::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .fl {
+        float: left;
+    }
+
+    .fr {
+        float: right;
+    }
+
+    .banner {
+        position: relative;
+        margin: 100px auto;
+        width: 490px;
+        height: 170px;
+        overflow: hidden;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .pic {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 500%;
+        height: 100%;
+    }
+
+    .banner .pic img {
+        float: left;
+    }
+
+    .btn {
+        position: absolute;
+        width: 100%;
+        top: calc(50% - 25px);
+        height: 50px;
+        display: none;
+    }
+
+    .left,
+    .right {
+        font-size: 3em;
+        line-height: 50px;
+        cursor: pointer;
+        background-color: #ddd;
+        opacity: .6;
+        color: #000;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="banner" id="banner">
+        <div class="pic clearfix" id="pic">
+            <img src="img/01.jpg" alt="banner" width="490" height="170">
+            <img src="img/02.jpg" alt="banner" width="490" height="170">
+            <img src="img/03.jpg" alt="banner" width="490" height="170">
+            <img src="img/04.jpg" alt="banner" width="490" height="170">
+            <img src="img/05.jpg" alt="banner" width="490" height="170">
+        </div>
+        <div class="btn" id="btn">
+            <span class="left fl">&lt;</span>
+            <span class="right fr">&gt;</span>
+        </div>
+    </div>
+    <script type="text/javascript">
+    function $ (id) {
+    	return typeof (id) === 'string'?document.getElementById(id):id;
+    }
+    var pic = document.getElementById('pic');
+    var span = $('btn').getElementsByTagName('span');
+    var leader = 0,target = 0;
+
+    $('banner').onmouseover = function () {
+    	$('btn').style.display = 'block';
+    }
+    $('banner').onmouseout = function () {
+    	$('btn').style.display = 'none';
+    }
+
+    span[0].onclick = function () {
+    	target += 490;
+    }
+    span[1].onclick = function () {
+    	target -= 490;
+    }
+
+    setInterval(function () {
+    	if (target <= -1960) {
+    		target = -1960;
+    	}else if (target >= 0) {
+    		target = 0;
+    	}
+    	leader = leader + (target - leader) / 10;
+    	$('pic').style.left = leader + 'px';
+    },20);
+    </script>
+</body>
+
+</html>

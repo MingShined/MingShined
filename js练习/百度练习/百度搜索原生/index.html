@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    body,
+    div,
+    ul,
+    li,
+    input {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: bisque;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    input {
+        border: none;
+    }
+
+    .wrapper .logo {
+        margin: 0 auto;
+        width: 540px;
+        height: 258px;
+        background: url('images/logo.png');
+    }
+
+    .wrapper .search {
+        display: block;
+        margin: 10px auto 0;
+        width: 480px;
+        height: 20px;
+        line-height: 20px;
+        padding: 10px 50px 10px 7px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .wrapper ul {
+        margin: 0 auto;
+        width: 535px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .wrapper ul li {
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        padding-left: 7px;
+        font-size: 14px;
+        color: #fff;
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="logo"></div>
+        <input type="text" id="text" class="search">
+        <ul id="ul">
+        </ul>
+    </div>
+    <script type="text/javascript">
+    var text = document.getElementById('text');
+    var btn = document.getElementById('btn');
+    var ul = document.getElementById('ul');
+    var index = -1;
+    var liarr = ul.children;
+    var myData = [];
+    text.onkeyup = function(event) {
+        var textValue = text.value;
+        var event = event || window.event;
+        event.preventDefault();
+
+        // 如果keyCode==38 || 40 ||13不执行
+        switch (event.keyCode) {
+            case 38:
+                index--;
+                if (index == -1) {
+                    index = liarr.length - 1;
+                }
+                for (var i = 0; i < liarr.length; i++) {
+                    liarr[i].style.backgroundColor = "";
+                }
+                liarr[index].style.backgroundColor = "#999";
+                this.value = liarr[index].innerText;
+                break;
+            case 40:
+                index++;
+                if (index == liarr.length) {
+                    index = 0;
+                }
+                for (var i = 0; i < liarr.length; i++) {
+                    liarr[i].style.backgroundColor = "";
+                }
+                liarr[index].style.backgroundColor = "#999";
+                this.value = liarr[index].innerText;
+                break;
+            case 13:
+                searchFunc(this.value)
+                break;
+            default:
+                // 要调用数据先将ul中的数据清空
+                ul.innerHTML = '';
+                myData = [];
+                getScript(textValue);
+        }
+
+    }
+
+    function mouseoverFunc() {
+        for (var i = 0; i < myData.length; i++) {
+            // var myData.index = i;
+            liarr[i].onmouseover = function() {
+                index = this.getAttribute('data-index');
+                for (var i = 0; i < myData.length; i++) {
+                    liarr[i].style.backgroundColor = "";
+                    // liarr[i].className = '';
+                }
+                liarr[index].style.backgroundColor = "#999";
+                // liarr[index].className = 'active';
+            }
+            liarr[i].onclick = function(val) {
+                return function() {
+                    searchFunc(myData[val]);
+                    console.log(myData[val]);
+                }
+            }(i);
+        }
+    }
+
+    function searchFunc(val) {
+        window.open('https://www.baidu.com/s?wd=' + val);
+        text.value = '';
+        myData = [];
+        index = -1;
+        ul.innerHTML = '';
+    }
+
+
+    function callback(data) {
+        var arr = data.s;
+        myData = arr;
+        console.log(myData)
+        var tag = "";
+        for (var i = 0; i < arr.length; i++) {
+            tag += "<li data-index=" + i + ">" + arr[i] + "</li>";
+        }
+        ul.innerHTML += tag;
+        mouseoverFunc();
+    }
+
+    function getScript(keyword) {
+        var url = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=" + keyword + "&cb=callback";
+        var script = document.createElement("script");
+        script.setAttribute('src', url);
+        document.body.appendChild(script);
+    }
+    </script>
+</body>
+
+</html>

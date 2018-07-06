@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>关闭广告</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        top: 0;
+        background-color: #ddd;
+    }
+
+    #left {
+        left: 0;
+    }
+
+    #right {
+        right: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="left"></div>
+    <div class="box" id="right"></div>
+    <script type="text/javascript">
+    //获取id函数
+    function $(id) {
+        return typeof(id) === 'string' ? document.getElementById(id) : id;
+    }
+
+    //获取变量盒子
+    var left = $('left');
+    var right = $('right');
+
+    //定义隐藏函数
+    function hide(elem) {
+        elem.style.display = 'none';
+    }
+
+    //设置定时器3s之后关闭
+    setTimeout(function() {
+        hide(left);
+        hide(right);
+    }, 3000);
+    </script>
+</body>
+
+</html>

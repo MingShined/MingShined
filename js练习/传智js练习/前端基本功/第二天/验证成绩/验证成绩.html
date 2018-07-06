@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>验证成绩</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        margin: 50px auto;
+        text-align: center;
+    }
+
+    .box input {
+        padding-left: 10px;
+    }
+
+    span {
+        display: inline-block;
+        padding-left: 20px;
+        width: 183px;
+        height: 19px;
+        background-color: #eee;
+        font: 12px 微软雅黑;
+        line-height: 19px;
+        text-align: left;
+    }
+
+    .right {
+        /*正确的*/
+        color: #5EFF5E;
+        background: url(img/right.png) no-repeat 4px 3px #DFFFDF;
+        border: 1px solid #ACFFAC;
+    }
+
+    .wrong {
+        /*错误的*/
+        background: url(img/wrong.png) no-repeat 4px 3px #FFDCD0;
+        border: 1px solid #FFAC91;
+        color: #FF6B39;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <label for="text">Math:</label>
+        <input type="text" id="text" name="text">
+        <span id="result">请输入成绩:</span>
+    </div>
+    <script type="text/javascript">
+    function $(id) {
+        return document.getElementById(id);
+    }
+    $('text').onblur = function() {
+        if (this.value == "") {
+            $('result').innerHTML = '内容不能是空';
+            $('result').className = 'wrong';
+
+        } else if (isNaN(this.value)) {
+            $('result').innerHTML = '必须是数字';
+            $('result').className = 'wrong';
+
+        } else if (this.value < 0 || this.value > 150) {
+            $('result').innerHTML = '请输入合理的范围';
+            $('result').className = 'wrong';
+
+        } else {
+            $('result').innerHTML = '输入正确';
+            $('result').className = 'right';
+        }
+    }
+    </script>
+</body>
+
+</html>

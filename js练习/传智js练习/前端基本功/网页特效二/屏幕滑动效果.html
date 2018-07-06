@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>屏幕滑动</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .box {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .bgEEE {
+        background-color: #eee;
+    }
+
+    .tab {
+        position: fixed;
+        width: 50px;
+        height: 200px;
+        top: calc(50% - 100px);
+        left: 0;
+        z-index: 999;
+    }
+
+    .tab>span {
+        display: block;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        background-color: #333;
+        color: #Fff;
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="tab" id="tab">
+        <span>1楼</span>
+        <span>2楼</span>
+        <span>3楼</span>
+        <span>4楼</span>
+    </div>
+    <div class="box">1楼</div>
+    <div class="box bgEEE">2楼</div>
+    <div class="box">3楼</div>
+    <div class="box bgEEE">4楼</div>
+    <script type="text/javascript">
+    //获取参数
+    var box = document.getElementsByClassName('box');
+    var span = document.getElementById('tab').children;
+    var leader = 0;
+    var target = 0;
+    var timer = null;
+    // alert(span.length)
+    // alert(box.length);
+    //遍历楼层按钮
+    for (var i = 0; i < span.length; i++) {
+        span[i].index = i;
+        //楼层点击事件
+        span[i].onclick = function() {
+            //清除定时器
+            clearInterval(timer);
+            //获取对应楼层的offsetTop
+            target = box[this.index].offsetTop;
+            //减速动画函数
+            timer = setInterval(function() {
+                //如果对应的scrollTop == target 清空定时器
+                if (scroll().top == target) {
+                    clearInterval(timer);
+                }
+                leader = leader + (target - leader) / 10;
+                //跳转到对应楼层坐标
+                window.scrollTo(0, leader);
+            }, 20);
+        }
+    }
+
+    function scroll() {
+        //检测是否支持pageYOffset对象
+        if (window.pageYOffset != null) {
+            return {
+                left: window.pageXOffset,
+                top: window.pageYOffset
+            }
+        }
+        //不是怪异模式时(怪异模式指的是没有DTD)
+        else if (document.compatMode == 'CSS1compat') {
+            return {
+                left: document.documentElement.scrollLeft,
+                top: document.documentElement.scrollTop
+            }
+        }
+        //怪异模式时
+        return {
+            left: document.body.scrollLeft,
+            top: document.body.scrollTop
+        }
+    }
+    </script>
+</body>
+
+</html>

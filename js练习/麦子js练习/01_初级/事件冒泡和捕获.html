@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>时间冒泡和捕获</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		.box {
+			margin: 50px auto;
+			width: 300px;
+			height: 300px;
+			background-color: #eee;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id="box">
+		<input type="button" value="text" id="btn">
+	</div>
+	<script type="text/javascript">
+		var oBox = document.getElementById('box');
+		var oBtn = document.getElementById('btn');
+		oBtn.addEventListener('click',function (e) {
+			alert('btn clicked');
+			var e = e || window.even; //兼容IE
+			if (typeof e.canclelBubble == 'undefined') {
+				e.stopPropagation();
+			}else {
+				e.canclelBubble = true;
+			}
+		} , false);		
+		oBox.addEventListener('click',function () {
+			alert('div clicked');
+		} , false);		
+		document.documentElement.addEventListener('click',function () {
+			alert('html clicked');
+		} , false);		
+		document.addEventListener('click',function () {
+			alert('document clicked');
+		} , false);
+	</script>
+</body>
+</html>

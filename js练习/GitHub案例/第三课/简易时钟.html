@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>简易时钟</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        text-align: center;
+        font-size: 50px;
+        line-height: 10;
+    }
+    </style>
+</head>
+
+<body>
+    <span id="hour"></span>
+    <span>点</span>
+    <span id="minute"></span>
+    <span>分</span>
+    <span id="second"></span>
+    <span>秒</span>
+    <script type="text/javascript">
+    window.onload = function() {
+        //配置参数
+        var oBox = [$('hour'), $('minute'), $('second')];
+
+		function auto(t) {
+		        var date = new Date();
+		        var time = [date.getHours(), date.getMinutes(), date.getSeconds()]
+		        for (var i = 0; i < oBox.length; i++) {
+		            showInfo(oBox[i], time[i]);
+		        }
+		        setTimeout(function() {
+		        	auto(t);
+		        }, t)
+		    }
+        //展示函数
+        function showInfo(elem, val) {
+            elem.innerHTML = val;
+        }
+
+        //设置定时器每秒自动获取时间
+        auto(1000);
+
+        //获取id函数
+        function $(id) {
+            return typeof(id) === 'string' ? document.getElementById(id) : id;
+        }
+    }
+
+    
+    </script>
+</body>
+
+</html>

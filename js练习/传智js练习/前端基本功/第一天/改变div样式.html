@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    .box {
+        width: 500px;
+        height: 500px;
+        background-color: #eee;
+    }
+
+    .box span {
+        float: right;
+        width: 15px;
+        height: 15px;
+        background-color: #ddd;
+        font: .8em 微软雅黑;
+        text-align: center;
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <span>x</span>
+    </div>
+    <button>改变长</button>
+    <button>改变宽</button>
+    <button>改变颜色</button>
+    <button>重置</button>
+    <script type="text/javascript">
+    window.onload = function() {
+        var attrArr = ['width', 'height', 'backgroundColor'],
+            attrValArr = ['600px', '600px', 'red'];
+        var fn = new getInitState('button', 'box', attrArr, attrValArr);
+
+        if (document.getElementById === null && document.getElementsByTagName === null) return false;
+
+        function getInitState(tagName, id, attr, attrVal) {
+            this.attr = attr;
+            this.attrVal = attrVal;
+            this.allButtons = document.getElementsByTagName(tagName);
+            this.obj = document.getElementById(id);
+            this.btnClose = this.obj.children[0];
+        }
+        getInitState.prototype.handleClick = function() {
+            var _this = this;
+            for (var i = 0; i < this.allButtons.length; i++) {
+                this.allButtons[i].onclick = function(val) {
+                    return function() {
+                        _this.changeStyle(val);
+                    }
+                }(i)
+                this.btnClose.onclick = function() {
+                    this.parentNode.style.display = 'none';
+                }
+            }
+        };
+        getInitState.prototype.changeStyle = function(index) {
+            index == this.allButtons.length - 1 && (this.obj.style.cssText = '');
+            this.obj.style[this.attr[index]] = this.attrVal[index];
+        };
+        fn.handleClick();
+    }
+    </script>
+</body>
+
+</html>

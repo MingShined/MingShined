@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>函数传参</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        margin: 10px auto;
+        width: 200px;
+        text-align: center;
+    }
+
+    .box input {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 5px;
+    }
+
+    .box button {
+        display: inline-block;
+        padding: 3px 5px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" value="福州市">
+        <input type="text" value="仓山区">
+        <button type="">传参</button>
+    </div>
+    <script type="text/javascript">
+    //获取参数
+    var oBtn = document.getElementsByTagName('button')[0];
+    var oInp = document.getElementsByTagName('input');
+
+    //点击传参
+    oBtn.onclick = function() {
+        show(oInp[0], oInp[1]);
+    }
+
+    //参数alert
+    function show(province, city) {
+        alert(province.value);
+        alert(city.value);
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>输入框高亮显示</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .clearfix::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    .box {
+        margin: 100px auto;
+        width: 400px;
+        height: 200px;
+        border: 1px solid orange;
+    }
+
+    .title {
+        height: 30px;
+        text-align: left;
+        line-height: 30px;
+        border-bottom: 1px solid orange;
+        color: orange;
+    }
+
+    .content {
+        margin-top: 40px;
+    }
+
+    .row {
+        margin: 10px auto 0;
+        width: 250px;
+        /* text-align: center; */
+    }
+
+    .row label {
+        float: left;
+    }
+
+    .row input {
+        float: right;
+    }
+
+    .text {
+        width: 180px;
+        height: 20px;
+        color: #333;
+    }
+
+    .btn-box {
+        width: 100px;
+    }
+
+    .btn {
+        padding: 5px 8px;
+        outline-style: none;
+        background-color: orange;
+        cursor: pointer;
+        color: #Fff;
+    }
+
+    .hightlight {
+        opacity: .4;
+        background-color: #eee;
+    }
+    </style>
+</head>
+
+<body>
+    <form action="" class="box" id="box">
+        <div class="title">用户登录</div>
+        <div class="content">
+            <div class="row clearfix">
+                <label>用户名:</label>
+                <input type="text" name="username" value="" class="text">
+            </div>
+            <div class="row clearfix">
+                <label>密码:</label>
+                <input type="text" name="password" value="" class="text">
+            </div>
+            <div class="row clearfix btn-box">
+                <input type="button" value="登录" class="btn">
+            </div>
+        </div>
+    </form>
+    <script type="text/javascript">
+    var inp = document.getElementsByTagName('input');
+    for (var i = 0; i < inp.length - 1; i++) {
+        inp[i].onfocus = function() {
+            this.className = 'text hightlight';
+        }
+        inp[i].onblur = function() {
+            this.className = 'text';
+        }
+    }
+    </script>
+</body>
+
+</html>

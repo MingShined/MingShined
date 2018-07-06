@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>选定文字弹出层</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        margin: 100px auto;
+        width: 400px;
+        height: 400px;
+        text-align: center;
+    }
+
+    .info {
+        display: none;
+        position: absolute;
+        padding: 10px;
+        left: 0;
+        top: 0;
+        width: 300px;
+        height: auto;
+        background-color: #eee;
+        /* border: 1px solid #333; */
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,这是我的文字,
+    </div>
+    <div class="info" id="info"></div>
+    <script type="text/javascript">
+    //获取参数
+    var box = document.getElementById('box');
+    var info = document.getElementById('info');
+    var tex = '';
+    //当鼠标在box里弹起时
+    box.onmouseup = function(event) {
+        var event = event || window.event;
+        //获取当前鼠标距离窗口的x，y鼠标
+        var x = event.clientX;
+        var y = event.clientY;
+        //选中内容兼容性
+        if (window.getSelection) {
+            //主流浏览器
+            tex = window.getSelection().toString();
+        } else {
+            //ie浏览器
+            tex = document.selection.createRange().text;
+        }
+        //如果选中文字不为空执行显示函数(传入参数x，y，tex)
+        if (tex) {
+            show(x, y, tex);
+        }
+    }
+
+    //鼠标按下除info位置的任何位置,info隐藏
+    document.onmousedown = function(event) {
+        var event = event || window.event;
+        var targetId = event.target ? event.target.id : event.srcElement.id;
+        if (targetId != 'info') {
+            info.style.display = 'none';
+        }
+    }
+
+    //info移动显示函数
+    function show(xVal, yVal, textHTML) {
+        //设置定时器延迟出现
+        timer = setTimeout(function() {
+            info.style.left = xVal + 'px';
+            info.style.top = yVal + 'px';
+            info.style.display = 'block';
+            info.innerHTML = textHTML;
+        }, 300);
+    }
+    </script>
+</body>
+
+</html>

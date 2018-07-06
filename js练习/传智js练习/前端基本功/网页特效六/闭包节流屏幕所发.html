@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <div class="info"></div>
+    <script type="text/javascript">
+    var info = document.getElementsByTagName('div')[0];
+    var num = 0;
+    window.onresize = throttle(function() {
+        info.innerHTML = window.innerWidth || document.documentElement.clientWidth;
+        num++;
+        console.log(num);
+    }, 1000);
+
+    function throttle(cb, timeVal) {
+        var timer = null;
+        return function() {
+            clearInterval(timer);
+            setTimeout(cb, timeVal);
+        }
+    }
+    </script>
+</body>
+
+</html>

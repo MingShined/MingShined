@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>站长之家导航</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+    }
+
+    .clearfix::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    .nav {
+        position: relative;
+        margin: 50px auto;
+        /* width: 800px; */
+        height: 30px;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        background-color: skyblue;
+        box-shadow: 0 0 3px 3px skyblue;
+    }
+
+    .nav ul li {
+        float: left;
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+    }
+
+    .nav ul li>a {
+        display: block;
+        /* margin-bottom: 10px; */
+        font-size: 16px;
+    }
+
+    .nav ul li>a:hover {
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .subnav {
+        position: absolute;
+        padding: 5px;
+        top: 40px;
+        /* margin-left: -7px; */
+        width: auto!important;
+        min-width: 400px;
+        /* height: 30px; */
+        display: none;
+        border-radius: 10px;
+        border: 1px solid #eee;
+    }
+
+    .subnav>a {
+        display: block;
+        float: left;
+        /* padding: 0 10px; */
+        width: 80px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        border-right: 1px solid #eee;
+        font-size: 12px;
+        white-space: nowrap;
+        box-sizing: border-box;
+    }
+
+    .subnav>a:last-child {
+        border-right: none;
+    }
+
+    .subnav>a:hover {
+        text-decoration: underline;
+    }
+
+    .arrow {
+        position: absolute;
+        /* left: 0; */
+        top: -18px;
+        width: 0;
+        height: 0;
+        border: 8px solid transparent;
+        border-bottom: 10px solid #ccc;
+    }
+    </style>
+</head>
+
+<body>
+    <nav id="nav" class="nav clearfix">
+        <ul>
+            <li><a href="" title="">站长之家</a></li>
+            <li>
+                <a href="" title="">行业资讯</a>
+                <div class="subnav clearfix">
+                    <span class="arrow"></span>
+                    <a href="">业界动态</a>
+                    <a href="">业界动态</a>
+                    <a href="">业界动态</a>
+                    <a href="">业界动态</a>
+                    <a href="">业界动态</a>
+                    <a href="">业界动态</a>
+                    <a href="">业界动态</a>
+                    <a href="">业界动态</a>
+                </div>
+            </li>
+            <li>
+                <a href="" title="">站长在线</a>
+                <div class="subnav clearfix">
+                    <span class="arrow"></span>
+                    <a href="">站长报道</a>
+                    <a href="">站长报道</a>
+                    <a href="">站长报道</a>
+                    <a href="">站长报道</a>
+                    <a href="">站长报道</a>
+                    <a href="">站长报道</a>
+                </div>
+            </li>
+            <li>
+                <a href="" title="">网站运营</a>
+                <div class="subnav clearfix">
+                    <span class="arrow"></span>
+                    <a href="">建站经验</a>
+                    <a href="">建站经验</a>
+                    <a href="">建站经验</a>
+                    <a href="">建站经验</a>
+                    <a href="">建站经验</a>
+                </div>
+            </li>
+            <li>
+                <a href="" title="">设计在线</a>
+                <div class="subnav clearfix">
+                    <span class="arrow"></span>
+                    <a href="">酷站推荐</a>
+                    <a href="">酷站推荐</a>
+                    <a href="">酷站推荐</a>
+                    <a href="">酷站推荐</a>
+                    <a href="">酷站推荐</a>
+                </div>
+            </li>
+            <li>
+                <a href="" title="">网络编程</a>
+                <div class="subnav clearfix">
+                    <span class="arrow"></span>
+                    <a href="">web前端</a>
+                    <a href="">web前端</a>
+                    <a href="">web前端</a>
+                    <a href="">web前端</a>
+                    <a href="">web前端</a>
+                    <a href="">web前端</a>
+                    <a href="">web前端</a>
+                </div>
+            </li>
+            <li>
+                <a href="" title="">联盟资讯</a>
+                <div class="subnav clearfix">
+                    <span class="arrow"></span>
+                    <a href="">联盟动态</a>
+                    <a href="">联盟动态</a>
+                    <a href="">联盟动态</a>
+                    <a href="">联盟动态</a>
+                </div>
+            </li>
+            <li>
+                <a href="" title="">服务器</a>
+                <div class="subnav clearfix">
+                    <span class="arrow"></span>
+                    <a href="">WEB服务器</a>
+                    <a href="">WEB服务器</a>
+                    <a href="">WEB服务器</a>
+                    <a href="">WEB服务器</a>
+                    <a href="">WEB服务器</a>
+                    <a href="">WEB服务器</a>
+                    <a href="">WEB服务器</a>
+                    <a href="">WEB服务器</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <script type="text/javascript">
+    var nav = document.getElementById('nav');
+    var li = nav.children[0].children;
+    var subnav = document.getElementsByClassName('subnav');
+    var arrow = document.getElementsByClassName('arrow');
+    var timer = null;
+    // alert(arrow.length)
+    // alert(li.length)
+    // alert(subnav.length)
+
+    nav.style.width = li.length * li[0].offsetWidth + 'px';
+    for (var i = 1; i < li.length; i++) {
+        li[i].index = i;
+        li[i].onmouseover = function() {
+            clearTimeout(timer);
+            for (var j = 0, length2 = subnav.length; j < length2; j++) {
+                subnav[j].style.display = 'none';
+            }
+
+            subnav[this.index - 1].style.display = 'block';
+
+            arrow[this.index - 1].style.left = this.offsetLeft - subnav[this.index - 1].offsetLeft + 40 + "px";
+
+            nav.offsetWidth - this.offsetLeft > subnav[this.index - 1].offsetWidth ?
+                subnav[this.index - 1].style.left = this.offsetLeft + 'px' :
+                subnav[this.index - 1].style.right = 0;
+        }
+
+        subnav[i - 1].onmouseover = function(event) {
+            (event || window.event).cancelBubble = true;
+            clearTimeout(timer);
+        }
+
+        li[i].onmouseout = function() {
+            timer = setTimeout(function() {
+                for (var i = 0; i < subnav.length; i++) {
+                    subnav[i].style.display = 'none';
+                }
+            }, 300);
+        }
+    }
+    </script>
+</body>
+
+</html>
