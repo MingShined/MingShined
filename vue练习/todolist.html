@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container" id="myBox">
+        <form class="form" role="form">
+            <div class="form-group">
+                <label for="username">用户名:</label>
+                <input type="text" name="username" id="username" class="form-control" v-model="username">
+            </div>
+            <div class="form-group">
+                <label for="age">年龄:</label>
+                <input type="text" name="age" id="age" class="form-control" v-model="age">
+            </div>
+            <div class="form-group">
+                <input type="button" value="添加" class="btn btn-primary" @click="addFunc()">
+                <input type="reset" value="重置" class="btn btn-danger">
+            </div>
+        </form>
+        <table class="table table-hover table-bordered">
+            <caption class="h3 text-info">用户信息表</caption>
+            <thead>
+                <tr>
+                    <th class="text-center">序号</th>
+                    <th class="text-center">姓名</th>
+                    <th class="text-center">年龄</th>
+                    <th class="text-center">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center" v-for="(value,index) in myData">
+                    <td>{{index + 1}}</td>
+                    <td>{{value.name}}</td>
+                    <td>{{value.age}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-id" @click="nowIndex=index;text='确认删除吗?'">删除</button>
+                    </td>
+                </tr>
+                <tr class="text-right" v-show="myData.length!=0">
+                    <td colspan="4">
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-id" @click="nowIndex=-2;text='确认删除全部吗?'">删除全部</button>
+                    </td>
+                </tr>
+                <tr v-show="myData.length==0">
+                    <td colspan="4" class="text-muted text-center">暂无数据...</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="modal fade" id="modal-id">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">{{text}}</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" @click="deleteFunc(nowIndex)">确认</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript">
+    new Vue({
+        el: '#myBox',
+        data: {
+            myData: [],
+            username: '',
+            age: '',
+            nowIndex: -100,
+            text: ''
+        },
+        methods: {
+            addFunc: function() {
+                this.myData.push({ name: this.username, age: this.age });
+                this.username = '';
+                this.age = '';
+            },
+            deleteFunc: function(num) {
+                if (num == -2) {
+                    this.myData = [];
+                } else {
+                    this.myData.splice(num, 1);
+                }
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    /*[v-cloak] {display: none;}*/
+    </style>
+</head>
+
+<body>
+    <div class="box" v-cloak v-html="">
+        <input type="text" name="" @keydown.a="al">
+        {{a | toDouble}}
+        <p v-html="a"></p>
+        <p v-html="b"></p>
+        <button type="button" @click="add">我是按钮</button>
+        <ul>
+            <li v-for="(value,index) in myData" v-text="value"></li>
+        </ul>
+        <div class="drag" style="width: 200px;height: 200px;background:red;position: absolute;" v-drag></div>
+        <div class="drag" style="width: 200px;height: 200px;background:blue;position: absolute;right:0;" v-drag></div>
+    </div>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript">
+    // document.onkeydown = function (ev) {
+    //     document.write(ev.keyCode);
+    // }
+
+    //1.自定义键盘信息
+    Vue.config.keyCodes.a = 65;
+
+    //2.自定义指令
+    Vue.directive('drag', function(el, binding) {
+        console.log(el); //获取元素
+        console.log(binding); //获取对象
+        el.onmousedown = function(event) {
+            var x1 = event.clientX - el.offsetLeft;
+            var y1 = event.clientY - el.offsetTop;
+            document.onmousemove = function(event) {
+                var x2 = event.clientX - x1;
+                var y2 = event.clientY - y1;
+                el.style.left = x2 + 'px';
+                el.style.top = y2 + 'px';
+            }
+        }
+        document.onmouseup = function() {
+            document.onmousedown = null;
+            document.onmousemove = null;
+        }
+    });
+
+    //3.自定义过滤器
+    Vue.filter('toDouble', function(index) {
+        // return index<10?'0' + index:index;
+        // return index.toUpperCase();
+        var myDate = new Date(index);
+        var myMonth = myDate.getMonth() + 1 < 10 ? '0' + (myDate.getMonth() + 1) : myDate.getMonth() + 1;
+        var date = myDate.getDate() < 10 ? '0' + myDate.getDate() : myDate.getDate();
+        return myDate.getFullYear() + '-' + myMonth + '-' + date;
+    });
+
+    var vue = new Vue({
+        data: {
+            msg: 'welcome',
+            a: Date.now(),
+            myData: ['apple', 'pear', 'orange', 'banana']
+            // b: 2
+        },
+        //4.自定义属性
+        a: 11,
+        created: function() {
+            // alert('实例创建');
+
+        },
+        // beforeCompile: function() {
+        //     alert('编译之前');
+        // },
+        // compiled: function() {
+        //     alert('编译之后');
+        // },
+        // ready: function() {
+        //     alert('完成');
+        // },
+        // destroyed: function() {
+        //     alert('销毁了');
+        // },
+        computed: {
+            b: {
+                get: function() {
+                    return this.a + 1; //一定要用return返回值
+                },
+                set: function(val) {
+                    this.a = val;
+                }
+            }
+        },
+        methods: {
+            op: function() {
+                // alert(this.$options.a);
+            },
+            add: function() {
+                this.myData.push('banana');
+            },
+            al:function () {
+                alert(1)
+            }
+        }
+    }).$mount('.box');
+
+    document.onclick = function() {
+        vue.b += 1;
+        vue.op();
+    }
+
+    vue.$mount('.box'); //手动挂载实例
+    //vue.$destroy();销毁实例
+    console.log(vue.$el); //获取实例挂载元素
+    console.log(vue.$data); //获取实例挂载data
+    //console.log(vue.$log());//查看数据的状态
+    console.log(vue.$options.a); //查看实例的自定义属性
+
+    // document.onclick = function() {
+    //     vue.$desctroy();
+    // }
+    </script>
+</body>
+
+</html>

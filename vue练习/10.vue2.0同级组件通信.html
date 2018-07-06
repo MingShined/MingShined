@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <div class="box">
+        <aa></aa>
+        <bb></bb>
+        <cc></cc>
+    </div>
+    <template id="a">
+        <div>
+            <span>{{msg}}</span>
+            <button type="button" @click="send">传送a数据到c</button>
+        </div>
+    </template>
+    <template id="b">
+        <div>
+            <span>{{msg}}</span>
+            <button type="button" @click="send">传送b数据到c</button>
+        </div>
+    </template>
+    <template id="c">
+        <div>
+            <span>收到的a信息--{{a}} 收到的b信息--{{b}}</span></div>
+    </template>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript">
+    //原理在于定义一个空组件 var Event = new Vue(); 用Event.$emit('事件名',数据) 发送 接收组件中在mounted钩子函数中用Event.$on('事件名',function() {val}) 接收
+
+    var A = {
+        template: '#a',
+        data() {
+            return {
+                msg: '我是组件A的信息'
+            }
+        },
+        methods: {
+            send() {
+                Event.$emit('a-msg', this.msg);
+            }
+        }
+    };
+    var B = {
+        template: '#b',
+        data() {
+            return {
+                msg: '我是组件B的信息'
+            }
+        },
+        methods: {
+            send() {
+                Event.$emit('b-msg', this.msg);
+            }
+        }
+    };
+    var C = {
+        template: '#c',
+        data() {
+            return {
+                a: '',
+                b: ''
+            }
+        },
+        mounted() {
+            var _this = this;
+            Event.$on('a-msg', function(val) {
+                this.a = val;
+            }.bind(this));
+            Event.$on('b-msg', function(val) {
+                _this.b = val;
+            })
+        }
+    };
+
+    var Event = new Vue();
+    new Vue({
+        el: '.box',
+        data: {
+
+        },
+        components: {
+            'aa': A,
+            'bb': B,
+            'cc': C
+        }
+    });
+    </script>
+</body>
+
+</html>

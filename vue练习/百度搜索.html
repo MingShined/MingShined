@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>模拟百度首页搜索框</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style type="text/css">
+    input {
+        height: 34px;
+    }
+
+    .logo {
+        margin-top: 100px;
+    }
+
+    ul {
+        width: 487px;
+        transform: translateX(-8px);
+        border: 1px solid #ccc;
+    }
+
+    ul li {
+        padding-left: 15px;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .bg {
+        background-color: #eee;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="box">
+        <div class="row logo">
+            <img src="images/bd_logo.png" alt="" class="img-responsive col-md-4 col-md-offset-4">
+        </div>
+        <div class="row clearfix">
+            <input type="text" name="" class="pull-left col-md-5 col-md-offset-3" @keyup="keyupFunc($event)" v-model="keyword" @keydown.down="pressDown" @keydown.up.prevent="pressUp" @keydown.enter="searchFucn">
+            <button type="button" class="btn btn-primary pull-left col-md-1" @click="searchFucn">百度一下</button>
+        </div>
+        <ul class="list-unstyled col-md-offset-3 list" id="list" v-show="myData.length!=0">
+            <li v-for="(value,index) in myData" :class="{bg:nowIndex==index}" @mouseover="mouseoverFunc(index)" @click="searchFucn">{{value}}</li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript" src="js/resource.js"></script>
+    <script type="text/javascript">
+    // https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=1
+    // https://www.baidu.com/s?wd=a
+    var url = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su';
+    new Vue({
+        el: '#box',
+        data: {
+            keyword: '',
+            myData: [],
+            nowIndex: -1
+        },
+        methods: {
+            keyupFunc: function(event) {
+                if (event.keyCode == 38 || event.keyCode == 40) return;
+                this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su', {
+                    wd: this.keyword
+                }, {
+                    jsonp: 'cb'
+                }).then(function(res) {
+                    this.myData = res.data.s;
+                }, function() {
+                    console.log('error');
+                })
+            },
+            pressDown: function() {
+                this.nowIndex++;
+                if (this.nowIndex == this.myData.length) this.nowIndex = -1;
+                this.keyword = this.myData[this.nowIndex];
+            },
+            pressUp: function() {
+                this.nowIndex--;
+                if (this.nowIndex == -1) this.nowIndex = this.myData.length;
+                this.keyword = this.myData[this.nowIndex];
+            },
+            searchFucn: function() {
+                window.open('https://www.baidu.com/s?wd=' + this.keyword);
+                this.myData = [];
+                this.keyword = '';
+            },
+            mouseoverFunc: function(num) {
+                this.nowIndex = num;
+                this.keyword = this.myData[num];
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>

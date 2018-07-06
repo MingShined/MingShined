@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <style>
+
+    .my-scrollbar {
+        width: 35%;
+        min-width: 300px;
+        max-height: 450px;
+    }
+
+    .scroll-me {
+        background: #EEE;
+        min-width: 750px;
+    }
+
+    .kolom {
+        background: #2196F3;
+        width: 150px;
+        height: 150px;
+        float: left;
+        display: inline-block;
+        margin: 15px;
+    }
+
+    .clearfix {
+        clear: both;
+    }
+    </style>
+    <link rel="stylesheet" href="dist/style/vue2-scrollbar.css">
+</head>
+
+<body>
+    <div id="app">
+        <vue-scrollbar classes="my-scrollbar" ref="Scrollbar">
+            <div class="scroll-me">
+                <div class="kolom"></div>
+                <div class="kolom"></div>
+                <div class="kolom"></div>
+                <div class="kolom"></div>
+                <div class="kolom"></div>
+                <div class="kolom"></div>
+                <div class="kolom"></div>
+                <div class="kolom"></div>
+                <div class="kolom"></div>
+                <div class="kolom"></div>
+                <div class="kolom"></div>
+                <div class="kolom"></div>
+                <div class="kolom"></div>
+                <div class="kolom"></div>
+                <div class="kolom"></div>
+                <div class="kolom"></div>
+                <div class="clearfix"></div>
+            </div>
+        </vue-scrollbar>
+    </div>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript" src="dist/vue2-scrollbar.js"></script>
+    <script type="text/javascript">
+    new Vue({
+        el: "#app",
+
+        components: {
+            VueScrollbar: Vue2Scrollbar
+        },
+
+    })
+    </script>
+</body>
+
+</html>

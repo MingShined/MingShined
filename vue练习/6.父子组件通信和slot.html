@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <div class="box">
+        <out>
+            <!--             <ul slot="ul-slot">
+                <li>我是ul</li>
+                <li>我是ul</li>
+                <li>我是ul</li>
+            </ul>
+            <ol slot="ol-slot">
+                <li>我是ol</li>
+                <li>我是ol</li>
+                <li>我是ol</li>
+            </ol> -->
+        </out>
+    </div>
+    <template id="a">
+        <div>
+            <span>我是父级组件---{{msg1}}</span>
+            <slot name="ol-slot">我是默认的情况1</slot>
+            <slot name="ul-slot">我是默认的情况2</slot>
+            <in :m1="msg1" :m2="msg2" @childMsg="get"></in>
+        </div>
+    </template>
+    <template id="b">
+        <div>
+            <span>我是子集组件--{{m1}}---{{m2}}</span>
+            <button type="button" @click="send">我是按钮</button>
+        </div>
+    </template>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript">
+    new Vue({
+        el: '.box',
+        data: {
+
+        },
+        components: {
+            'out': {
+                data: function() {
+                    return {
+                        msg1: '我是父级组件的数据1',
+                        msg2: '我是父级组件的数据2'
+                    }
+                },
+                template: '#a',
+                methods: {
+                    get(val) {
+                        alert(val)
+                        this.msg1 = val;
+                        // alert(val)
+                    }
+                },
+                components: {
+                    'in': {
+                        data() {
+                            return {
+                                msg: '我是子集组件的数据'
+                            }
+                        },
+                        props: ['m1', 'm2'],
+                        template: '#b',
+                        methods: {
+                            send() {
+                                this.$emit('childMsg', this.msg);
+                            }
+                        },
+                    }
+                }
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>

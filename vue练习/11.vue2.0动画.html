@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="css/animate.css">
+    <style type="text/css">
+    body {
+        overflow: hidden;
+    }
+
+    .box {
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+        background-color: #eee;
+        text-align: center;
+        line-height: 100px;
+        font-size: 30px;
+        color: #fff;
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: .5s all ease;
+    }
+
+    .fade-enter-active {
+        opacity: 1;
+        width: 300px;
+        height: 300px;
+    }
+
+    .fade-leave-active {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+
+    .fade-enter {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <input type="text" name="" v-model="val">
+        <ul>
+            <li v-for="(value,index) in lists">{{value}}</li>
+        </ul>
+        <button type="button" @click="flag=!flag">我是按钮</button>
+        <transition-group enter-active-class="zoomInLeft" leave-active-class="zoomOutRight">
+            <div class="box animated" v-if="flag" :key="1">我</div>
+            <div class="box animated" v-if="flag" :key="1">是</div>
+            <div class="box animated" v-if="flag" :key="1">陈</div>
+            <div class="box animated" v-if="flag" :key="2">先</div>
+            <div class="box animated" v-if="flag" :key="1">生</div>
+            <div class="box animated" v-if="flag" :key="1">。</div>
+            <div class="box animated" v-if="flag" :key="1">。</div>
+            <div class="box animated" v-if="flag" :key="1">。</div>
+        </transition-group>
+    </div>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript">
+    // transition只能有一个子元素,多个子元素时，使用transition-group
+
+    var vue = new Vue({
+        el: '#box',
+        data: {
+            flag: false,
+            val: '',
+            show: true,
+            list: ['apple', 'banana', 'orange', 'pear']
+        },
+        methods: {
+            beforeEnter() {
+                console.log('动画进入之前');
+            }
+        },
+        computed: {
+            lists() {
+                var arr = [];
+                this.list.forEach(function(item, index) {
+                    if (item.indexOf(this.val != -1)) {
+                        arr.push(item);
+                    }
+                }.bind(this));
+                return arr;
+                console.log(arr)
+                console.log(lists)
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>
