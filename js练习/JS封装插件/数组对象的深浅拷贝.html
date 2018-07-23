@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script type="text/javascript">
+    //数组深浅拷贝
+    const arr = [{ a: 1, b: 2 }, { c: 3, d: 4 }]
+    // let newArr = [].concat(arr); // => 数组浅拷贝
+    let newArr = [].concat(JSON.parse(JSON.stringify(arr))); //=>数组深拷贝
+    newArr[0].a = 7;
+    console.log(arr)
+    console.log(newArr)
+
+    //对象深浅拷贝
+    const obj = { a: { b: 3, d: 4 }, b: [1, 2] }
+    let newObj = obj;
+
+    // newObj.a = 3;
+    console.log(obj)
+    console.log(newObj)
+
+    function clone(obj) {
+        let newObj = {};
+        for (key in obj) {
+            newObj[key] = obj[key];
+        }
+        return newObj;
+    }
+
+    const b = clone({ a: 1, b: 2 });
+    console.log(b);
+
+
+
+    function deepCopy(p, c) {
+        var c = c || {};
+        for (var i in p) {
+            if (!p.hasOwnProperty(i)) {
+                continue;
+            }
+            if (typeof p[i] === 'object') {
+                c[i] = (p[i].constructor === Array) ? [] : {};
+                deepCopy(p[i], c[i]);
+            } else {
+                c[i] = p[i];
+            }
+        }
+        return c;
+    }
+
+    Parent = { name: 'foo', birthPlaces: ['北京', '上海', '香港'] }
+    var Child = deepCopy(Parent);
+    </script>
+</body>
+
+</html>
